@@ -47,12 +47,12 @@ Route::prefix('{locale?}')
                 Route::resource('translation', TranslationController::class);
 
                 // Category
-//                Route::resource('category', CategoryController::class);
-//                Route::get('category/{category}/destroy', [CategoryController::class, 'destroy'])->name('category.destroy');
+                Route::resource('category', \App\Http\Controllers\Admin\CategoryController::class);
+                Route::get('category/{category}/destroy', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('category.destroy');
 //
                 // Product
-//                Route::resource('product', ProductController::class);
-//                Route::get('product/{product}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
+                Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
+                Route::get('product/{product}/destroy', [\App\Http\Controllers\Admin\ProductController::class, 'destroy'])->name('product.destroy');
 //                // Gallery
                 Route::resource('gallery', GalleryController::class);
                 Route::get('gallery/{gallery}/destroy', [GalleryController::class, 'destroy'])->name('gallery.destroy');
@@ -91,6 +91,8 @@ Route::prefix('{locale?}')
                 Route::resource('floor', FloorController::class);
                 Route::get('floor/{floor}/destroy', [FloorController::class, 'destroy'])->name('floor.destroy');
 
+                Route::get('categories/autocomplete',[\App\Http\Controllers\Admin\CategoryController::class,'autocomplete'])->name('autocomplete');
+
             });
         });
         Route::middleware(['active'])->group(function () {
@@ -116,8 +118,8 @@ Route::prefix('{locale?}')
             Route::get('about', [AboutUsController::class, 'index'])->name('client.about.index');
 
             // Product Page
-//            Route::get('product', [\App\Http\Controllers\Client\ProductController::class, 'index'])->name('client.product.index');
-//            Route::get('product/{product}', [\App\Http\Controllers\Client\ProductController::class, 'show'])->name('client.product.show');
+            Route::get('products', [\App\Http\Controllers\Client\ProductController::class, 'index'])->name('client.product.index');
+           Route::get('product/{product}', [\App\Http\Controllers\Client\ProductController::class, 'show'])->name('client.product.show');
 
             // Project Page
 //            Route::get('/project', [\App\Http\Controllers\Client\ProjectController::class, 'index'])->name('client.project.index');
