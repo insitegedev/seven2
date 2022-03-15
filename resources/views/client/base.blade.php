@@ -24,6 +24,21 @@
     {{--    @dd($page["props"]["page"]["meta_title"])--}}
     @routes
     <script src="{{ mix('/js/app.js') }}" defer></script>
+    <script>
+        function __(key, sharedData, replace = {}) {
+            let data = key.split('.');
+            console.log(sharedData);
+            let translation = sharedData[data[1]] || key;
+
+            Object.keys(replace).forEach(function (key) {
+                translation = translation.replace(':' + key, replace[key])
+            });
+
+            console.log(translation);
+            return translation;
+
+        }
+    </script>
 </head>
 <body>
 <!-- Messenger Chat Plugin Code -->

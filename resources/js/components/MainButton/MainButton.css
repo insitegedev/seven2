@@ -1,0 +1,17 @@
+.main_button {
+  width: 170px;
+  height: 50px;
+  font-size: 16px;
+}
+.main_button svg {
+  margin-left: 10px;
+  transition: 0.3s;
+}
+.main_button.transparent {
+  width: auto;
+  background: none !important;
+  font-weight: bold;
+}
+.main_button:hover svg {
+  transform: translateX(5px);
+}

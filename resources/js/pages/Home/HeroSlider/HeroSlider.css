@@ -1,0 +1,168 @@
+.mainSlider {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  padding-bottom: 30px;
+}
+.mainSlider article {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 240px;
+  background: #ecf0f7;
+  transition: 1s;
+}
+.mainSlider article.lastSlide {
+  visibility: hidden;
+}
+.mainSlider article.activeSlide {
+  transform: translateX(0);
+}
+.mainSlider article.nextSlide {
+  visibility: hidden;
+}
+.mainSlider article .slide_img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 55%;
+  z-index: -1;
+}
+.mainSlider article .content .bold {
+  text-transform: uppercase;
+  font-size: 25px;
+  position: relative;
+}
+.mainSlider article .content .bold::after {
+  left: 0;
+  bottom: -5px;
+  height: 3px;
+  width: 135px;
+  background-color: #05185a;
+}
+.mainSlider article .content h3 {
+  font-size: 90px;
+  font-weight: lighter;
+  max-width: 450px;
+  line-height: 120%;
+  margin: 25px 0;
+}
+.mainSlider article .content {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: 0.6s;
+}
+.mainSlider article.activeSlide .content {
+  transform: translateX(0);
+  opacity: 1;
+}
+.mainSlider .controllers {
+  color: #000;
+  height: auto;
+  margin-bottom: 0;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.mainSlider .controllers .arrow img {
+  width: 36px;
+}
+.mainSlider .controllers button {
+  color: #fff;
+  height: fit-content;
+}
+.mainSlider .controllers .pagination {
+  font-size: 350px;
+  line-height: 70%;
+}
+.mainSlider .controllers .sm {
+  margin-right: 70px;
+}
+.mainSlider .controllers .sm a {
+  margin-right: 35px;
+}
+.mainSlider .controllers .dots {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mainSlider .controllers .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: 1px solid #05185a;
+  background-color: #05185a;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.mainSlider .controllers .dot.active {
+  transform: scale(2);
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1500px) {
+  .mainSlider article .content h3 {
+    font-size: 60px;
+    max-width: 350px;
+    margin: 13px 0;
+  }
+  .mainSlider article .content .bold {
+    font-size: 20px;
+  }
+  .mainSlider .controllers .pagination {
+    font-size: 277px;
+  }
+  .mainSlider article {
+    padding-top: 190px;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .mainSlider .controllers .pagination {
+    font-size: 200px;
+  }
+  .mainSlider .controllers .arrow img {
+    width: 27px;
+  }
+  .mainSlider .controllers .sm {
+    margin-right: 27px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .mainSlider .controllers {
+    justify-content: space-between;
+  }
+  .mainSlider .controllers .pagination {
+    font-size: 100px;
+  }
+  .mainSlider {
+    padding-bottom: 10px;
+  }
+  .mainSlider article .slide_img {
+    bottom: 80px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .mainSlider article {
+    padding-top: 122px;
+  }
+  .mainSlider article .content h3 {
+    font-size: 43px;
+    max-width: 240px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .mainSlider article .slide_img {
+    bottom: 100px;
+    max-width: 70%;
+  }
+  .mainSlider .controllers .pagination {
+    font-size: 60px;
+  }
+  .mainSlider .controllers .arrow img {
+    width: 19px;
+  }
+}

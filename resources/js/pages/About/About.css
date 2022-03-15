@@ -1,0 +1,173 @@
+.aboutPage {
+  width: 1300px;
+}
+.aboutPage .head {
+  font-size: 45px;
+  text-transform: uppercase;
+  margin: 50px 0;
+  text-align: center;
+}
+.aboutPage .showcase {
+  height: 590px;
+  width: 100%;
+  margin-bottom: 80px;
+}
+.aboutPage .showcase img {
+  transition: 1s;
+}
+.aboutPage .showcase:hover img {
+  transform: scale(1.2) translateY(-50px);
+}
+.aboutPage .underline {
+  position: relative;
+  margin-bottom: 45px;
+}
+.aboutPage .underline::after {
+  width: 55px;
+  height: 3px;
+  left: 0;
+  bottom: -10px;
+  background-color: #cfcfcf;
+}
+.aboutPage p {
+  color: #cfcfcf;
+  margin-bottom: 30px;
+}
+.aboutPage .flex {
+  align-items: flex-start;
+  margin-bottom: 100px;
+}
+.aboutPage .flex .bold {
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+.aboutPage .flex .title {
+  font-size: 35px;
+}
+.aboutPage .flex.one img {
+  margin-right: 55px;
+}
+.aboutPage .flex.two img {
+  margin-left: 55px;
+}
+.aboutPage .gallery {
+  margin-bottom: 100px;
+}
+.aboutPage .gallery .underline {
+  text-align: center;
+  text-transform: uppercase;
+}
+.aboutPage .gallery .grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 16px;
+}
+.aboutPage .gallery .grid .img:first-child,
+.aboutPage .gallery .grid .img:nth-child(11) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.aboutPage .gallery .grid .img {
+  position: relative;
+  cursor: pointer;
+}
+.aboutPage .gallery .grid .img img {
+  transition: 1s;
+}
+.aboutPage .gallery .grid .img::after {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #05175a00;
+  background-image: url(/assets/images/icons/other/magnifier.svg);
+  background-position: center;
+  background-size: 27px;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: 0.4s;
+}
+.aboutPage .gallery .grid .img:hover::after {
+  opacity: 1;
+  background-color: #05175a79;
+}
+.aboutPage .gallery .grid .img:hover img {
+  transform: scale(1.2);
+}
+
+@media screen and (max-width: 1400px) {
+  .aboutPage {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .aboutPage .head {
+    font-size: 35px;
+    margin: 30px 0;
+  }
+  .aboutPage .showcase {
+    height: 410px;
+    margin-bottom: 50px;
+  }
+  .aboutPage .flex.one img {
+    margin-right: 25px;
+  }
+  .aboutPage .flex.two img {
+    margin-left: 25px;
+  }
+  .aboutPage .flex img {
+    width: 50%;
+  }
+  .aboutPage .flex .title {
+    font-size: 25px;
+  }
+  .aboutPage .flex {
+    margin-bottom: 42px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .aboutPage .showcase {
+    height: 276px;
+  }
+  .aboutPage .flex {
+    flex-direction: column-reverse;
+  }
+  .aboutPage .flex img {
+    margin: 0 !important;
+
+    width: 100% !important;
+  }
+  .aboutPage .flex.two img {
+    margin-bottom: 30px !important;
+  }
+  .aboutPage .gallery .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .aboutPage .gallery .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+  }
+  .aboutPage .head {
+    font-size: 28px;
+    margin: 21px 0;
+  }
+  .aboutPage .showcase {
+    height: 185px;
+    margin-bottom: 23px;
+  }
+  .aboutPage .underline {
+    margin-bottom: 22px;
+  }
+  .aboutPage .flex .title {
+    font-size: 20px;
+  }
+  .aboutPage p {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .aboutPage .flex {
+    margin-bottom: 25px;
+  }
+}

@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ProductController extends Controller
 {
@@ -22,24 +23,7 @@ class ProductController extends Controller
      */
     public function index(string $locale, Request $request)
     {
-        $productPage = Page::where('key', 'product')->firstOrFail();
-        $categories = Category::whereHas('product', function (Builder $query) {
-            $query->where('status', true);
-        })->where('status', true)->get();
-
-        $products = Product::query()->with(['file', 'translations']);
-
-        $products = $products->where('status', true);
-
-        if ($request->has('category')) {
-            $products = $products->where('category_id',$request['category']);
-        }
-
-        return view('client.pages.product.index', [
-            'productPage' => $productPage,
-            'categories' => $categories,
-            'products' => $products->get()
-        ]);
+        return Inertia::render('Products/Products');
     }
 
 
@@ -51,13 +35,14 @@ class ProductController extends Controller
     public function show(string $locale, string $slug)
     {
 
-        $product = Product::where(['status' => true, 'slug' => $slug])->whereHas('category', function (Builder $query) {
+        /*$product = Product::where(['status' => true, 'slug' => $slug])->whereHas('category', function (Builder $query) {
             $query->where('status', 1);
-        })->firstOrFail();
+        })->firstOrFail();*/
 
-        return view('client.pages.product.show', [
+        /*return view('client.pages.product.show', [
             'product' => $product
-        ]);
+        ]);*/
+        return Inertia::render('SingleProduct/SingleProduct');
     }
 
 }

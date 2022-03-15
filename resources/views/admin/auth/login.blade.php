@@ -17,7 +17,7 @@
                 @csrf
                 <div class="row">
                     <div class="input-field col s12">
-                        <h5 class="ml-4">{{ __('Sign in') }}</h5>
+                        <h5 class="ml-4"></h5>
                     </div>
                 </div>
                 <div class="row margin">
@@ -58,7 +58,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row">{{ __('Sign in') }}
                     <div class="input-field col s12">
                         <button type="submit"
                                 class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">

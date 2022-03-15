@@ -1,0 +1,26 @@
+.product_image {
+  width: 100%;
+  height: 280px;
+  background-color: #f6f6f6;
+  position: relative;
+}
+.product_image .discount {
+  position: absolute;
+  background-color: #ff3939;
+  color: #fff;
+  top: 15px;
+  right: 5px;
+  padding: 5px 20px;
+}
+.product_image .bold {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+.product_box .bold {
+  text-align: center;
+  margin-top: 20px;
+}
+.product_box .main_button {
+  margin: auto;
+}

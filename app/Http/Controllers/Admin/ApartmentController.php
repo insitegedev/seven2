@@ -35,7 +35,11 @@ class ApartmentController extends Controller
      */
     public function index(ApartmentRequest $request)
     {
-        return view('admin.pages.apartment.index', [
+        /*return view('admin.pages.apartment.index', [
+            'apartments' => $this->apartmentRepository->getData($request, ['translations'])
+        ]);*/
+
+        return view('admin.nowa.views.apartments.table-basic',[
             'apartments' => $this->apartmentRepository->getData($request, ['translations'])
         ]);
     }

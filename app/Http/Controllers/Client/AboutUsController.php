@@ -12,7 +12,7 @@ class AboutUsController extends Controller
     public function index()
     {
         $page = Page::where('key', 'about')->firstOrFail();
-        return Inertia::render('AboutUs/AboutUs', ["page" => $page, "seo" => [
+        return Inertia::render('About/About', ["page" => $page, "seo" => [
             "title"=>$page->meta_title,
             "description"=>$page->meta_description,
             "keywords"=>$page->meta_keyword,

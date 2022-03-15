@@ -48,7 +48,7 @@ class ScanTranslations extends Command
      */
     public function handle(): void
     {
-        $path = base_path() . '/resources/views';
+        $path = base_path() . '/resources/js';
 
         $this->info('Start read files recursive.');
         $files = iterator_to_array($this->filesIn($path));
@@ -127,6 +127,6 @@ class ScanTranslations extends Command
 
         $it = new \RecursiveDirectoryIterator($path);
         $it = new \RecursiveIteratorIterator($it);
-        yield from new \RegexIterator($it, '/\.php$/', \RegexIterator::MATCH);
+        yield from new \RegexIterator($it, '/\.php$|.js$/', \RegexIterator::MATCH);
     }
 }

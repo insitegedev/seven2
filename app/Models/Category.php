@@ -55,7 +55,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Category extends Model
 {
-    use SoftDeletes, Translatable, HasFactory, ScopeFilter;
+    use Translatable, HasFactory, ScopeFilter;
 
 
     /**
@@ -71,6 +71,7 @@ class Category extends Model
         'slug',
         'position',
         'status',
+        'parent_id'
     ];
 
     /** @var string */

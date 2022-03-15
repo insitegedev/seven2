@@ -1,60 +1,123 @@
-.contactPage .body {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 77px;
-  width: 1300px;
-  margin: auto;
-  padding-top: 58px;
-  padding-bottom: 80px;
-  background: url(/img/general/line-bg.png);
-  background-position: center;
-  background-size: contain;
-}
-.contactPage .contact_info .title:first-child {
-  margin-top: 0;
-}
-.contactPage .body .img {
+.contactPage .bg_img {
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.contactPage .showcase {
+  width: 100%;
+  text-align: center;
+  padding-top: 78px;
+  padding-bottom: 213px;
+  font-size: 45px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.contactPage .map {
+  width: 100%;
+  height: 342px;
+}
+.contactPage .info_box {
+  background-color: #fff;
+  margin: 30px auto;
+  padding: 40px 80px;
+  width: fit-content;
+}
+.contactPage .info_box a {
+  margin: 0 30px;
+}
+.contactPage .info_box img {
+  margin-right: 10px;
+}
+.contactPage .form {
+  width: 674px;
+  margin: auto;
+  margin-bottom: 150px;
+}
+.contactPage .form input,
+.contactPage .form textarea {
+  width: 100%;
+  height: 56px;
+  background-color: #fff;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+.contactPage .form textarea {
+  height: 159px;
+  margin-bottom: 20px;
+  padding-top: 17px;
+}
+.contactPage .form .main_button {
+  margin: auto;
 }
 
-@media screen and (max-width: 1350px) {
-  .contactPage .body {
-    width: 95%;
+@media screen and (max-width: 1400px) {
+  .contactPage .showcase {
+    padding-top: 39px;
+    padding-bottom: 70px;
+  }
+  .contactPage .map {
+    height: 280px;
   }
 }
-
-@media screen and (max-width: 1000px) {
-  .contactPage .body {
-    grid-gap: 41px;
+@media screen and (max-width: 1100px) {
+  .contactPage .showcase {
+    padding-top: 20px;
+    padding-bottom: 49px;
+    font-size: 37px;
+  }
+  .contactPage .map {
+    height: 192px;
+  }
+  .contactPage .info_box {
+    padding: 24px 31px;
+  }
+  .contactPage .info_box a {
+    margin: 0 15px;
   }
 }
-
-@media screen and (max-width: 850px) {
-  .form .playfair {
-    font-size: 33px;
-    margin: 12px 0;
+@media screen and (max-width: 900px) {
+  .contactPage .info_box {
+    flex-direction: column;
   }
-  .form input,
-  .form textarea {
-    height: 49px;
-    margin-bottom: 14px;
-  }
-  .form textarea {
-    padding-top: 16px;
-    height: 104px;
-  }
-  .contactPage .body {
-    grid-gap: 22px;
-  }
-  .form .grid {
-    grid-gap: 11px;
+  .contactPage .info_box a {
+    margin: 6px 0;
   }
 }
-@media screen and (max-width: 700px) {
-  .contactPage .body {
-    grid-template-columns: 1fr;
+@media screen and (max-width: 730px) {
+  .contactPage .bg_img {
+    display: none;
   }
-  .contactPage .body .form {
-    grid-row: 1;
+  .contactPage .showcase {
+    color: #05185a;
+    padding-top: 23px;
+    padding-bottom: 26px;
+    font-size: 28px;
+  }
+  .contactPage .map {
+    height: 129px;
+  }
+  .contactPage .form {
+    width: 100%;
+    margin-bottom: 69px;
+  }
+  .contactPage .form input,
+  .contactPage .form textarea {
+    height: 44px;
+    padding-left: 13px;
+    margin-bottom: 10px;
+  }
+  .contactPage .form textarea {
+    height: 100px;
+  }
+  .contactPage .info_box {
+    align-items: flex-start;
+    width: 100%;
+    padding: 0;
+  }
+  .contactPage .form input,
+  .contactPage .form textarea {
+    box-shadow: 0px 3px 5px #05175a2f;
   }
 }

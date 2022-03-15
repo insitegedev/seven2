@@ -37,9 +37,9 @@ class LoginController extends Controller
     {
         $pageConfigs = ['bodyCustomClass' => 'login-bg', 'isCustomizer' => false];
 
-        return view('admin.auth.login', [
+        //return view('admin.auth.login', []);
 
-        ]);
+        return view('admin.nowa.views.livewire.signin');
     }
 
     /**
