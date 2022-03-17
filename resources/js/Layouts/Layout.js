@@ -13,7 +13,7 @@ import Aos from "aos";
 
 export default function Layout({children, seo=null}) {
     if (seo){
-        setSeoData(seo);
+        // setSeoData(seo);
     }
     useEffect(() => {
         Aos.init({ duration: 2000 });

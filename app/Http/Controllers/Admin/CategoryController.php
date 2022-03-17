@@ -45,8 +45,8 @@ class CategoryController extends Controller
     public function index(CategoryRequest $request)
     {
 //        dd($languages = Language::where('status' ,true)->pluck('title', 'locale'));
-        return view('admin.pages.category.index', [
-            'categories' => $this->categoryRepository->getData($request, ['translations'])
+        return view('admin.nowa.views.categories.index', [
+            'data' => $this->categoryRepository->getData($request, ['translations'])
         ]);
     }
 
@@ -62,8 +62,8 @@ class CategoryController extends Controller
         $url = locale_route('category.store', [], false);
         $method = 'POST';
 
-        return view('admin.pages.category.form', [
-            'category' => $category,
+        return view('admin.nowa.views.categories.form', [
+            'data' => $category,
             'url' => $url,
             'method' => $method,
         ]);
@@ -140,8 +140,8 @@ class CategoryController extends Controller
         //dd($cat);
         $category['path'] = $cat->path;
 
-        return view('admin.pages.category.form', [
-            'category' => $category,
+        return view('admin.nowa.views.categories.form', [
+            'data' => $category,
             'url' => $url,
             'method' => $method,
         ]);

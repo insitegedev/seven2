@@ -12,7 +12,17 @@
             "name": "product",
             "i18n": "product",
             "icon": "language",
-            "slug": "product"
+            "slug": "product",
+            "submenu": [
+
+                {
+                    "url": "category.index",
+                    "name": "category",
+                    "i18n": "category",
+                    "icon": "language",
+                    "slug": "category"
+                }
+            ]
         },
         {
             "url": "apartment.index",

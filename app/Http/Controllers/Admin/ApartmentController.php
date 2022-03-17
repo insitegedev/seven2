@@ -39,8 +39,8 @@ class ApartmentController extends Controller
             'apartments' => $this->apartmentRepository->getData($request, ['translations'])
         ]);*/
 
-        return view('admin.nowa.views.apartments.table-basic',[
-            'apartments' => $this->apartmentRepository->getData($request, ['translations'])
+        return view('admin.nowa.views.apartments.index',[
+            'data' => $this->apartmentRepository->getData($request, ['translations'])
         ]);
     }
 
@@ -68,8 +68,8 @@ class ApartmentController extends Controller
         $url = locale_route('apartment.update', $apartment->id, false);
         $method = 'PUT';
 
-        return view('admin.pages.apartment.form', [
-            'apartment' => $apartment,
+        return view('admin.nowa.views.apartments.form', [
+            'data' => $apartment,
             'url' => $url,
             'method' => $method,
         ]);
