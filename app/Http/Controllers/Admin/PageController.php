@@ -44,8 +44,12 @@ class PageController extends Controller
      */
     public function index(PageRequest $request)
     {
-        return view('admin.pages.page.index', [
+        /*return view('admin.pages.page.index', [
             'pages' => $this->pageRepository->getData($request, ['translations'])
+        ]);*/
+
+        return view('admin.nowa.views.page.index', [
+            'data' => $this->pageRepository->getData($request, ['translations'])
         ]);
     }
 
@@ -78,7 +82,13 @@ class PageController extends Controller
 
         $page = $page->where('id',$page->id)->with(['sections'])->first();
 
-        return view('admin.pages.page.form', [
+        /*return view('admin.pages.page.form', [
+            'page' => $page,
+            'url' => $url,
+            'method' => $method,
+        ]);*/
+
+        return view('admin.nowa.views.page.form', [
             'page' => $page,
             'url' => $url,
             'method' => $method,
@@ -104,7 +114,7 @@ class PageController extends Controller
 
 
 
-        return redirect(locale_route('page.show', $page->id))->with('success', __('admin.update_successfully'));
+        return redirect(locale_route('page.index', $page->id))->with('success', __('admin.update_successfully'));
     }
 
 }

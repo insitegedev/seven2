@@ -3952,6 +3952,9 @@ var Products = function Products(page, seo) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pagination flex centered"
   }, links(products.links)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    style: {
+      background: 'url(' + images[0] + ') no-repeat'
+    },
     className: "fixed_bg last"
   }, __('client.products_section_text1', sharedData), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", __('client.products_section_text1', sharedData))));
 };

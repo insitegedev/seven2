@@ -231,7 +231,7 @@ const Products = (page,seo) => {
           </div>
         </div>
       </div>
-      <div className="fixed_bg last">
+      <div style={{background: 'url(' + images[0] +') no-repeat'}} className="fixed_bg last">
           {__('client.products_section_text1',sharedData)} <br /> {__('client.products_section_text1',sharedData)}
       </div>
     </div>

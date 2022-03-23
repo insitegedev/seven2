@@ -36,31 +36,23 @@ class PageSectionRepository extends BaseRepository implements ProductRepositoryI
 
     public function saveFile(int $id, $request): Model
     {
-        //dd($this->model->file);
+        //dd($request->file('image'));
 
-        foreach ($request->file('image') as $key => $file){
-            $model = $this->model->where('id',$key)->first();
+        if($request->hasFile('image')){
+            foreach ($request->file('image') as $key => $file){
+                $model = $this->model->where('id',$key)->first();
 
-            if ($model->file){
-                Storage::delete($model->file->getFileUrlAttribute());
-                $model->file->delete();
+                if ($model->file){
+                    Storage::delete($model->file->getFileUrlAttribute());
+                    $model->file->delete();
+                }
+
+
             }
-
-
         }
 
-        // Delete old files if exist
-        /*if (count($this->model->files)) {
-            foreach ($this->model->files as $file) {
-                if (!$request->old_images) {
-                    $file->delete();
-                    continue;
-                }
-                if (!in_array((string)$file->id, $request->old_images, true)) {
-                    $file->delete();
-                }
-            }
-        }*/
+
+
 
         if ($request->hasFile('image')) {
             // Get Name Of model
