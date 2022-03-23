@@ -23,6 +23,8 @@ class Page extends Model
         'key'
     ];
 
+    //protected $with = 'sections';
+
     protected $translationModel = PageTranslation::class;
 
     public $translatedAttributes = [
@@ -66,4 +68,9 @@ class Page extends Model
     {
         return $this->morphMany(File::class, 'fileable');
     }
+
+    public function sections(){
+        return $this->hasMany(PageSection::class);
+    }
+
 }

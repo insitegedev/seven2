@@ -28,4 +28,13 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         parent::__construct($model);
     }
 
+    public function getPopularProducts(){
+        $products = $this->model->where('popular',1)->whereHas('categories',function ($query){
+            $query->where('status',1);
+        })->with(['files'])->limit(4)->get();
+
+        //dd($products);
+        return $products;
+    }
+
 }

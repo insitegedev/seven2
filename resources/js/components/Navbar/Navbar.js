@@ -7,25 +7,26 @@ import { usePage } from '@inertiajs/inertia-react'
 
 
 const Navbar = () => {
+    const sharedData = usePage().props.localizations;
     const { url, component } = usePage();
     const { pathname } = usePage().props;
-    console.log(url);
+    //console.log(url);
   //const { pathname } = url;
   const navbar = [
     {
-      name: "HOme",
+      name: __('client.nav_home',sharedData),
       link: route("client.home.index"),
     },
     {
-      name: "products",
+      name: __('client.nav_products',sharedData),
       link: route("client.product.index"),
     },
     {
-      name: "About us",
+      name: __('client.nav_about_us',sharedData),
       link: route('client.about.index'),
     },
     {
-      name: "Contact",
+      name: __('client.nav_contact',sharedData),
       link: route('client.contact.index'),
     },
   ];

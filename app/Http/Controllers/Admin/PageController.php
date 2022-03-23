@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PageRequest;
 use App\Models\Page;
+use App\Repositories\Eloquent\PageSectionRepository;
 use App\Repositories\PageRepositoryInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -21,15 +22,19 @@ class PageController extends Controller
      */
     private $pageRepository;
 
+    private $pageSectionRepository;
+
 
     /**
      * @param PageRepositoryInterface $pageRepository
      */
     public function __construct(
-        PageRepositoryInterface  $pageRepository
+        PageRepositoryInterface  $pageRepository,
+        PageSectionRepository $pageSectionRepository
     )
     {
         $this->pageRepository = $pageRepository;
+        $this->pageSectionRepository = $pageSectionRepository;
     }
 
 
@@ -71,6 +76,8 @@ class PageController extends Controller
         $url = locale_route('page.update', $page->id, false);
         $method = 'PUT';
 
+        $page = $page->where('id',$page->id)->with(['sections'])->first();
+
         return view('admin.pages.page.form', [
             'page' => $page,
             'url' => $url,
@@ -88,9 +95,12 @@ class PageController extends Controller
      */
     public function update(PageRequest $request, string $locale, Page $page)
     {
+        //dd($request->files);
         $saveData = Arr::except($request->except('_token'), []);
         $this->pageRepository->update($page->id,$saveData);
         $this->pageRepository->saveFiles($page->id, $request);
+
+        $this->pageSectionRepository->saveFile($page->id, $request);
 
 
 

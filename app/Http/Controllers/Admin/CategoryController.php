@@ -58,14 +58,18 @@ class CategoryController extends Controller
     public function create()
     {
         $category = $this->categoryRepository->model;
+        $categories = $this->categoryRepository->all();
+
+        //dd($categories);
 
         $url = locale_route('category.store', [], false);
         $method = 'POST';
 
         return view('admin.nowa.views.categories.form', [
-            'data' => $category,
+            'category' => $category,
             'url' => $url,
             'method' => $method,
+            'categories' => $categories
         ]);
     }
 
@@ -78,7 +82,7 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-       // dd($request->all());
+       //dd($request->all());
         $saveData = Arr::except($request->except('_token','path'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
         $saveData['parent_id'] = $saveData['parent_id'] ? $saveData['parent_id'] : null;
@@ -86,23 +90,11 @@ class CategoryController extends Controller
         //dd($saveData);
         $category = $this->categoryRepository->create($saveData);
 
-        $level = 0;
-
-        $data = DB::table('category_path')->select('*')
-            ->where('category_id',$request->post('parent_id'))->orderBy('level','asc')->get();
-        //$query = $this->db->query("SELECT * FROM `category_path` WHERE category_id = '" . (int)$this->input->post('parent_id') . "' ORDER BY `level` ASC");
-
-        foreach ($data as $result) {
-            DB::table('category_path')
-                ->insert(['category_id' => $category->id,'path_id' => $result->path_id,'level' => $level]);
-            //$this->db->query("INSERT INTO `category_path` SET `category_id` = '" . (int)$category_id . "', `path_id` = '" . (int)$result['path_id'] . "', `level` = '" . (int)$level . "'");
-
-            $level++;
+        // Save Files
+        if ($request->hasFile('images')) {
+            $category = $this->categoryRepository->saveFiles($category->id, $request);
         }
 
-        DB::table('category_path')
-            ->insert(['category_id' => $category->id,'path_id' => $category->id,'level' => $level]);
-        //$this->db->query("INSERT INTO `category_path` SET `category_id` = '" . (int)$category_id . "', `path_id` = '" . (int)$category_id . "', `level` = '" . (int)$level . "'");
 
         return redirect(locale_route('category.show', $category->id))->with('success', __('admin.create_successfully'));
 
@@ -136,14 +128,15 @@ class CategoryController extends Controller
         $url = locale_route('category.update', $category->id, false);
         $method = 'PUT';
 
-        $cat = $categoryRepository->getCategory($category->id);
-        //dd($cat);
-        $category['path'] = $cat->path;
+        $categories = $this->categoryRepository->getCategoryTreeWithoutDescendant($category->id);
+
+
 
         return view('admin.nowa.views.categories.form', [
-            'data' => $category,
+            'category' => $category,
             'url' => $url,
             'method' => $method,
+            'categories' => $categories
         ]);
     }
 
@@ -159,79 +152,20 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, string $locale, Category $category)
     {
         //dd($request->all());
-        DB::enableQueryLog();
+
         $saveData = Arr::except($request->except('_token','path'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
 
         $this->categoryRepository->update($category->id, $saveData);
 
-        $data = DB::table('category_path')->select('*')
-            ->where('path_id',$category->id)
-            ->orderBy('level','asc')->get();
+
+        // Save Files
+
+            $category = $this->categoryRepository->saveFiles($category->id, $request);
 
         //dd(count($data));
-        if(count($data)){
-            foreach ($data as $category_path){
-                DB::table('category_path')->where('category_id', $category_path->category_id)->where('level', '<',$category_path->level)->delete();
-
-                $path = [];
-
-                $_data = DB::table('category_path')->select('*')
-                    ->where('path_id',$request->post('parent_id'))
-                    ->orderBy('level','asc')->get();
-
-                foreach ($_data as $result) {
-                    $path[] = $result->path_id;
-                }
-                $_data = DB::table('category_path')->select('*')
-                    ->where('path_id',$category_path->category_id)
-                    ->orderBy('level','asc')->get();
-
-                foreach ($_data as $result) {
-                    $path[] = $result->path_id;
-                }
 
 
-                // Combine the paths with a new level
-                $level = 0;
-
-                //dd($path);
-
-                foreach ($path as $path_id) {
-                    DB::insert("REPLACE INTO `category_path` SET category_id = '" . (int)$category_path->category_id . "', `path_id` = '" . (int)$path_id . "', level = " . $level);
-                    //DB::table('category_path')->updateOrInsert(['category_id' => $category_path->category_id,'path_id' => $path_id],['level' => $level]);
-                    //DB::table('category_path')->where('category_id',$category_path->category_id)->where('path_id',$path_id)->delete();
-                    //DB::table('category_path')->insert(['category_id' => $category_path->category_id,'path_id' => $path_id,'level' => $level]);
-                    $level++;
-                }
-            }
-
-        } else {
-            DB::table('category_path')->where('category_id', $category->id)->delete();
-
-            // Fix for records with no paths
-            $level = 0;
-
-            //$query = $this->db->query("SELECT * FROM `category_path` WHERE category_id = '" . (int)$this->input->post('parent_id') . "' ORDER BY level ASC");
-
-            $data = DB::table('category_path')->select('*')
-                ->where('path_id',$request->post('parent_id'))
-                ->orderBy('level','asc')->get();
-
-            foreach ($data as $result) {
-                //$this->db->query("INSERT INTO `category_path` SET category_id = '" . (int)$category_id . "', `path_id` = '" . (int)$result['path_id'] . "', level = '" . (int)$level . "'");
-                DB::table('category_path')
-                    ->insert(['category_id' => $category->id,'path_id' => $result->path_id,'level' => $level]);
-                $level++;
-            }
-
-            //$this->db->query("REPLACE INTO `category_path` SET category_id = '" . (int)$category_id . "', `path_id` = '" . (int)$category_id . "', level = '" . (int)$level . "'");
-            DB::insert("REPLACE INTO `category_path` SET category_id = '" . $category->id . "', `path_id` = '" . $category->id . "', level = ". $level);
-            //DB::table('category_path')->where('category_id',$category->id)->where('path_id',$category->id)->delete();
-            //DB::table('category_path')->insert(['category_id' => $category->id,'path_id' => $category->id,'level' => $level]);
-
-        }
-        dd(DB::getQueryLog());
         return redirect(locale_route('category.show', $category->id))->with('success', __('admin.update_successfully'));
     }
 

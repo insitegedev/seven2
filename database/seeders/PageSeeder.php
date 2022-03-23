@@ -14,6 +14,7 @@ class PageSeeder extends Seeder
      */
     public function run()
     {
+        //Page::truncate();
         // Pages array
         $pages = [
             [
@@ -37,6 +38,9 @@ class PageSeeder extends Seeder
             ],
             [
                 'key' => 'choose_floor'
+            ],
+            [
+                'key' => 'products'
             ]
 
 

@@ -3134,6 +3134,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
 /* harmony import */ var _About_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./About.css */ "./resources/js/Pages/About/About.css");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 
  //import Image1 from "../../assets/images/about/1.png";
 //import Image2 from "../../assets/images/about/2.png";
@@ -3147,7 +3148,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var About = function About(page, seo) {
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.localizations;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props,
+      gallery_img = _usePage$props.gallery_img,
+      images = _usePage$props.images;
+  console.log(images);
   var gallery = ["/assets/images/gallery/1.png", "/assets/images/gallery/2.png", "/assets/images/gallery/3.png", "/assets/images/gallery/2.png", "/assets/images/gallery/3.png", "/assets/images/gallery/4.png", "/assets/images/gallery/5.png", "/assets/images/gallery/2.png", "/assets/images/gallery/3.png", "/assets/images/gallery/4.png", "/assets/images/gallery/6.png", "/assets/images/gallery/3.png", "/assets/images/gallery/4.png", "/assets/images/gallery/5.png"];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     seo: seo
@@ -3155,45 +3162,45 @@ var About = function About(page, seo) {
     className: "aboutPage wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "head bold"
-  }, "About us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.about_us_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "showcase img"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/about/1.png",
+    src: images[0],
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex one"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/about/2.png",
+    src: images[1],
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bold"
-  }, "Our history"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.about_us_section1_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "title underline"
-  }, "Consectetur adipiscing elit, sed do"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.about_us_section1_header2', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.about_us_section1_p1', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.about_us_section1_p2', sharedData)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex two"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bold"
-  }, "our mission"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.about_us_section2_header1', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "title underline"
-  }, "Consectetur adipiscing elit, sed do"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/about/3.png",
+  }, __('client.about_us_section2_header2', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.about_us_section2_p1', sharedData))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: images[2],
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "gallery"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bold underline"
-  }, "gallery"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.about_us_gallery', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "grid"
-  }, gallery.map(function (img, i) {
+  }, gallery_img.files.map(function (img, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       key: i,
       className: "img"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-      src: img,
+      src: '/' + img.path + '/' + img.title,
       alt: ""
     }));
   })))));
@@ -3216,10 +3223,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _components_Map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Map */ "./resources/js/components/Map.js");
-/* harmony import */ var _Contact_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Contact.css */ "./resources/js/Pages/Contact/Contact.css");
-/* harmony import */ var _components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/MainButton/MainButton */ "./resources/js/components/MainButton/MainButton.js");
-/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _components_Map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Map */ "./resources/js/components/Map.js");
+/* harmony import */ var _Contact_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Contact.css */ "./resources/js/Pages/Contact/Contact.css");
+/* harmony import */ var _components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/MainButton/MainButton */ "./resources/js/components/MainButton/MainButton.js");
+/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -3234,46 +3261,84 @@ __webpack_require__.r(__webpack_exports__);
 var Contact = function Contact(_ref) {
   var page = _ref.page,
       seo = _ref.seo;
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.localizations;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+      info = _usePage$props.info,
+      errors = _usePage$props.errors,
+      images = _usePage$props.images;
+  console.log(errors);
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    name: null,
+    phone: null,
+    email: null,
+    message: null
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      values = _useState2[0],
+      setValues = _useState2[1];
+
+  function handleChange(e) {
+    setValues(function (values) {
+      return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, e.target.name, e.target.value));
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route('client.contact.mail'), values);
+  }
+
   var contactInfo = [{
     icon: "/assets/images/icons/conatct/mail.svg",
-    text: "example@mail.com",
+    text: info.email.translation ? info.email.translation.value : null,
     link: "/"
   }, {
     icon: "/assets/images/icons/conatct/tel.svg",
-    text: "+995 555 26 46 23",
+    text: info.phone.translation ? info.phone.translation.value : null,
     link: "/"
   }, {
     icon: "/assets/images/icons/conatct/pin.svg",
-    text: "Bagrationi  str 6. Batumi, Georgia.",
+    text: info.address.translation ? info.address.translation.value : null,
     link: "/"
   }];
   var inputs = [{
     type: "text",
-    placeholder: "Enter your name and surname here"
+    placeholder: __('client.contact_form_name_surname', sharedData),
+    name: "name",
+    id: "inp_name"
   }, {
     type: "tel",
-    placeholder: "Your phone number is"
+    placeholder: __('client.contact_form_telephone', sharedData),
+    name: "phone",
+    id: "inp_phone"
   }, {
-    type: "text",
-    placeholder: "Tell us your email address"
+    type: "email",
+    placeholder: __('client.contact_form_email', sharedData),
+    name: "email",
+    id: "inp_email"
   }];
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_6__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "contactPage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "bg_img",
-    src: "/assets/images/products/bg.png",
+    src: images[0],
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "showcase"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bold"
-  }, "Contact")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.contact_header', sharedData))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "map"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Map__WEBPACK_IMPORTED_MODULE_2__.Map, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Map__WEBPACK_IMPORTED_MODULE_3__.Map, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "info_box flex centered"
   }, contactInfo.map(function (info, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
@@ -3288,18 +3353,29 @@ var Contact = function Contact(_ref) {
     }, info.text));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "form"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    method: "post",
+    id: "contact_f",
+    onSubmit: handleSubmit
   }, inputs.map(function (input, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+      id: input.id,
       type: input.type,
       placeholder: input.placeholder,
-      key: i
+      key: i,
+      name: input.name,
+      onChange: handleChange
     });
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
-    placeholder: "You can leave your message here"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_4__.MainButton, {
-    link: "/",
-    text: "Send now"
-  })))));
+    onChange: handleChange,
+    id: "inp_message",
+    name: "message",
+    placeholder: __('client.contact_form_message', sharedData)
+  }), errors.name && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, errors.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_5__.MainButton, {
+    onclick: handleClick,
+    id: "send_eml",
+    text: __('client.contact_form_send_btn', sharedData)
+  }))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Contact);
@@ -3343,6 +3419,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var HeroSlider = function HeroSlider() {
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
+
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props,
+      sliders = _usePage$props.sliders,
+      info = _usePage$props.info; //console.log(sliders);
+
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.localizations;
   var sliderData = [{
     text1: "Living room furniture",
     text2: "New Collection",
@@ -3363,7 +3452,7 @@ var HeroSlider = function HeroSlider() {
       setIndex = _useState2[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var lastIndex = sliderData.length - 1;
+    var lastIndex = sliders.length - 1;
 
     if (index < 0) {
       setIndex(lastIndex);
@@ -3387,7 +3476,7 @@ var HeroSlider = function HeroSlider() {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mainSlider"
-  }, sliderData.map(function (data, indexData) {
+  }, sliders.map(function (data, indexData) {
     var position = "nextSlide";
 
     if (indexData === index) {
@@ -3405,12 +3494,12 @@ var HeroSlider = function HeroSlider() {
       className: "content wrapper"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "bold"
-    }, data.text1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, data.text2), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
-      link: "/",
-      text: "Shop now"
+    }, data.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, renderHTML(data.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
+      link: data.youtube_url,
+      text: __('client.home_slider_button', sharedData)
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       className: "slide_img",
-      src: data.img,
+      src: '/' + data.file.path + '/' + data.file.title,
       alt: ""
     }));
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3418,12 +3507,12 @@ var HeroSlider = function HeroSlider() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "sm"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
-    href: "/"
+    href: info.facebook.translation ? info.facebook.translation.value : null
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/sm/fb.svg",
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
-    href: "/"
+    href: info.instagram.translation ? info.instagram.translation.value : null
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/sm/ig.svg",
     alt: ""
@@ -3450,7 +3539,7 @@ var HeroSlider = function HeroSlider() {
     alt: ""
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "dots flex centered"
-  }, sliderData.map(function (item, i) {
+  }, sliders.map(function (item, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: index === i ? "dot active" : "dot",
       onClick: function onClick() {
@@ -3502,34 +3591,55 @@ var Home = function Home(_ref) {
   var page = _ref.page,
       seo = _ref.seo;
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.usePage)().props.localizations;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.usePage)().props,
+      popular_products = _usePage$props.popular_products,
+      categories = _usePage$props.categories,
+      images = _usePage$props.images;
+  var onSaleCategories = [{
+    off: "30 % OFF ALL ORDER",
+    cat: "Living Room",
+    whiteButton: true,
+    color: "#fff",
+    bg: images[1]
+  }, {
+    off: "30 % OFF ALL ORDER",
+    cat: "Table-chair",
+    whiteButton: false,
+    color: "#05185A",
+    bg: images[2]
+  }]; //console.log(popular_products);
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_9__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "homePage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_HeroSlider_HeroSlider__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "categories_home wrapper flex"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Shop ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " by categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
-    link: "/",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, __('client.home_section1_text', sharedData), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", __('client.home_section1_text2', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
+    link: route('client.product.index'),
     white: true,
     transparent: true,
-    text: "View all categories"
+    text: __('client.home_view_all_categories', sharedData)
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "grid4",
     "data-aos": "zoom-in"
-  }, _HomeData__WEBPACK_IMPORTED_MODULE_7__.shopCategories.map(function (cat, i) {
+  }, categories.map(function (cat, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.Link, {
-      href: "/",
+      href: route('client.category.show', cat.slug),
       key: i
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_5__.ProductImage, {
-      src: cat.img,
-      category: cat.cat
+      src: cat.files.length > 0 ? '/' + cat.files[0].path + '/' + cat.files[0].title : null,
+      category: cat.title
     }));
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    style: {
+      background: 'url(' + images[0] + ') no-repeat'
+    },
     className: "exhibition",
     "data-aos": "fade-up"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "onsale_cats flex wrapper"
-  }, _HomeData__WEBPACK_IMPORTED_MODULE_7__.onSaleCategories.map(function (cat, i) {
+  }, onSaleCategories.map(function (cat, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "box flex centered",
       key: i,
@@ -3548,7 +3658,7 @@ var Home = function Home(_ref) {
       className: "bold"
     }, cat.off), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, cat.cat), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
       link: "/",
-      text: "Shop now",
+      text: __('client.home_shop_now', sharedData),
       white: cat.whiteButton
     })));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3558,18 +3668,20 @@ var Home = function Home(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "title"
   }, __('client.popular_products', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
-    text: "View all",
+    text: __('client.home_view_all', sharedData),
     link: "/"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "grid4",
     "data-aos": "fade-up"
-  }, _HomeData__WEBPACK_IMPORTED_MODULE_7__.popularProducts.map(function (item, i) {
-    var link = route("client.product.index");
+  }, popular_products.map(function (item, i) {
+    //console.log(item)
+    var slug = item.slug;
+    var link = route('client.product.show', slug);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_5__.ProductBox, {
       key: i,
-      src: item.img,
-      discount: item.off,
-      category: item.cat,
+      src: '/' + item.files[0].path + '/' + item.files[0].title,
+      discount: item.sale,
+      category: item.title,
       link: link
     });
   })))));
@@ -3589,7 +3701,6 @@ var Home = function Home(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "shopCategories": () => (/* binding */ shopCategories),
-/* harmony export */   "onSaleCategories": () => (/* binding */ onSaleCategories),
 /* harmony export */   "popularProducts": () => (/* binding */ popularProducts)
 /* harmony export */ });
 //import Img1 from "../../assets/images/products/1.png";
@@ -3610,19 +3721,6 @@ var shopCategories = [{
 }, {
   img: "/assets/images/products/4.png",
   cat: "Bedroom furniture"
-}];
-var onSaleCategories = [{
-  off: "30 % OFF ALL ORDER",
-  cat: "Living Room",
-  whiteButton: true,
-  color: "#fff",
-  bg: "/assets/images/home/2.png"
-}, {
-  off: "30 % OFF ALL ORDER",
-  cat: "Table-chair",
-  whiteButton: false,
-  color: "#05185A",
-  bg: "/assets/images/home/2.png"
 }];
 var popularProducts = [{
   img: '/assets/images/products/1.png',
@@ -3686,6 +3784,13 @@ var Products = function Products(page, seo) {
       showTab = _useState2[0],
       setShowTab = _useState2[1];
 
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+      categories = _usePage$props.categories,
+      products = _usePage$props.products,
+      category = _usePage$props.category,
+      images = _usePage$props.images;
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.localizations;
+  console.log(category);
   var catColumn = [{
     cat: "Living room furniture",
     links: ["TV unit", "Console", "Coffee table", "Accessories", "Full complectation"]
@@ -3763,38 +3868,70 @@ var Products = function Products(page, seo) {
       cat: "Chair Padded Seat"
     }]
   }];
+
+  var subcategory = function subcategory(children) {
+    var rows = [];
+
+    if (children.length > 0) {
+      children.map(function (child) {
+        rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          href: route('client.category.show', child.slug)
+        }, child.title));
+      });
+    }
+
+    return rows;
+  };
+
+  var links = function links(_links) {
+    var rows = []; //links.shift();
+    //links.splice(-1);
+
+    {
+      _links.map(function (item, index) {
+        if (index > 0 && index < _links.length - 1) {
+          rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+            href: item.url,
+            className: item.active ? 'bold active' : 'bold'
+          }, item.label));
+        }
+      });
+    }
+    return rows.length > 1 ? rows : null;
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "productsPage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    style: {
+      background: 'url(' + images[0] + ') no-repeat'
+    },
     className: "showcase fixed_bg"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper flex main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "cat_column"
-  }, catColumn.map(function (item, i) {
+  }, categories.map(function (item, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "item",
       key: i
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "bold"
-    }, item.cat), item.links.map(function (link, i) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-        href: "/",
-        key: i
-      }, link);
-    }));
+    }, item.title), subcategory(item.children));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "product_tabs"
-  }, productTabs.map(function (tab, i) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: !category ? "active tab_btn bold" : "tab_btn bold",
+    href: route('client.product.index')
+  }, __('client.category_all', sharedData)), categories.map(function (tab, i) {
+    var link = route('client.category.show', tab.slug);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
       key: i,
-      className: showTab === i ? "active tab_btn bold" : "tab_btn bold",
-      onClick: function onClick() {
-        return setShowTab(i);
-      }
-    }, tab.tab));
+      className: category && tab.id === category.id ? "active tab_btn bold" : "tab_btn bold",
+      href: link
+    }, tab.title));
   }), productTabs.map(function (tab, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       key: i,
@@ -3802,29 +3939,21 @@ var Products = function Products(page, seo) {
       style: {
         display: showTab === i ? "grid " : "none"
       }
-    }, tab.data.map(function (item, i) {
-      var product = ['product'];
-      var link = route('client.product.show', product);
+    }, products.data.map(function (item, i) {
+      var slug = item.slug;
+      var link = route('client.product.show', slug);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_2__.ProductBox, {
-        src: item.img,
-        discount: item.off,
-        category: item.cat,
+        src: item.files.length > 0 ? '/' + item.files[0].path + '/' + item.files[0].title : null,
+        discount: item.sale,
+        category: item.title,
         link: link
       });
     }));
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pagination flex centered"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    className: "bold active"
-  }, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    className: "bold"
-  }, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    className: "bold"
-  }, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    className: "bold"
-  }, "4")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, links(products.links)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "fixed_bg last"
-  }, "best furniture ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " for your apartment")));
+  }, __('client.products_section_text1', sharedData), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", __('client.products_section_text1', sharedData))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Products);
@@ -3850,6 +3979,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SingleProduct_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SingleProduct.css */ "./resources/js/Pages/SingleProduct/SingleProduct.css");
 /* harmony import */ var _components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/ProductObjects/ProductObjects */ "./resources/js/components/ProductObjects/ProductObjects.js");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -3878,7 +4008,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var SingleProduct = function SingleProduct(seo) {
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.usePage)().props.localizations;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
       nav1 = _useState2[0],
@@ -3888,6 +4021,13 @@ var SingleProduct = function SingleProduct(seo) {
       _useState4 = _slicedToArray(_useState3, 2),
       nav2 = _useState4[0],
       setNav2 = _useState4[1];
+
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.usePage)().props,
+      product = _usePage$props.product,
+      category = _usePage$props.category,
+      similar_products = _usePage$props.similar_products; //console.log(product);
+  //console.log(category);
+  //console.log(similar_products);
 
   var settings = {
     dots: false,
@@ -3952,6 +4092,15 @@ var SingleProduct = function SingleProduct(seo) {
     img: "/assets/images/products/4.png",
     cat: "Chair Padded Seat"
   }];
+
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_7__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3960,15 +4109,15 @@ var SingleProduct = function SingleProduct(seo) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "path"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Home"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.nav_home', sharedData)), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/arrows/2.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Living room furniture"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, category.title), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/arrows/2.svg",
     alt: ""
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: "active"
-  }, "Gray Chair")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, product.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "view"
@@ -3980,9 +4129,9 @@ var SingleProduct = function SingleProduct(seo) {
       return setNav1(slider1);
     },
     arrows: false
-  }, productSlides.map(function (item, i) {
+  }, product.files.map(function (item, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductImage, {
-      src: item.img,
+      src: '/' + item.path + '/' + item.title,
       discount: item.off
     });
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_slick__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({
@@ -3990,45 +4139,44 @@ var SingleProduct = function SingleProduct(seo) {
     ref: function ref(slider2) {
       return setNav2(slider2);
     }
-  }, settings), productSlides.map(function (item, i) {
+  }, settings), product.files.map(function (item, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductImage, {
       key: i,
-      src: item.img,
+      src: '/' + item.path + '/' + item.title,
       discount: item.off
     });
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "details"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bold"
-  }, "Gray chair"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "in_stock"
-  }, "in stock"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+  }, product.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: product.stock == 1 ? 'in_stock' : 'no_stock'
+  }, product.stock == 1 ? __('client.product_in_stock', sharedData) : __('client.product_no_stock', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "op5"
-  }, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, renderHTML(product.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "margin"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     style: {
       marginBottom: "10px"
     }
-  }, "Categories: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, __('client.product_categories', sharedData), ": ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: "op5"
-  }, "Living room furniture")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Product code: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "ZS 23221 - 321"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
-    link: "/",
-    text: "Contact for order"
+  }, category.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, __('client.product_code', sharedData), ": ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, product.code))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
+    link: route('client.contact.index'),
+    text: __('client.product_order_btn', sharedData)
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "similar_products bold"
-  }, "similar products"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.product_similar_products', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "grid4"
-  }, similarProducts.map(function (item, i) {
-    var product = ['product'];
-    var link = route('client.product.show', product);
+  }, similar_products.data.map(function (item, i) {
+    var link = route('client.product.show', item.slug);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductBox, {
       key: i,
-      src: item.img,
-      discount: item.off,
-      category: item.cat,
+      src: item.files.length > 0 ? '/' + item.files[0].path + '/' + item.files[0].title : null,
+      discount: item.sale,
+      category: item.title,
       link: link
     });
   })))));
@@ -4128,7 +4276,27 @@ var Footer = function Footer() {
       url = _usePage.url,
       component = _usePage.component;
 
-  var pathname = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.pathname;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+      pathname = _usePage$props.pathname,
+      categories = _usePage$props.categories,
+      info = _usePage$props.info;
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.localizations; //console.log(categories);
+
+  var subcategory = function subcategory(children) {
+    var rows = [];
+
+    if (children.length > 0) {
+      children.map(function (child) {
+        //console.log(child)
+        rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          href: route('client.category.show', child.slug)
+        }, child.title));
+      });
+    }
+
+    return rows;
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "footer",
     style: {
@@ -4144,65 +4312,23 @@ var Footer = function Footer() {
       justifyContent: "flex-start"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/",
+    href: route('client.home.index'),
     className: "logo"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/logo/1.svg",
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "category_grid"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "column"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "bold"
-  }, "Bedroom furniture"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Bed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Wardrobes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Pump"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Commode"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Mirrors")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "column"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "bold"
-  }, "Living room furniture"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Wall unit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Console"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Coffee table"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Accessories")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "column"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "bold"
-  }, "Upholstered furniture"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Corner sofa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Sofa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Puff"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Armchair")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "column"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "bold"
-  }, "Table-chair"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Table"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Chair"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/"
-  }, "Bar chair")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, categories.map(function (category) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "column"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "bold"
+    }, category.title), subcategory(category.children));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "part"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h6", null, "Social links:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h6", null, __('client.footer_social_links', sharedData), ":"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    href: info.facebook.translation ? info.facebook.translation.value : null,
     className: "sm flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "icon flex centered"
@@ -4210,7 +4336,7 @@ var Footer = function Footer() {
     src: "/assets/images/icons/sm/fb.svg",
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Facebook")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/",
+    href: info.instagram.translation ? info.instagram.translation.value : null,
     className: "sm flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "icon flex centered"
@@ -4268,7 +4394,7 @@ var Header = function Header() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/",
+    href: route('client.home.index'),
     className: "logo"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/logo/1.svg",
@@ -4344,6 +4470,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var MainButton = function MainButton(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    onClick: props.onclick,
+    id: props.id,
     href: props.link
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
     className: props.transparent ? "main_button flex centered transparent" : "main_button flex centered",
@@ -4412,24 +4540,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Navbar = function Navbar() {
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.localizations;
+
   var _usePage = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)(),
       url = _usePage.url,
       component = _usePage.component;
 
-  var pathname = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.pathname;
-  console.log(url); //const { pathname } = url;
+  var pathname = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.pathname; //console.log(url);
+  //const { pathname } = url;
 
   var navbar = [{
-    name: "HOme",
+    name: __('client.nav_home', sharedData),
     link: route("client.home.index")
   }, {
-    name: "products",
+    name: __('client.nav_products', sharedData),
     link: route("client.product.index")
   }, {
-    name: "About us",
+    name: __('client.nav_about_us', sharedData),
     link: route('client.about.index')
   }, {
-    name: "Contact",
+    name: __('client.nav_contact', sharedData),
     link: route('client.contact.index')
   }];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -4462,6 +4592,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../MainButton/MainButton */ "./resources/js/components/MainButton/MainButton.js");
 /* harmony import */ var _ProductObjects_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductObjects.css */ "./resources/js/components/ProductObjects/ProductObjects.css");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+
 
 
 
@@ -4484,6 +4616,7 @@ var ProductImage = function ProductImage(_ref) {
   }, "-", discount, "%"));
 };
 var ProductBox = function ProductBox(props) {
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.localizations;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "product_box"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(ProductImage, {
@@ -4494,7 +4627,7 @@ var ProductBox = function ProductBox(props) {
   }, props.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
     transparent: true,
     white: true,
-    text: "Learn more",
+    text: __('client.product_learn_more', sharedData),
     link: props.link
   }));
 };
@@ -4760,7 +4893,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\r\n  font-family: \"poppins\";\r\n  src: url(/assets/fonts/Poppins/Poppins-Regular.ttf);\r\n}\r\n@font-face {\r\n  font-family: \"bold\";\r\n  src: url(/assets/fonts/Poppins/Poppins-Bold.ttf);\r\n}\r\n*,\r\n*::after,\r\n*::before {\r\n  font-family: \"poppins\";\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n  scroll-behavior: smooth;\r\n}\r\n*::after,\r\n*::before {\r\n  position: absolute;\r\n  content: \"\";\r\n}\r\n/* width */\r\n::-webkit-scrollbar {\r\n  width: 7px;\r\n}\r\n\r\n/* Track */\r\n::-webkit-scrollbar-track {\r\n  background: #272639;\r\n}\r\n\r\n/* Handle */\r\n::-webkit-scrollbar-thumb {\r\n  background: #e81748b6;\r\n}\r\n::-webkit-scrollbar-thumb:hover {\r\n  background: #e81748;\r\n}\r\n\r\nhtml {\r\n  box-sizing: border-box;\r\n}\r\nbody {\r\n  font-family: \"poppins\";\r\n  font-weight: 400;\r\n  line-height: 1.3;\r\n  color: #05185a;\r\n  background: #fff;\r\n  overflow-x: hidden;\r\n  scroll-behavior: smooth;\r\n  font-size: 16px;\r\n}\r\np {\r\n  font-weight: 100;\r\n  line-height: 1.5;\r\n}\r\nh1 {\r\n  font-weight: 600;\r\n}\r\nul {\r\n  list-style: none;\r\n}\r\na {\r\n  text-decoration: none;\r\n  color: inherit;\r\n}\r\ninput,\r\ntextarea,\r\nbutton {\r\n  outline: none;\r\n  border: none;\r\n  background: none;\r\n}\r\nbutton {\r\n  cursor: pointer;\r\n}\r\nselect {\r\n  border: none;\r\n  outline: none;\r\n}\r\nimg {\r\n  height: auto;\r\n  max-width: 100%;\r\n}\r\n.img {\r\n  overflow: hidden;\r\n}\r\n.img img {\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n}\r\n.map iframe {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.wrapper {\r\n  width: 1600px;\r\n  height: 100%;\r\n  margin: auto;\r\n  position: relative;\r\n}\r\n.bold {\r\n  font-family: \"bold\";\r\n}\r\n.flex {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n}\r\n.flex.centered {\r\n  justify-content: center;\r\n}\r\n.grid4 {\r\n  display: grid;\r\n  grid-template-columns: repeat(4, 1fr);\r\n  grid-gap: 32px 16px;\r\n}\r\n\r\n@media screen and (max-width: 1650px) {\r\n  .wrapper {\r\n    width: 95%;\r\n  }\r\n}\r\n@media screen and (max-width: 1320px) {\r\n  .grid4 {\r\n    grid-template-columns: repeat(3, 1fr);\r\n  }\r\n}\r\n@media screen and (max-width: 1100px) {\r\n  .grid4 {\r\n    grid-template-columns: repeat(2, 1fr);\r\n  }\r\n}\r\n@media screen and (max-width: 900px) {\r\n  .grid4 {\r\n    margin: auto;\r\n    margin-top: 30px;\r\n  }\r\n}\r\n@media screen and (max-width: 500px) {\r\n  .grid4 {\r\n    grid-template-columns: 1fr;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n  font-family: \"poppins\";\n  src: url(/assets/fonts/Poppins/Poppins-Regular.ttf);\n}\n@font-face {\n  font-family: \"bold\";\n  src: url(/assets/fonts/Poppins/Poppins-Bold.ttf);\n}\n*,\n*::after,\n*::before {\n  font-family: \"poppins\";\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  scroll-behavior: smooth;\n}\n*::after,\n*::before {\n  position: absolute;\n  content: \"\";\n}\n/* width */\n::-webkit-scrollbar {\n  width: 7px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: #272639;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #e81748b6;\n}\n::-webkit-scrollbar-thumb:hover {\n  background: #e81748;\n}\n\nhtml {\n  box-sizing: border-box;\n}\nbody {\n  font-family: \"poppins\";\n  font-weight: 400;\n  line-height: 1.3;\n  color: #05185a;\n  background: #fff;\n  overflow-x: hidden;\n  scroll-behavior: smooth;\n  font-size: 16px;\n}\np {\n  font-weight: 100;\n  line-height: 1.5;\n}\nh1 {\n  font-weight: 600;\n}\nul {\n  list-style: none;\n}\na {\n  text-decoration: none;\n  color: inherit;\n}\ninput,\ntextarea,\nbutton {\n  outline: none;\n  border: none;\n  background: none;\n}\nbutton {\n  cursor: pointer;\n}\nselect {\n  border: none;\n  outline: none;\n}\nimg {\n  height: auto;\n  max-width: 100%;\n}\n.img {\n  overflow: hidden;\n}\n.img img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.map iframe {\n  width: 100%;\n  height: 100%;\n}\n.wrapper {\n  width: 1600px;\n  height: 100%;\n  margin: auto;\n  position: relative;\n}\n.bold {\n  font-family: \"bold\";\n}\n.flex {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.flex.centered {\n  justify-content: center;\n}\n.grid4 {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  grid-gap: 32px 16px;\n}\n\n@media screen and (max-width: 1650px) {\n  .wrapper {\n    width: 95%;\n  }\n}\n@media screen and (max-width: 1320px) {\n  .grid4 {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n@media screen and (max-width: 1100px) {\n  .grid4 {\n    grid-template-columns: repeat(2, 1fr);\n  }\n}\n@media screen and (max-width: 900px) {\n  .grid4 {\n    margin: auto;\n    margin-top: 30px;\n  }\n}\n@media screen and (max-width: 500px) {\n  .grid4 {\n    grid-template-columns: 1fr;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4784,7 +4917,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".aboutPage {\r\n  width: 1300px;\r\n}\r\n.aboutPage .head {\r\n  font-size: 45px;\r\n  text-transform: uppercase;\r\n  margin: 50px 0;\r\n  text-align: center;\r\n}\r\n.aboutPage .showcase {\r\n  height: 590px;\r\n  width: 100%;\r\n  margin-bottom: 80px;\r\n}\r\n.aboutPage .showcase img {\r\n  transition: 1s;\r\n}\r\n.aboutPage .showcase:hover img {\r\n  transform: scale(1.2) translateY(-50px);\r\n}\r\n.aboutPage .underline {\r\n  position: relative;\r\n  margin-bottom: 45px;\r\n}\r\n.aboutPage .underline::after {\r\n  width: 55px;\r\n  height: 3px;\r\n  left: 0;\r\n  bottom: -10px;\r\n  background-color: #cfcfcf;\r\n}\r\n.aboutPage p {\r\n  color: #cfcfcf;\r\n  margin-bottom: 30px;\r\n}\r\n.aboutPage .flex {\r\n  align-items: flex-start;\r\n  margin-bottom: 100px;\r\n}\r\n.aboutPage .flex .bold {\r\n  text-transform: uppercase;\r\n  opacity: 0.5;\r\n}\r\n.aboutPage .flex .title {\r\n  font-size: 35px;\r\n}\r\n.aboutPage .flex.one img {\r\n  margin-right: 55px;\r\n}\r\n.aboutPage .flex.two img {\r\n  margin-left: 55px;\r\n}\r\n.aboutPage .gallery {\r\n  margin-bottom: 100px;\r\n}\r\n.aboutPage .gallery .underline {\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n}\r\n.aboutPage .gallery .grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(5, 1fr);\r\n  grid-gap: 16px;\r\n}\r\n.aboutPage .gallery .grid .img:first-child,\r\n.aboutPage .gallery .grid .img:nth-child(11) {\r\n  grid-column: span 2;\r\n  grid-row: span 2;\r\n}\r\n.aboutPage .gallery .grid .img {\r\n  position: relative;\r\n  cursor: pointer;\r\n}\r\n.aboutPage .gallery .grid .img img {\r\n  transition: 1s;\r\n}\r\n.aboutPage .gallery .grid .img::after {\r\n  width: 100%;\r\n  height: 100%;\r\n  left: 0;\r\n  top: 0;\r\n  background-color: #05175a00;\r\n  background-image: url(/assets/images/icons/other/magnifier.svg);\r\n  background-position: center;\r\n  background-size: 27px;\r\n  background-repeat: no-repeat;\r\n  opacity: 0;\r\n  transition: 0.4s;\r\n}\r\n.aboutPage .gallery .grid .img:hover::after {\r\n  opacity: 1;\r\n  background-color: #05175a79;\r\n}\r\n.aboutPage .gallery .grid .img:hover img {\r\n  transform: scale(1.2);\r\n}\r\n\r\n@media screen and (max-width: 1400px) {\r\n  .aboutPage {\r\n    width: 95%;\r\n  }\r\n}\r\n@media screen and (max-width: 1200px) {\r\n  .aboutPage .head {\r\n    font-size: 35px;\r\n    margin: 30px 0;\r\n  }\r\n  .aboutPage .showcase {\r\n    height: 410px;\r\n    margin-bottom: 50px;\r\n  }\r\n  .aboutPage .flex.one img {\r\n    margin-right: 25px;\r\n  }\r\n  .aboutPage .flex.two img {\r\n    margin-left: 25px;\r\n  }\r\n  .aboutPage .flex img {\r\n    width: 50%;\r\n  }\r\n  .aboutPage .flex .title {\r\n    font-size: 25px;\r\n  }\r\n  .aboutPage .flex {\r\n    margin-bottom: 42px;\r\n  }\r\n}\r\n@media screen and (max-width: 900px) {\r\n  .aboutPage .showcase {\r\n    height: 276px;\r\n  }\r\n  .aboutPage .flex {\r\n    flex-direction: column-reverse;\r\n  }\r\n  .aboutPage .flex img {\r\n    margin: 0 !important;\r\n\r\n    width: 100% !important;\r\n  }\r\n  .aboutPage .flex.two img {\r\n    margin-bottom: 30px !important;\r\n  }\r\n  .aboutPage .gallery .grid {\r\n    grid-template-columns: repeat(4, 1fr);\r\n  }\r\n}\r\n@media screen and (max-width: 600px) {\r\n  .aboutPage .gallery .grid {\r\n    grid-template-columns: repeat(3, 1fr);\r\n    grid-gap: 5px;\r\n  }\r\n  .aboutPage .head {\r\n    font-size: 28px;\r\n    margin: 21px 0;\r\n  }\r\n  .aboutPage .showcase {\r\n    height: 185px;\r\n    margin-bottom: 23px;\r\n  }\r\n  .aboutPage .underline {\r\n    margin-bottom: 22px;\r\n  }\r\n  .aboutPage .flex .title {\r\n    font-size: 20px;\r\n  }\r\n  .aboutPage p {\r\n    font-size: 14px;\r\n    margin-bottom: 16px;\r\n  }\r\n  .aboutPage .flex {\r\n    margin-bottom: 25px;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".aboutPage {\n  width: 1300px;\n}\n.aboutPage .head {\n  font-size: 45px;\n  text-transform: uppercase;\n  margin: 50px 0;\n  text-align: center;\n}\n.aboutPage .showcase {\n  height: 590px;\n  width: 100%;\n  margin-bottom: 80px;\n}\n.aboutPage .showcase img {\n  transition: 1s;\n}\n.aboutPage .showcase:hover img {\n  transform: scale(1.2) translateY(-50px);\n}\n.aboutPage .underline {\n  position: relative;\n  margin-bottom: 45px;\n}\n.aboutPage .underline::after {\n  width: 55px;\n  height: 3px;\n  left: 0;\n  bottom: -10px;\n  background-color: #cfcfcf;\n}\n.aboutPage p {\n  color: #cfcfcf;\n  margin-bottom: 30px;\n}\n.aboutPage .flex {\n  align-items: flex-start;\n  margin-bottom: 100px;\n}\n.aboutPage .flex .bold {\n  text-transform: uppercase;\n  opacity: 0.5;\n}\n.aboutPage .flex .title {\n  font-size: 35px;\n}\n.aboutPage .flex.one img {\n  margin-right: 55px;\n}\n.aboutPage .flex.two img {\n  margin-left: 55px;\n}\n.aboutPage .gallery {\n  margin-bottom: 100px;\n}\n.aboutPage .gallery .underline {\n  text-align: center;\n  text-transform: uppercase;\n}\n.aboutPage .gallery .grid {\n  display: grid;\n  grid-template-columns: repeat(5, 1fr);\n  grid-gap: 16px;\n}\n.aboutPage .gallery .grid .img:first-child,\n.aboutPage .gallery .grid .img:nth-child(11) {\n  grid-column: span 2;\n  grid-row: span 2;\n}\n.aboutPage .gallery .grid .img {\n  position: relative;\n  cursor: pointer;\n}\n.aboutPage .gallery .grid .img img {\n  transition: 1s;\n}\n.aboutPage .gallery .grid .img::after {\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  background-color: #05175a00;\n  background-image: url(/assets/images/icons/other/magnifier.svg);\n  background-position: center;\n  background-size: 27px;\n  background-repeat: no-repeat;\n  opacity: 0;\n  transition: 0.4s;\n}\n.aboutPage .gallery .grid .img:hover::after {\n  opacity: 1;\n  background-color: #05175a79;\n}\n.aboutPage .gallery .grid .img:hover img {\n  transform: scale(1.2);\n}\n\n@media screen and (max-width: 1400px) {\n  .aboutPage {\n    width: 95%;\n  }\n}\n@media screen and (max-width: 1200px) {\n  .aboutPage .head {\n    font-size: 35px;\n    margin: 30px 0;\n  }\n  .aboutPage .showcase {\n    height: 410px;\n    margin-bottom: 50px;\n  }\n  .aboutPage .flex.one img {\n    margin-right: 25px;\n  }\n  .aboutPage .flex.two img {\n    margin-left: 25px;\n  }\n  .aboutPage .flex img {\n    width: 50%;\n  }\n  .aboutPage .flex .title {\n    font-size: 25px;\n  }\n  .aboutPage .flex {\n    margin-bottom: 42px;\n  }\n}\n@media screen and (max-width: 900px) {\n  .aboutPage .showcase {\n    height: 276px;\n  }\n  .aboutPage .flex {\n    flex-direction: column-reverse;\n  }\n  .aboutPage .flex img {\n    margin: 0 !important;\n\n    width: 100% !important;\n  }\n  .aboutPage .flex.two img {\n    margin-bottom: 30px !important;\n  }\n  .aboutPage .gallery .grid {\n    grid-template-columns: repeat(4, 1fr);\n  }\n}\n@media screen and (max-width: 600px) {\n  .aboutPage .gallery .grid {\n    grid-template-columns: repeat(3, 1fr);\n    grid-gap: 5px;\n  }\n  .aboutPage .head {\n    font-size: 28px;\n    margin: 21px 0;\n  }\n  .aboutPage .showcase {\n    height: 185px;\n    margin-bottom: 23px;\n  }\n  .aboutPage .underline {\n    margin-bottom: 22px;\n  }\n  .aboutPage .flex .title {\n    font-size: 20px;\n  }\n  .aboutPage p {\n    font-size: 14px;\n    margin-bottom: 16px;\n  }\n  .aboutPage .flex {\n    margin-bottom: 25px;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4856,7 +4989,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".homePage .categories_home {\r\n  margin-top: 60px;\r\n  margin-bottom: 33px;\r\n}\r\n.homePage .categories_home h4 {\r\n  font-size: 40px;\r\n  font-weight: lighter;\r\n  opacity: 0.5;\r\n  line-height: 100%;\r\n  margin-bottom: 20px;\r\n  white-space: nowrap;\r\n  margin-right: 20px;\r\n}\r\n.homePage .exhibition {\r\n  width: 100%;\r\n  height: 650px;\r\n  background: url(/assets/images/home/1.png) no-repeat;\r\n  background-size: cover;\r\n  background-position: center;\r\n}\r\n.homePage .onsale_cats {\r\n  margin-top: 33px;\r\n  margin-bottom: 60px;\r\n}\r\n.homePage .onsale_cats .box {\r\n  width: 50%;\r\n  height: 420px;\r\n  margin: 0 8px;\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n.homePage .onsale_cats .box .bg {\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: -1;\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  transition: 1s;\r\n}\r\n.homePage .onsale_cats .box .container {\r\n  width: calc(100% - 120px);\r\n  height: calc(100% - 120px);\r\n  text-align: center;\r\n  flex-direction: column;\r\n}\r\n.homePage .onsale_cats .box h5 {\r\n  font-size: 40px;\r\n  font-weight: lighter;\r\n  margin-bottom: 20px;\r\n}\r\n.homePage .onsale_cats .box:hover .bg {\r\n  transform: scale(1.2);\r\n}\r\n.homePage .popular_products .head {\r\n  margin-bottom: 45px;\r\n}\r\n.homePage .popular_products .head .title {\r\n  font-size: 35px;\r\n  position: relative;\r\n}\r\n.homePage .popular_products .head .title::after {\r\n  height: 3px;\r\n  width: 73px;\r\n  background-color: #05185a;\r\n  left: 0;\r\n  bottom: -7px;\r\n}\r\n\r\n/* responsivenesssssss */\r\n\r\n@media screen and (max-width: 1320px) {\r\n  .homePage .categories_home {\r\n    align-items: flex-start;\r\n  }\r\n}\r\n@media screen and (max-width: 1200px) {\r\n  .homePage .exhibition {\r\n    height: 340px;\r\n  }\r\n  .homePage .onsale_cats .box .container {\r\n    width: calc(100% - 60px);\r\n    height: calc(100% - 60px);\r\n  }\r\n  .homePage .onsale_cats .box h5 {\r\n    font-size: 34px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .homePage .onsale_cats .box {\r\n    height: 282px;\r\n  }\r\n}\r\n@media screen and (max-width: 900px) {\r\n  .homePage .categories_home {\r\n    flex-direction: column;\r\n  }\r\n  .homePage .popular_products .head .title {\r\n    font-size: 25px;\r\n  }\r\n}\r\n@media screen and (max-width: 800px) {\r\n  .homePage .onsale_cats {\r\n    flex-direction: column;\r\n    margin-bottom: 20px;\r\n  }\r\n  .homePage .onsale_cats .box {\r\n    width: 100%;\r\n    margin: 0;\r\n    margin-bottom: 20px;\r\n  }\r\n}\r\n@media screen and (max-width: 600px) {\r\n  .homePage .exhibition {\r\n    height: 160px;\r\n  }\r\n}\r\n@media screen and (max-width: 500px) {\r\n  .homePage .categories_home {\r\n    margin-top: 21px;\r\n  }\r\n  .homePage .categories_home h4 {\r\n    font-size: 30px;\r\n    margin-bottom: 6px;\r\n    margin-right: 0;\r\n  }\r\n  .homePage .onsale_cats .box .container {\r\n    width: calc(100% - 30px);\r\n    height: calc(100% - 30px);\r\n  }\r\n  .homePage .onsale_cats .box h5 {\r\n    font-size: 27px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .homePage .onsale_cats .box .bold {\r\n    font-size: 13px;\r\n  }\r\n  .homePage .onsale_cats .box {\r\n    height: 230px;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".homePage .categories_home {\n  margin-top: 60px;\n  margin-bottom: 33px;\n}\n.homePage .categories_home h4 {\n  font-size: 40px;\n  font-weight: lighter;\n  opacity: 0.5;\n  line-height: 100%;\n  margin-bottom: 20px;\n  white-space: nowrap;\n  margin-right: 20px;\n}\n.homePage .exhibition {\n  width: 100% !important;\n  height: 650px !important;\n  background-size: cover !important;\n  background-position: center !important;\n}\n.homePage .onsale_cats {\n  margin-top: 33px;\n  margin-bottom: 60px;\n}\n.homePage .onsale_cats .box {\n  width: 50%;\n  height: 420px;\n  margin: 0 8px;\n  position: relative;\n  overflow: hidden;\n}\n.homePage .onsale_cats .box .bg {\n  position: absolute;\n  left: 0;\n  top: 0;\n  z-index: -1;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  transition: 1s;\n}\n.homePage .onsale_cats .box .container {\n  width: calc(100% - 120px);\n  height: calc(100% - 120px);\n  text-align: center;\n  flex-direction: column;\n}\n.homePage .onsale_cats .box h5 {\n  font-size: 40px;\n  font-weight: lighter;\n  margin-bottom: 20px;\n}\n.homePage .onsale_cats .box:hover .bg {\n  transform: scale(1.2);\n}\n.homePage .popular_products .head {\n  margin-bottom: 45px;\n}\n.homePage .popular_products .head .title {\n  font-size: 35px;\n  position: relative;\n}\n.homePage .popular_products .head .title::after {\n  height: 3px;\n  width: 73px;\n  background-color: #05185a;\n  left: 0;\n  bottom: -7px;\n}\n\n/* responsivenesssssss */\n\n@media screen and (max-width: 1320px) {\n  .homePage .categories_home {\n    align-items: flex-start;\n  }\n}\n@media screen and (max-width: 1200px) {\n  .homePage .exhibition {\n    height: 340px;\n  }\n  .homePage .onsale_cats .box .container {\n    width: calc(100% - 60px);\n    height: calc(100% - 60px);\n  }\n  .homePage .onsale_cats .box h5 {\n    font-size: 34px;\n    margin-bottom: 10px;\n  }\n  .homePage .onsale_cats .box {\n    height: 282px;\n  }\n}\n@media screen and (max-width: 900px) {\n  .homePage .categories_home {\n    flex-direction: column;\n  }\n  .homePage .popular_products .head .title {\n    font-size: 25px;\n  }\n}\n@media screen and (max-width: 800px) {\n  .homePage .onsale_cats {\n    flex-direction: column;\n    margin-bottom: 20px;\n  }\n  .homePage .onsale_cats .box {\n    width: 100%;\n    margin: 0;\n    margin-bottom: 20px;\n  }\n}\n@media screen and (max-width: 600px) {\n  .homePage .exhibition {\n    height: 160px;\n  }\n}\n@media screen and (max-width: 500px) {\n  .homePage .categories_home {\n    margin-top: 21px;\n  }\n  .homePage .categories_home h4 {\n    font-size: 30px;\n    margin-bottom: 6px;\n    margin-right: 0;\n  }\n  .homePage .onsale_cats .box .container {\n    width: calc(100% - 30px);\n    height: calc(100% - 30px);\n  }\n  .homePage .onsale_cats .box h5 {\n    font-size: 27px;\n    margin-bottom: 10px;\n  }\n  .homePage .onsale_cats .box .bold {\n    font-size: 13px;\n  }\n  .homePage .onsale_cats .box {\n    height: 230px;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4880,7 +5013,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".productsPage .fixed_bg {\r\n  background: url(/assets/images/products/bg.png) no-repeat;\r\n  background-position: center;\r\n  background-size: cover;\r\n  background-attachment: fixed;\r\n}\r\n.productsPage .showcase {\r\n  height: 266px;\r\n  width: 100%;\r\n  margin-bottom: 34px;\r\n}\r\n.productsPage .main {\r\n  align-items: flex-start;\r\n  justify-content: flex-start;\r\n}\r\n.productsPage .cat_column a {\r\n  display: block;\r\n  margin-bottom: 7px;\r\n  opacity: 0.5;\r\n}\r\n.productsPage .cat_column {\r\n  margin-right: 80px;\r\n}\r\n.productsPage .cat_column .bold {\r\n  text-transform: uppercase;\r\n  margin-bottom: 10px;\r\n}\r\n.productsPage .cat_column .item {\r\n  margin-bottom: 25px;\r\n}\r\n.productsPage .product_tabs .tab_btn {\r\n  text-transform: uppercase;\r\n  margin-right: 30px;\r\n  color: #05185a;\r\n  opacity: 0.5;\r\n  font-size: 16px;\r\n}\r\n.productsPage .product_tabs .tab_btn.active {\r\n  opacity: 1;\r\n}\r\n.productsPage .product_tabs .grid4 {\r\n  margin: 50px 0;\r\n}\r\n.productsPage .product_tabs .product_image {\r\n  height: 260px;\r\n}\r\n.pagination button {\r\n  color: #05185a;\r\n  opacity: 0.5;\r\n  margin: 0 5px;\r\n  font-size: 16px;\r\n}\r\n.pagination .active {\r\n  opacity: 1;\r\n}\r\n.productsPage .fixed_bg.last {\r\n  margin-top: 50px;\r\n  text-align: center;\r\n  font-size: 90px;\r\n  padding: 100px 0;\r\n  color: #fff;\r\n  line-height: 100%;\r\n}\r\n\r\n@media screen and (max-width: 1200px) {\r\n  .productsPage .cat_column {\r\n    margin-right: 30px;\r\n  }\r\n  .productsPage .fixed_bg.last {\r\n    font-size: 50px;\r\n    padding: 62px 0;\r\n  }\r\n}\r\n@media screen and (max-width: 900px) {\r\n  .productsPage .main {\r\n    flex-direction: column-reverse;\r\n  }\r\n  .productsPage .cat_column {\r\n    margin-right: 0;\r\n    margin-top: 50px;\r\n  }\r\n  .productsPage .fixed_bg.last {\r\n    font-size: 30px;\r\n    padding: 45px 0;\r\n  }\r\n}\r\n@media screen and (max-width: 600px) {\r\n  .productsPage .product_tabs .tab_btn {\r\n    margin-right: 20px;\r\n    font-size: 14px;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".productsPage .fixed_bg {\n  background-position: center !important;\n  background-size: cover !important;\n  background-attachment: fixed !important;\n}\n.productsPage .showcase {\n  height: 266px;\n  width: 100%;\n  margin-bottom: 34px;\n}\n.productsPage .main {\n  align-items: flex-start;\n  justify-content: flex-start;\n}\n.productsPage .cat_column a {\n  display: block;\n  margin-bottom: 7px;\n  opacity: 0.5;\n}\n.productsPage .cat_column {\n  margin-right: 80px;\n}\n.productsPage .cat_column .bold {\n  text-transform: uppercase;\n  margin-bottom: 10px;\n}\n.productsPage .cat_column .item {\n  margin-bottom: 25px;\n}\n.productsPage .product_tabs .tab_btn {\n  text-transform: uppercase;\n  margin-right: 30px;\n  color: #05185a;\n  opacity: 0.5;\n  font-size: 16px;\n}\n.productsPage .product_tabs .tab_btn.active {\n  opacity: 1;\n}\n.productsPage .product_tabs .grid4 {\n  margin: 50px 0;\n}\n.productsPage .product_tabs .product_image {\n  height: 260px;\n}\n.pagination button {\n  color: #05185a;\n  opacity: 0.5;\n  margin: 0 5px;\n  font-size: 16px;\n}\n.pagination a {\n    color: #05185a;\n    opacity: 0.5;\n    margin: 0 5px;\n    font-size: 16px;\n}\n.pagination .active {\n  opacity: 1;\n}\n.productsPage .fixed_bg.last {\n  margin-top: 50px;\n  text-align: center;\n  font-size: 90px;\n  padding: 100px 0;\n  color: #fff;\n  line-height: 100%;\n}\n\n@media screen and (max-width: 1200px) {\n  .productsPage .cat_column {\n    margin-right: 30px;\n  }\n  .productsPage .fixed_bg.last {\n    font-size: 50px;\n    padding: 62px 0;\n  }\n}\n@media screen and (max-width: 900px) {\n  .productsPage .main {\n    flex-direction: column-reverse;\n  }\n  .productsPage .cat_column {\n    margin-right: 0;\n    margin-top: 50px;\n  }\n  .productsPage .fixed_bg.last {\n    font-size: 30px;\n    padding: 45px 0;\n  }\n}\n@media screen and (max-width: 600px) {\n  .productsPage .product_tabs .tab_btn {\n    margin-right: 20px;\n    font-size: 14px;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4904,7 +5037,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".SingleProduct {\r\n  margin-top: 20px;\r\n}\r\n.SingleProduct .container {\r\n  width: 1300px;\r\n  margin: auto;\r\n}\r\n.SingleProduct .path img,\r\n.SingleProduct .path span {\r\n  vertical-align: middle;\r\n  opacity: 0.5;\r\n}\r\n.SingleProduct .path img {\r\n  margin: 0 5px;\r\n}\r\n.SingleProduct .path .active {\r\n  opacity: 1;\r\n}\r\n.SingleProduct .main {\r\n  align-items: flex-start;\r\n  margin-bottom: 80px;\r\n  margin-top: 12px;\r\n}\r\n.SingleProduct .details {\r\n  width: 40%;\r\n}\r\n.SingleProduct .details .main_button svg {\r\n  display: none;\r\n}\r\n.SingleProduct .details .bold {\r\n  text-transform: uppercase;\r\n  margin-bottom: 7px;\r\n}\r\n.SingleProduct .details .op5 {\r\n  opacity: 0.5;\r\n}\r\n.SingleProduct .details .margin {\r\n  margin: 25px 0;\r\n}\r\n.SingleProduct .details .in_stock {\r\n  color: #0d5a05;\r\n  opacity: 0.5;\r\n  border-bottom: #ecf0f7 1px solid;\r\n  padding-bottom: 5px;\r\n  margin-bottom: 15px;\r\n}\r\n.SingleProduct .view {\r\n  width: 50%;\r\n  margin-right: 50px;\r\n}\r\n.SingleProduct .slider_1 {\r\n  width: 100%;\r\n  margin-bottom: 40px;\r\n}\r\n.SingleProduct .slider_1 .product_image {\r\n  width: 100%;\r\n}\r\n.SingleProduct .slider_2 {\r\n  margin: 0 -15px;\r\n}\r\n.SingleProduct .slider_2 .product_image {\r\n  width: 145px;\r\n  height: 145px;\r\n  margin: 0 15px;\r\n}\r\n.SingleProduct .slider_2 .product_image .discount {\r\n  padding: 1px 9px;\r\n  font-size: 12px;\r\n  top: 5px;\r\n}\r\n.slick-arrow {\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 50%;\r\n  background: #05185a;\r\n  margin: 0 20px;\r\n  z-index: 100;\r\n}\r\n.slick-arrow::before {\r\n  display: none;\r\n}\r\n.slick-arrow::after {\r\n  left: 50%;\r\n  top: 50%;\r\n  transform: translate(-50%, -50%);\r\n  width: 15px;\r\n  height: 10px;\r\n  background: url(/assets/images/icons/arrows/2w.svg) no-repeat;\r\n  background-position: center;\r\n  background-size: contain;\r\n}\r\n.slick-arrow.slick-prev::after {\r\n  transform: translate(-50%, -50%) rotate(180deg);\r\n}\r\n.slick-prev:hover,\r\n.slick-prev:focus,\r\n.slick-next:hover,\r\n.slick-next:focus {\r\n  background: #05185a;\r\n}\r\n.SingleProduct .similar_products {\r\n  font-size: 25px;\r\n  text-transform: uppercase;\r\n  text-align: center;\r\n  margin-bottom: 40px;\r\n  position: relative;\r\n}\r\n.SingleProduct .similar_products::after {\r\n  left: 50%;\r\n  transform: translateX(-50%);\r\n  bottom: -10px;\r\n  width: 73px;\r\n  height: 3px;\r\n  background-color: #05185a;\r\n}\r\n.SingleProduct .grid4 {\r\n  margin-bottom: 80px;\r\n}\r\n\r\n@media screen and (max-width: 1400px) {\r\n  .SingleProduct .container {\r\n    width: 95%;\r\n  }\r\n}\r\n@media screen and (max-width: 1300px) {\r\n  .SingleProduct .container {\r\n    width: 95%;\r\n  }\r\n  .SingleProduct .details {\r\n    width: auto;\r\n  }\r\n  .SingleProduct .slider_2 .product_image {\r\n    width: 96px;\r\n    height: 96px;\r\n  }\r\n}\r\n@media screen and (max-width: 900px) {\r\n  .SingleProduct .main {\r\n    flex-direction: column;\r\n  }\r\n  .SingleProduct .view {\r\n    width: 100%;\r\n    margin-right: 0;\r\n    margin-bottom: 50px;\r\n  }\r\n  .SingleProduct .slider_2 .product_image {\r\n    width: 140px;\r\n    height: 140px;\r\n  }\r\n  .slick-arrow {\r\n    margin: 0 36px;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".SingleProduct {\n  margin-top: 20px;\n}\n.SingleProduct .container {\n  width: 1300px;\n  margin: auto;\n}\n.SingleProduct .path img,\n.SingleProduct .path span {\n  vertical-align: middle;\n  opacity: 0.5;\n}\n.SingleProduct .path img {\n  margin: 0 5px;\n}\n.SingleProduct .path .active {\n  opacity: 1;\n}\n.SingleProduct .main {\n  align-items: flex-start;\n  margin-bottom: 80px;\n  margin-top: 12px;\n}\n.SingleProduct .details {\n  width: 40%;\n}\n.SingleProduct .details .main_button svg {\n  display: none;\n}\n.SingleProduct .details .bold {\n  text-transform: uppercase;\n  margin-bottom: 7px;\n}\n.SingleProduct .details .op5 {\n  opacity: 0.5;\n}\n.SingleProduct .details .margin {\n  margin: 25px 0;\n}\n.SingleProduct .details .in_stock {\n  color: #0d5a05;\n  opacity: 0.5;\n  border-bottom: #ecf0f7 1px solid;\n  padding-bottom: 5px;\n  margin-bottom: 15px;\n}\n.SingleProduct .details .no_stock {\n    color: #5a0505;\n    opacity: 0.5;\n    border-bottom: #ecf0f7 1px solid;\n    padding-bottom: 5px;\n    margin-bottom: 15px;\n}\n.SingleProduct .view {\n  width: 50%;\n  margin-right: 50px;\n}\n.SingleProduct .slider_1 {\n  width: 100%;\n  margin-bottom: 40px;\n}\n.SingleProduct .slider_1 .product_image {\n  width: 100%;\n}\n.SingleProduct .slider_2 {\n  margin: 0 -15px;\n}\n.SingleProduct .slider_2 .product_image {\n  width: 145px;\n  height: 145px;\n  margin: 0 15px;\n}\n.SingleProduct .slider_2 .product_image .discount {\n  padding: 1px 9px;\n  font-size: 12px;\n  top: 5px;\n}\n.slick-arrow {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background: #05185a;\n  margin: 0 20px;\n  z-index: 100;\n}\n.slick-arrow::before {\n  display: none;\n}\n.slick-arrow::after {\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  width: 15px;\n  height: 10px;\n  background: url(/assets/images/icons/arrows/2w.svg) no-repeat;\n  background-position: center;\n  background-size: contain;\n}\n.slick-arrow.slick-prev::after {\n  transform: translate(-50%, -50%) rotate(180deg);\n}\n.slick-prev:hover,\n.slick-prev:focus,\n.slick-next:hover,\n.slick-next:focus {\n  background: #05185a;\n}\n.SingleProduct .similar_products {\n  font-size: 25px;\n  text-transform: uppercase;\n  text-align: center;\n  margin-bottom: 40px;\n  position: relative;\n}\n.SingleProduct .similar_products::after {\n  left: 50%;\n  transform: translateX(-50%);\n  bottom: -10px;\n  width: 73px;\n  height: 3px;\n  background-color: #05185a;\n}\n.SingleProduct .grid4 {\n  margin-bottom: 80px;\n}\n\n@media screen and (max-width: 1400px) {\n  .SingleProduct .container {\n    width: 95%;\n  }\n}\n@media screen and (max-width: 1300px) {\n  .SingleProduct .container {\n    width: 95%;\n  }\n  .SingleProduct .details {\n    width: auto;\n  }\n  .SingleProduct .slider_2 .product_image {\n    width: 96px;\n    height: 96px;\n  }\n}\n@media screen and (max-width: 900px) {\n  .SingleProduct .main {\n    flex-direction: column;\n  }\n  .SingleProduct .view {\n    width: 100%;\n    margin-right: 0;\n    margin-bottom: 50px;\n  }\n  .SingleProduct .slider_2 .product_image {\n    width: 140px;\n    height: 140px;\n  }\n  .slick-arrow {\n    margin: 0 36px;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4952,7 +5085,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".header {\r\n  padding-top: 66px;\r\n  padding-bottom: 40px;\r\n  text-transform: uppercase;\r\n  font-size: 20px;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  z-index: 1000;\r\n  overflow: hidden;\r\n}\r\n.header .logo {\r\n  margin-right: 100px;\r\n}\r\n.header .languages {\r\n  position: relative;\r\n  cursor: default;\r\n}\r\n.header .languages .lang_drop {\r\n  position: absolute;\r\n  left: 0;\r\n  top: 100%;\r\n  transform: rotate(-90deg) scale(0.7) translateY(20px) translateX(10px);\r\n  transform-origin: top;\r\n  transition: 0.3s;\r\n  opacity: 0;\r\n}\r\n.header .languages .lang_on {\r\n  position: relative;\r\n}\r\n.header .languages .lang_on::before {\r\n  width: 11px;\r\n  height: 10px;\r\n  left: -20px;\r\n  top: 50%;\r\n  transform: translateY(-50%);\r\n  background: url(/assets/images/icons/header/triangle.svg) no-repeat;\r\n  background-position: center;\r\n  background-size: contain;\r\n  transition: 0.3s;\r\n  transform-origin: center;\r\n}\r\n.header .languages:hover .lang_on::before {\r\n  transform: translateY(-50%) rotate(-180deg);\r\n}\r\n.header .languages:hover .lang_drop {\r\n  transform: rotate(0) scale(1) translateY(0) translateX(0);\r\n  opacity: 1;\r\n}\r\n\r\n@media screen and (max-width: 1500px) {\r\n  .header {\r\n    padding: 24px 0;\r\n    font-size: 16px;\r\n  }\r\n}\r\n@media screen and (max-width: 900px) {\r\n  .header .logo {\r\n    margin-right: 24px;\r\n  }\r\n}\r\n@media screen and (max-width: 500px) {\r\n  .header .logo {\r\n    margin-right: 4px;\r\n  }\r\n  .header {\r\n    padding: 13px 0;\r\n    font-size: 13px;\r\n  }\r\n  .header .languages .lang_on::before {\r\n    left: -13px;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header {\n  padding-top: 66px;\n  padding-bottom: 40px;\n  text-transform: uppercase;\n  font-size: 20px;\n  left: 0;\n  top: 0;\n  width: 100%;\n  z-index: 1000;\n  overflow: hidden;\n}\n.header .logo {\n  margin-right: 100px;\n}\n.header .languages {\n  position: relative;\n  cursor: default;\n}\n.header .languages .lang_drop {\n  position: absolute;\n  left: 0;\n  top: 100%;\n  transform: rotate(-90deg) scale(0.7) translateY(20px) translateX(10px);\n  transform-origin: top;\n  transition: 0.3s;\n  opacity: 0;\n}\n.header .languages .lang_on {\n  position: relative;\n}\n.header .languages .lang_on::before {\n  width: 11px;\n  height: 10px;\n  left: -20px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: url(/assets/images/icons/header/triangle.svg) no-repeat;\n  background-position: center;\n  background-size: contain;\n  transition: 0.3s;\n  transform-origin: center;\n}\n.header .languages:hover .lang_on::before {\n  transform: translateY(-50%) rotate(-180deg);\n}\n.header .languages:hover .lang_drop {\n  transform: rotate(0) scale(1) translateY(0) translateX(0);\n  opacity: 1;\n}\n\n@media screen and (max-width: 1500px) {\n  .header {\n    padding: 24px 0;\n    font-size: 16px;\n  }\n}\n@media screen and (max-width: 900px) {\n  .header .logo {\n    margin-right: 24px;\n  }\n}\n@media screen and (max-width: 500px) {\n  .header .logo {\n    margin-right: 4px;\n  }\n  .header {\n    padding: 13px 0;\n    font-size: 13px;\n  }\n  .header .languages .lang_on::before {\n    left: -13px;\n  }\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

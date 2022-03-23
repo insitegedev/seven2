@@ -13,7 +13,21 @@ import { usePage } from '@inertiajs/inertia-react'
 
 const Footer = () => {
     const { url, component } = usePage();
-    const { pathname } = usePage().props;
+    const { pathname, categories, info } = usePage().props;
+    const sharedData = usePage().props.localizations;
+    //console.log(categories);
+
+    let subcategory = function (children){
+        let rows = [];
+        if(children.length > 0){
+            children.map(child => {
+                //console.log(child)
+                   rows.push(<Link href={route('client.category.show',child.slug)}>{child.title}</Link>)
+            })
+        }
+        return rows
+    }
+
   return (
     <div
       className="footer"
@@ -22,51 +36,32 @@ const Footer = () => {
       <div className="wrapper flex">
         <div className="part">
           <div className="flex" style={{ justifyContent: "flex-start" }}>
-            <Link href="/" className="logo">
+            <Link href={route('client.home.index')} className="logo">
               <img src="/assets/images/logo/1.svg" alt="" />
             </Link>
             <Navbar />
           </div>
           <div className="category_grid">
-            <div className="column">
-              <div className="bold">Bedroom furniture</div>
-              <Link href="/">Bed</Link>
-              <Link href="/">Wardrobes</Link>
-              <Link href="/">Pump</Link>
-              <Link href="/">Commode</Link>
-              <Link href="/">Mirrors</Link>
-            </div>
-            <div className="column">
-              <div className="bold">Living room furniture</div>
-              <Link href="/">Wall unit</Link>
-              <Link href="/">Console</Link>
-              <Link href="/">Coffee table</Link>
-              <Link href="/">Accessories</Link>
-            </div>
-            <div className="column">
-              <div className="bold">Upholstered furniture</div>
-              <Link href="/">Corner sofa</Link>
-              <Link href="/">Sofa</Link>
-              <Link href="/">Puff</Link>
-              <Link href="/">Armchair</Link>
-            </div>
-            <div className="column">
-              <div className="bold">Table-chair</div>
-              <Link href="/">Table</Link>
-              <Link href="/">Chair</Link>
-              <Link href="/">Bar chair</Link>
-            </div>
+              {categories.map(function (category){
+                  return (
+                      <div className="column">
+                          <div className="bold">{category.title}</div>
+                          {subcategory(category.children)}
+                      </div>
+                  )
+              })}
+
           </div>
         </div>
         <div className="part">
-          <h6>Social links:</h6>
-          <Link href="/" className="sm flex">
+          <h6>{__('client.footer_social_links',sharedData)}:</h6>
+          <Link href={info.facebook.translation ? info.facebook.translation.value : null} className="sm flex">
             <div className="icon flex centered">
               <img src="/assets/images/icons/sm/fb.svg" alt="" />
             </div>
             <p>Facebook</p>
           </Link>
-          <Link href="/" className="sm flex">
+          <Link href={info.instagram.translation ? info.instagram.translation.value : null} className="sm flex">
             <div className="icon flex centered">
               <img src="/assets/images/icons/sm/ig.svg" alt="" />
             </div>

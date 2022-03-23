@@ -43,7 +43,9 @@ class ProductRequest extends FormRequest
         return [
             'slug' => ['required', 'alpha_dash', Rule::unique('products', 'slug')->ignore($this->product)],
             config('translatable.fallback_locale') . '.title' => 'required',
-            'category_id' => 'required|numeric|exists:categories,id'
+            'code' => ['required'],
+
+
         ];
     }
 }

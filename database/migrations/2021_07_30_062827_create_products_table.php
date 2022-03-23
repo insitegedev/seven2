@@ -21,18 +21,14 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('category_id')->unsigned();
+            //$table->bigInteger('category_id')->unsigned();
 
             $table->string('slug')->unique();
             $table->boolean('status')->default(true);
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+
         });
     }
 

@@ -29,7 +29,7 @@ Route::redirect('', config('translatable.fallback_locale'));
 Route::prefix('{locale?}')
     ->middleware(['setlocale'])
     ->group(function () {
-        Route::prefix('admin')->group(function () {
+        Route::prefix('adminpanel')->group(function () {
             Route::get('login', [LoginController::class, 'loginView'])->name('loginView');
             Route::post('login', [LoginController::class, 'login'])->name('login');
 
@@ -37,7 +37,7 @@ Route::prefix('{locale?}')
             Route::middleware('auth')->group(function () {
                 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-                Route::redirect('', '/admin/apartment',);
+                Route::redirect('', '/adminpanel/apartment',);
 
                 // Language
                 Route::resource('language', LanguageController::class);
@@ -120,6 +120,8 @@ Route::prefix('{locale?}')
             // Product Page
             Route::get('products', [\App\Http\Controllers\Client\ProductController::class, 'index'])->name('client.product.index');
            Route::get('product/{product}', [\App\Http\Controllers\Client\ProductController::class, 'show'])->name('client.product.show');
+
+           Route::get('category/{category}',[\App\Http\Controllers\Client\CategoryController::class,'show'])->name('client.category.show');
 
             // Project Page
 //            Route::get('/project', [\App\Http\Controllers\Client\ProjectController::class, 'index'])->name('client.project.index');

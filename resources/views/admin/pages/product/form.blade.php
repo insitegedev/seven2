@@ -1,3 +1,37 @@
+<?php
+
+    $ids = $product->categories->pluck("id")->toArray();
+
+    //dd($ids);
+
+
+$traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
+
+    $html = '<ul style="margin: initial !important;padding: initial !important;">';
+    foreach ($categories as $category) {
+        if(in_array($category->id,$ids)) $checked = 'checked';
+        else $checked = '';
+        $html .= '<li><label class="custom-control-label mt-1">
+                        <input type="checkbox" name="categories[]" data-checkboxes="mygroup" class="custom-control-input" '. $checked .' id="'.$category->id.'" value="'.$category->id.'">
+                        <span>'.$category->title.'</span>
+
+                        </label></li>';
+
+
+        if(count($category->children)){
+            $html .= '<li style="padding-left: 20px">';
+            $html .= $traverse($category->children, $prefix.'-');
+            $html .= '</li>';
+        }
+
+    }
+
+    $html .= '</ul>';
+
+    return $html;
+};
+
+?>
 {{-- extend layout --}}
 @extends('admin.layout.contentLayoutMaster')
 {{-- page title --}}
@@ -120,19 +154,23 @@
                                     </small>
                                     @enderror
                                 </div>
+                                <div class="input-field col s12">
+                                    {!! Form::text('code',$product->code,['class' => 'validate '. $errors->has('code') ? '' : 'valid']) !!}
+                                    {!! Form::label('code',__('admin.code')) !!}
+                                    @error('code')
+                                    <small class="errorTxt4">
+                                        <div class="error">
+                                            {{$message}}
+                                        </div>
+                                    </small>
+                                    @enderror
+                                </div>
                                 <div class="col">
                                     <label for="category_id">{{__('admin.category')}}</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <select name="category_id" class="select2 js-example-programmatic browser-default">
-                                        <optgroup>
-                                            @foreach($categories as $key => $category)
-                                                <option value="{{$category->id}}" {{$key === 0 ? 'selected' : ''}} {{$product->category_id === $category->id ? 'selected' : ''}}>
-                                                    {{$category->title}}
-                                                </option>
-                                            @endforeach
-                                        </optgroup>
-                                    </select>
+                                    <?=$traverse($categories);?>
+
                                     @error('category_id')
                                     <small class="errorTxt4">
                                         <div class="error">
@@ -149,6 +187,37 @@
                                         <span>{{__('admin.status')}}</span>
                                     </label>
                                 </div>
+
+                                <div class="col s12 mt-3 mb-3">
+                                    <label>
+                                        <input type="checkbox" name="popular"
+                                               value="true" {{$product->popular ? 'checked' : ''}}>
+                                        <span>{{__('admin.popular')}}</span>
+                                    </label>
+                                </div>
+
+                                <div class="col s12 mt-3 mb-3">
+                                    <label>
+                                        <input type="checkbox" name="stock"
+                                               value="true" {{$product->stock ? 'checked' : ''}}>
+                                        <span>{{__('admin.instock')}}</span>
+                                    </label>
+                                </div>
+
+                                <div class="col s12 mt-3 mb-3">
+                                    <div class="input-field ">
+                                        {!! Form::number('sale',$product->sale ?? '',['step'=>'0.1']) !!}
+                                        {!! Form::label('sale',__('admin.sale')) !!}
+                                        @error('sale')
+                                        <small class="errorTxt4">
+                                            <div class="error">
+                                                {{$message}}
+                                            </div>
+                                        </small>
+                                        @enderror
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="form-group">
                                 <div class="input-images"></div>
@@ -194,3 +263,5 @@
         @endforeach
     </script>
 @endsection
+
+

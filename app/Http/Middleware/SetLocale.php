@@ -60,6 +60,7 @@ class SetLocale
         //languages for inertia
         $trans = new Db();
 
+
         Inertia::share("currentLocale", $language->locale);
         Inertia::share( "localizations", $trans->loadTranslations($language->locale, "client"));
         return $next($request);

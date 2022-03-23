@@ -13,14 +13,7 @@ use App\Http\Requests\Admin\ProductRequest;
 use Illuminate\Http\Request;
 
 
-interface ApartmentRepositoryInterface
+interface PageSectionRepositoryInterface
 {
 
-    /**
-     * @param ProductRequest $request
-     * @param array $with
-     *
-     * @return mixed
-     */
-    public function getData(Request $request, array $with = []);
 }

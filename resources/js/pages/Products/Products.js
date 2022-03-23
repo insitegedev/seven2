@@ -11,6 +11,9 @@ import { usePage, Head } from "@inertiajs/inertia-react";
 
 const Products = (page,seo) => {
   const [showTab, setShowTab] = useState(0);
+    const { categories, products, category, images } = usePage().props;
+    const sharedData = usePage().props.localizations;
+    console.log(category);
   const catColumn = [
     {
       cat: "Living room furniture",
@@ -141,40 +144,63 @@ const Products = (page,seo) => {
     },
   ];
 
+    let subcategory = function (children){
+        let rows = [];
+        if(children.length > 0){
+            children.map(child => {
+                rows.push(<Link href={route('client.category.show',child.slug)}>{child.title}</Link>)
+            })
+        }
+        return rows
+    }
+
+    let links = function (links){
+        let rows = [];
+        //links.shift();
+        //links.splice(-1);
+        {links.map(function (item,index){
+
+
+            if (index > 0 && index < links.length - 1){
+                rows.push(<Link href={item.url} className={(item.active) ? 'bold active': 'bold'}>{item.label}</Link>)
+            }
+
+        })}
+        return rows.length > 1 ? rows : null
+    }
+
   return (
       <Layout seo={seo}>
     <div className="productsPage">
-      <div className="showcase fixed_bg"></div>
+      <div style={{background: 'url(' + images[0] +') no-repeat'}} className="showcase fixed_bg"></div>
       <div className="wrapper flex main">
         <div className="cat_column">
-          {catColumn.map((item, i) => {
+          {categories.map((item, i) => {
             return (
               <div className="item" key={i}>
-                <div className="bold">{item.cat}</div>
-                {item.links.map((link, i) => {
-                  return (
-                    <Link href="/" key={i}>
-                      {link}
-                    </Link>
-                  );
-                })}
+                <div className="bold">{item.title}</div>
+                  {subcategory(item.children)}
               </div>
             );
           })}
         </div>
         <div className="product_tabs">
-          {productTabs.map((tab, i) => {
+            <Link className={
+                !category ? "active tab_btn bold" : "tab_btn bold"
+            } href={route('client.product.index')}>{__('client.category_all',sharedData)}</Link>
+          {categories.map((tab, i) => {
+              let link = route('client.category.show',tab.slug);
             return (
               <>
-                <button
+                <Link
                   key={i}
                   className={
-                    showTab === i ? "active tab_btn bold" : "tab_btn bold"
+                    (category && tab.id === category.id) ? "active tab_btn bold" : "tab_btn bold"
                   }
-                  onClick={() => setShowTab(i)}
+                  href={link}
                 >
-                  {tab.tab}
-                </button>
+                  {tab.title}
+                </Link>
               </>
             );
           })}
@@ -185,14 +211,14 @@ const Products = (page,seo) => {
                 className="grid4"
                 style={{ display: showTab === i ? "grid " : "none" }}
               >
-                {tab.data.map((item, i) => {
-                    let product = ['product'];
-                    let link = route('client.product.show',product);
+                {products.data.map((item, i) => {
+                    let slug = item.slug;
+                    let link = route('client.product.show',slug);
                   return (
                     <ProductBox
-                      src={item.img}
-                      discount={item.off}
-                      category={item.cat}
+                      src={( item.files.length > 0) ? '/' + item.files[0].path + '/' + item.files[0].title : null}
+                      discount={item.sale}
+                      category={item.title}
                       link={link}
                     />
                   );
@@ -201,15 +227,12 @@ const Products = (page,seo) => {
             );
           })}
           <div className="pagination flex centered">
-            <button className="bold active">1</button>
-            <button className="bold">2</button>
-            <button className="bold">3</button>
-            <button className="bold">4</button>
+              {links(products.links)}
           </div>
         </div>
       </div>
       <div className="fixed_bg last">
-        best furniture <br /> for your apartment
+          {__('client.products_section_text1',sharedData)} <br /> {__('client.products_section_text1',sharedData)}
       </div>
     </div>
       </Layout>

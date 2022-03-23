@@ -14,6 +14,11 @@ class UpdateProductsTable2 extends Migration
     public function up()
     {
         //
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('code');
+            $table->boolean('stock');
+            $table->float('sale')->nullable()->change();
+        });
     }
 
     /**
@@ -24,5 +29,10 @@ class UpdateProductsTable2 extends Migration
     public function down()
     {
         //
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('code');
+            $table->dropColumn('stock');
+            $table->float('sale')->change();
+        });
     }
 }

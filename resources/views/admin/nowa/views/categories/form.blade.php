@@ -17,6 +17,8 @@
     <!--Internal  TelephoneInput css-->
     <link rel="stylesheet" href="{{asset('assets/plugins/telephoneinput/telephoneinput.css')}}">
 
+    <link rel="stylesheet" href="{{asset('uploader/image-uploader.css')}}">
+
 @endsection
 
 @section('content')
@@ -24,18 +26,16 @@
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">ADVANCED FORMS</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$category->created_at ? __('admin.category-update') : __('admin.category-create')}}</span>
         </div>
         <div class="justify-content-center mt-2">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item tx-15"><a href="javascript:void(0);">Forms</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Advanced Forms</li>
-            </ol>
+            @include('admin.nowa.views.layouts.components.breadcrump')
         </div>
     </div>
     <!-- /breadcrumb -->
-
+    <input name="old-images[]" id="old_images" hidden disabled value="{{$category->files}}">
     <!-- row -->
+    {!! Form::model($category,['url' => $url, 'method' => $method,'files' => true]) !!}
     <div class="row">
         <div class="col-lg-6 col-md-12">
             <div class="card">
@@ -45,205 +45,118 @@
                         <p class="text-muted card-sub-title">First import a latest version of jquery in your page. Then the jquery.sumoselect.min.js and its css (sumoselect.css)</p>
                     </div>
                     <div class="mb-4">
-                        <p class="mg-b-10">Single Select</p>
-                        <select name="somename" class="form-control SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                        <p class="mg-b-10">parent</p>
+                        <select name="parent_id" class="form-control SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
                             <!--placeholder-->
-                            <option title="eg1 is a car"  value="eg1">eg1</option>
-                            <option value="saab">Saab</option>
-                            <option value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <p class="mg-b-10">Disabled Select</p>
-                        <select class="SlectBox form-control" disabled>
-                            <option value="eg1">eg1</option>
-                            <option selected value="saab">Saab</option>
-                            <option value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                            <option disabled value="opt1">option1</option>
-                            <option value="opt2">option2</option>
-                            <option value="opt3">option3</option>
-                        </select>
-                    </div>
-                    <div>
-                        <p class="mg-b-10">Inline Select</p>
-                        <select class="SlectBox form-control">
-                            <option>selected</option>
-                            <option>eg1</option>
-                            <option>Saab</option>
-                            <option value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                            <option>eg1</option>
-                            <option>Saab</option>
-                            <option value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                            <option>eg1</option>
-                            <option>Saab</option>
-                            <option value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                            <option>eg1</option>
-                            <option>Saab</option>
-                            <option value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">Multiple Select Styles</h6>
-                        <p class="text-muted card-sub-title">First import a latest version of jquery in your page. Then the jquery.sumoselect.min.js and its css (sumoselect.css)</p>
-                    </div>
-                    <div class="mb-4">
-                        <p class="mg-b-10">Multiple Select</p>
-                        <select multiple="multiple" class="testselect2">
-                            <option selected value="eg1">eg1</option>
-                            <option value="saab">Saab</option>
-                            <option value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <p class="mg-b-10">Disabled Select</p>
-                        <select multiple="multiple" class="testselect2" disabled >
-                            <option selected value="eg1">eg1</option>
-                            <option value="saab">Saab</option>
-                            <option disabled="disabled" value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                            <option value="eg4">eg4</option>
-                            <option value="porsche">Porche</option>
-                            <option value="ferrari">Ferrari</option>
-                            <option class="someclass" value="eg3">eg3</option>
-                            <option class="someclass" value="eg4">eg4</option>
-                            <option class="someclass" value="porsche">Porche</option>
-                            <option value="ferrari">Ferrari</option>
-                            <option value="eg3">eg3</option>
-                            <option value="eg4">eg4</option>
-                            <option value="porsche">Porche</option>
-                            <option value="ferrari">Ferrari</option>
-                            <option value="hyundai">Hyundai</option>
-                            <option value="mitsubishi">Mitsubishi</option>
-                        </select>
-                    </div>
-                    <div>
-                        <p class="mg-b-10">Optgroup Support</p>
-                        <select   multiple="multiple" class="testselect2">
-                            <option selected value="eg1">eg1</option>
-                            <option value="saab">Saab</option>
-                            <option disabled="disabled" value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                            <option value="eg4">eg4</option>
-                            <option value="porsche">Porche</option>
-                            <option value="ferrari">Ferrari</option>
-                            <option class="someclass" value="eg3">eg3</option>
-                            <option class="someclass" value="eg4">eg4</option>
-                            <option class="someclass" value="porsche">Porche</option>
-                            <option value="ferrari">Ferrari</option>
-                            <option value="eg3">eg3</option>
-                            <option value="eg4">eg4</option>
-                            <option value="porsche">Porche</option>
-                            <option value="ferrari">Ferrari</option>
-                            <option value="hyundai">Hyundai</option>
-                            <option value="mitsubishi">Mitsubishi</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">Multiple Select Styles</h6>
-                        <p class="text-muted card-sub-title">First import a latest version of jquery in your page. Then the jquery.sumoselect.min.js and its css (sumoselect.css)</p>
-                    </div>
-                    <div class="mb-4">
-                        <p class="mg-b-10">Multiple Select-1</p>
-                        <select multiple="multiple" onchange="console.log($(this).children(':selected').length)" class="selectsum1">
-                            <option selected value="eg1">eg1</option>
-                            <option value="saab">Saab</option>
-                            <option disabled="disabled" value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                            <option selected value="eg4">eg4</option>
-                            <option value="porsche">Porche</option>
-                            <option value="ferrari">Ferrari</option>
-                            <option value="mitsubishi">Mitsubishi</option>
-                        </select>
-                    </div>
-                    <div>
-                        <p class="mg-b-10">Multiple Select-2</p>
-                        <select multiple="multiple" onchange="console.log($(this).children(':selected').length)" class="selectsum2">
-                            <option selected value="eg1">eg1</option>
-                            <option value="saab">Saab</option>
-                            <option disabled="disabled" value="eg2">eg2</option>
-                            <option value="eg3">eg3</option>
-                            <option selected value="eg4">eg4</option>
-                            <option value="porsche">Porche</option>
-                            <option value="ferrari">Ferrari</option>
-                            <option value="mitsubishi">Mitsubishi</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /row -->
+                            <option value="0"></option>
+                            @foreach($categories as $_category)
 
+                            <option title="{{$_category->title}}"  value="{{$_category->id}}" {{ ($category and $_category->id == $category->parent_id) ? 'selected':'' }}>{{$_category->title}}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <p class="mg-b-10">title</p>
+                        <div class="panel panel-primary tabs-style-2">
+                            <div class=" tab-menu-heading">
+                                <div class="tabs-menu1">
+                                    <!-- Tabs -->
+                                    <ul class="nav panel-tabs main-nav-line">
+                                        @foreach(config('translatable.locales') as $locale)
+                                            <?php
+                                            $active = '';
+                                            if($loop->first) $active = 'active';
+                                            ?>
+
+                                            <li><a href="#lang-{{$locale}}" class="nav-link {{$active}}" data-bs-toggle="tab">{{$locale}}</a></li>
+                                        @endforeach
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body tabs-menu-body main-content-body-right border">
+                                <div class="tab-content">
+
+                                    @foreach(config('translatable.locales') as $locale)
+
+                                        <?php
+                                        $active = '';
+                                        if($loop->first) $active = 'active';
+                                        ?>
+                                        <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
+                                            <div class="form-group">
+                                                <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="Name" value="{{$category->translate($locale)->title ?? ''}}">
+                                            </div>
+                                        </div>
+                                            @error($locale.'.title')
+                                            <small class="errorTxt4">
+                                                <div class="error">
+                                                    {{$message}}
+                                                </div>
+                                            </small>
+                                            @enderror
+                                    @endforeach
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="slug" class="form-control" placeholder="Slug" value="{{$category->slug ?? ''}}">
+                    </div>
+                    @error('slug')
+                    <small class="errorTxt4">
+                        <div class="error">
+                            {{$message}}
+                        </div>
+                    </small>
+                    @enderror
+                    <div class="form-group mb-0 justify-content-end">
+                        <div class="checkbox">
+                            <div class="custom-checkbox custom-control">
+                                <input type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$category->status ? 'checked' : ''}}>
+                                <label for="checkbox-2" class="custom-control-label mt-1">Status</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-0 mt-3 justify-content-end">
+                        <div>
+                            {!! Form::submit($category->created_at ? __('admin.update') : __('admin.create'),['class' => 'btn btn-primary']) !!}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- /row -->
     <!-- row -->
     <div class="row">
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">Telephone Input</h6>
-                        <p class="text-muted card-sub-title">A JavaScript plugin for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting/validation methods.</p>
-                    </div>
-                    <div class="input-group telephone-input">
-                        <input type="tel" id="mobile-number" placeholder="e.g. +1 702 123 4567">
-                        <span class="input-group-btn">
-											<button class="btn ripple btn-primary" type="button">Submit</button>
-										</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /row -->
-
-    <!-- row -->
-    <div class="row">
-        <div class="col-lg-12 col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">File Upload</h6>
-                        <p class="text-muted card-sub-title">Dropify is a jQuery plugin to create a beautiful file uploader that converts a standard <code>input type="file"</code> into a nice drag & drop zone with previews and custom styles.</p>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-sm-12 col-md-4">
-                            <input type="file" class="dropify" data-height="200" />
-                        </div>
-                        <div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
-                            <input type="file" class="dropify" data-default-file="{{asset('assets/img/photos/1.jpg')}}" data-height="200"  />
-                        </div>
-                        <div class="col-sm-12 col-md-4 mg-t-10 mg-sm-t-0">
-                            <input type="file" class="dropify" disabled="disabled"/>
-                        </div>
-                    </div>
-                    <div>
-                        <input id="demo" type="file" name="files" accept=" image/jpeg, image/png, text/html, application/zip, text/css, text/js" multiple />
-                    </div>
+                    <div class="input-images"></div>
+                    @if ($errors->has('images'))
+                        <span class="help-block">
+                                            {{ $errors->first('images') }}
+                                        </span>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
     <!-- row closed -->
+
+    <!-- /row -->
+
+    <!-- row -->
+
+    <!-- row closed -->
+    {!! Form::close() !!}
 
 @endsection
 
@@ -276,5 +189,36 @@
     <!-- Internal TelephoneInput js-->
     <script src="{{asset('assets/plugins/telephoneinput/telephoneinput.js')}}"></script>
     <script src="{{asset('assets/plugins/telephoneinput/inttelephoneinput.js')}}"></script>
+
+    <script src="{{asset('uploader/image-uploader.js')}}"></script>
+
+    <script>
+        let oldImages = $('#old_images').val();
+        if (oldImages) {
+            oldImages = JSON.parse(oldImages);
+        }
+        let imagedata = [];
+        let getUrl = window.location;
+        let baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];
+        if (oldImages && oldImages.length > 0) {
+            oldImages.forEach((el, key) => {
+                let directory = '';
+                if (el.fileable_type === 'App\\Models\\Project') {
+                    directory = 'project';
+                }
+                imagedata.push({
+                    id: el.id,
+                    src: `${baseUrl}${el.path}/${el.title}`
+                })
+            })
+            $('.input-images').imageUploader({
+                preloaded: imagedata,
+                imagesInputName: 'images',
+                preloadedInputName: 'old_images'
+            });
+        } else {
+            $('.input-images').imageUploader();
+        }
+    </script>
 
 @endsection

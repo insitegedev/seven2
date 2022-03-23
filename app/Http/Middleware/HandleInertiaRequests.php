@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Setting;
+use App\Repositories\Eloquent\CategoryRepository;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Middleware;
@@ -16,6 +17,12 @@ class HandleInertiaRequests extends Middleware
      * @var string
      */
     protected $rootView = 'client/base';
+
+    protected $categoryRepository;
+
+    public function __construct(CategoryRepository $categoryRepository){
+        $this->categoryRepository = $categoryRepository;
+    }
 
     /**
      * Determines the current asset version.
@@ -42,6 +49,23 @@ class HandleInertiaRequests extends Middleware
         $locales = config("translatable.locales");
         $currentRoute = url()->current();
 
+        $categories = $this->categoryRepository->getVisibleCategoryTree();
+
+
+
+        $result = $this->buildTree($categories);
+
+        $info = Setting::with(['translation'])->get();
+
+        //dd($info);
+        $_result = [];
+        foreach ($info as $item){
+            $_result[$item->key] = $item;
+        }
+
+        //dd($result,$categories);
+
+
         //Generates urls for language switcher with each locale
         $locale_urls = $this->locale_urls();
         //Generates link for go back button
@@ -51,8 +75,28 @@ class HandleInertiaRequests extends Middleware
             "pathname" => $currentRoute,
             "locale_urls" => $locale_urls,
             'urlPrev'	=> $urlPrev,
-
+            'categories' => $result,
+            'info' => $_result
         ]);
+    }
+
+    private function buildTree($data){
+        $result = [];
+
+        foreach ($data as $key => $category){
+            $result[$key]['title'] = $category->title;
+            $result[$key]['id'] = $category->id;
+            $result[$key]['slug'] = $category->slug;
+            $result[$key]['status'] = $category->status;
+            $result[$key]['position'] = $category->position;
+            $result[$key]['children'] = [];
+            $result[$key]['files'] = $category->files;
+            if(count($category->children)){
+                $result[$key]['children'] = $this->buildTree($category->children);
+            }
+        }
+
+        return $result;
     }
 
     /**

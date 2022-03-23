@@ -14,6 +14,10 @@ class UpdateProductsTable extends Migration
     public function up()
     {
         //
+        Schema::table('products', function (Blueprint $table) {
+            $table->boolean('popular');
+            $table->float('sale');
+        });
     }
 
     /**
@@ -24,5 +28,9 @@ class UpdateProductsTable extends Migration
     public function down()
     {
         //
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('popular');
+            $table->dropColumn('sale');
+        });
     }
 }

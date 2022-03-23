@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -67,13 +68,18 @@ class Product extends Model implements Searchable
      * @var string[]
      */
     protected $fillable = [
-        'category_id',
         'slug',
         'status',
+        'popular',
+        'sale',
+        'stock',
+        'code'
     ];
 
     /** @var string */
     protected $translationModel = ProductTranslation::class;
+
+    //protected $with = ['translation'];
 
     /** @var array */
     public $translatedAttributes = [
@@ -84,6 +90,8 @@ class Product extends Model implements Searchable
         'meta_description',
         'meta_keyword',
     ];
+
+    protected $with = ['translation'];
 
 
     public function getFilterScopes(): array
@@ -118,9 +126,17 @@ class Product extends Model implements Searchable
     /**
      * @return BelongsTo
      */
-    public function category(): BelongsTo
+    /*public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }*/
+
+    /**
+     * The categories that belong to the product.
+     */
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class, 'product_categories');
     }
 
     /**

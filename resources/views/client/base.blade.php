@@ -23,18 +23,20 @@
 {{--    @endif--}}
     {{--    @dd($page["props"]["page"]["meta_title"])--}}
     @routes
+    <!-- JQUERY JS -->
+    <script src="{{asset('admin/assets/plugins/jquery/jquery.min.js')}}"></script>
     <script src="{{ mix('/js/app.js') }}" defer></script>
     <script>
         function __(key, sharedData, replace = {}) {
             let data = key.split('.');
-            console.log(sharedData);
+            //console.log(sharedData);
             let translation = sharedData[data[1]] || key;
 
             Object.keys(replace).forEach(function (key) {
                 translation = translation.replace(':' + key, replace[key])
             });
 
-            console.log(translation);
+            //console.log(translation);
             return translation;
 
         }

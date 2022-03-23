@@ -23,7 +23,7 @@ const Header = () => {
     >
       <div className="wrapper flex">
         <div className="flex">
-          <Link href="/" className="logo">
+          <Link href={route('client.home.index')} className="logo">
             <img src="/assets/images/logo/1.svg" alt="" />
           </Link>
           <Navbar />

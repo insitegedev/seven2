@@ -39,6 +39,8 @@ class ProductController extends Controller
      * @param ProductRepositoryInterface $productRepository
      * @param CategoryRepositoryInterface $categoryRepository
      */
+
+    private $categories;
     public function __construct(
         ProductRepositoryInterface  $productRepository,
         CategoryRepositoryInterface $categoryRepository
@@ -46,7 +48,7 @@ class ProductController extends Controller
     {
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
-
+        $this->categories = $this->categoryRepository->getCategoryTree();
     }
 
     /**
@@ -57,7 +59,7 @@ class ProductController extends Controller
     public function index(ProductRequest $request)
     {
         return view('admin.pages.product.index', [
-            'products' => $this->productRepository->getData($request, ['translations', 'category'])
+            'products' => $this->productRepository->getData($request, ['translations', 'categories'])
         ]);
     }
 
@@ -70,6 +72,10 @@ class ProductController extends Controller
     {
         $product = $this->productRepository->model;
 
+
+
+
+
         $url = locale_route('product.store', [], false);
         $method = 'POST';
 
@@ -77,7 +83,7 @@ class ProductController extends Controller
             'product' => $product,
             'url' => $url,
             'method' => $method,
-            'categories' => $this->categoryRepository->all(['*'], ['translations'])
+            'categories' => $this->categories
         ]);
     }
 
@@ -91,10 +97,15 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
+
+        //dd($request->all());
         $saveData = Arr::except($request->except('_token'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+        $saveData['stock'] = isset($saveData['stock']) && (bool)$saveData['stock'];
 
+        //dd($saveData);
         $product = $this->productRepository->create($saveData);
+        $product->categories()->sync($saveData['categories']);
 
         // Save Files
         if ($request->hasFile('images')) {
@@ -137,7 +148,7 @@ class ProductController extends Controller
             'product' => $product,
             'url' => $url,
             'method' => $method,
-            'categories' => $this->categoryRepository->all(['*'], ['translations'])
+            'categories' => $this->categories
         ]);
     }
 
@@ -152,12 +163,19 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, string $locale, Product $product)
     {
+        //dd($product->id);
         $saveData = Arr::except($request->except('_token'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+        $saveData['popular'] = isset($saveData['popular']) && (bool)$saveData['popular'];
+        $saveData['stock'] = isset($saveData['stock']) && (bool)$saveData['stock'];
+
+        //dd($saveData);
 
         $this->productRepository->update($product->id, $saveData);
 
         $this->productRepository->saveFiles($product->id, $request);
+
+        $product->categories()->sync($saveData['categories'] ?? []);
 
 
         return redirect(locale_route('product.show', $product->id))->with('success', __('admin.update_successfully'));

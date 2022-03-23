@@ -28,4 +28,8 @@ class GalleryRepository extends BaseRepository implements GalleryRepositoryInter
         parent::__construct($model);
     }
 
+    public function getClient(){
+        return $this->model->where('status',1)->with('files')->first();
+    }
+
 }

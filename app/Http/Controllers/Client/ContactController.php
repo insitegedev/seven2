@@ -15,6 +15,18 @@ class ContactController extends Controller
     public function index()
     {
         $page = Page::where('key', 'contact')->firstOrFail();
+
+        $images = [];
+        foreach ($page->sections as $sections){
+            if($sections->file){
+                $images[] = asset($sections->file->getFileUrlAttribute());
+            } else {
+                $images[] = null;
+            }
+
+        }
+
+
         return Inertia::render('Contact/Contact', ["page" => $page, "seo" => [
             "title"=>$page->meta_title,
             "description"=>$page->meta_description,
@@ -23,7 +35,7 @@ class ContactController extends Controller
             "og_description"=>$page->meta_og_description,
 //            "image" => "imgg",
 //            "locale" => App::getLocale()
-        ]])->withViewData([
+        ],'images' => $images])->withViewData([
             'meta_title' => $page->meta_title,
             'meta_description' => $page->meta_description,
             'meta_keyword' => $page->meta_keyword,
@@ -36,6 +48,7 @@ class ContactController extends Controller
 
     public function mail(Request $request)
     {
+        //dd($request->all());
         if ($request->method() == 'POST') {
             $request->validate([
                 'name' => 'required|string|max:55',
@@ -58,6 +71,8 @@ class ContactController extends Controller
             }
 
         }
-        return Inertia::render('Contact/Contact');
+
+
+        //return Inertia::render('Contact/Contact');
     }
 }

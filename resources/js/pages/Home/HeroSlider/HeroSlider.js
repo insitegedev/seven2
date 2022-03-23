@@ -5,9 +5,13 @@ import { MainButton } from "../../../components/MainButton/MainButton";
 //import IG from "../../../assets/images/icons/sm/ig.svg";
 //import Img1 from "../../../assets/images/hero/1.png";
 import "./HeroSlider.css";
-import { Link } from "@inertiajs/inertia-react";
+import {Link, usePage} from "@inertiajs/inertia-react";
 
 const HeroSlider = () => {
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+    const {sliders, info} = usePage().props;
+    //console.log(sliders);
+    const sharedData = usePage().props.localizations;
   const sliderData = [
     {
       text1: "Living room furniture",
@@ -28,7 +32,7 @@ const HeroSlider = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const lastIndex = sliderData.length - 1;
+    const lastIndex = sliders.length - 1;
     if (index < 0) {
       setIndex(lastIndex);
     }
@@ -52,7 +56,7 @@ const HeroSlider = () => {
 
   return (
     <div className="mainSlider">
-      {sliderData.map((data, indexData) => {
+      {sliders.map((data, indexData) => {
         let position = "nextSlide";
         if (indexData === index) {
           position = "activeSlide";
@@ -66,20 +70,20 @@ const HeroSlider = () => {
         return (
           <article className={position} key={indexData}>
             <div className="content wrapper">
-              <div className="bold">{data.text1}</div>
-              <h3>{data.text2}</h3>
-              <MainButton link="/" text="Shop now" />
+              <div className="bold">{data.title}</div>
+              <h3>{renderHTML(data.description)}</h3>
+              <MainButton link={data.youtube_url} text={__('client.home_slider_button',sharedData)} />
             </div>
-            <img className="slide_img" src={data.img} alt="" />
+            <img className="slide_img" src={'/' + data.file.path + '/' + data.file.title} alt="" />
           </article>
         );
       })}
       <div className="flex controllers wrapper">
         <div className="sm">
-          <Link href="/">
+          <Link href={info.facebook.translation ? info.facebook.translation.value : null}>
             <img src="/assets/images/icons/sm/fb.svg" alt="" />
           </Link>
-          <Link href="/">
+          <Link href={info.instagram.translation ? info.instagram.translation.value : null}>
             <img src="/assets/images/icons/sm/ig.svg" alt="" />
           </Link>
         </div>
@@ -98,7 +102,7 @@ const HeroSlider = () => {
         </div>
 
         <div className="dots flex centered">
-          {sliderData.map((item, i) => {
+          {sliders.map((item, i) => {
             return (
               <div
                 className={index === i ? "dot active" : "dot"}

@@ -15,10 +15,16 @@ import {
 //import Img4 from "../../assets/images/products/4.png";
 
 import Layout from "../../Layouts/Layout";
+import {usePage} from "@inertiajs/inertia-react";
 
 const SingleProduct = (seo) => {
+    const sharedData = usePage().props.localizations;
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
+    const { product, category, similar_products } = usePage().props;
+    //console.log(product);
+    //console.log(category);
+    //console.log(similar_products);
   const settings = {
     dots: false,
     infinite: true,
@@ -102,14 +108,16 @@ const SingleProduct = (seo) => {
     },
   ];
 
+    const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
   return (
       <Layout seo={seo}>
     <div className="SingleProduct">
       <div className="container">
         <div className="path">
-          <span>Home</span> <img src="/assets/images/icons/arrows/2.svg" alt="" />
-          <span>Living room furniture</span> <img src="/assets/images/icons/arrows/2.svg" alt="" />
-          <span className="active">Gray Chair</span>
+          <span>{__('client.nav_home',sharedData)}</span> <img src="/assets/images/icons/arrows/2.svg" alt="" />
+          <span>{category.title}</span> <img src="/assets/images/icons/arrows/2.svg" alt="" />
+          <span className="active">{product.title}</span>
         </div>
         <div className="flex main">
           <div className="view">
@@ -120,8 +128,8 @@ const SingleProduct = (seo) => {
               ref={(slider1) => setNav1(slider1)}
               arrows={false}
             >
-              {productSlides.map((item, i) => {
-                return <ProductImage src={item.img} discount={item.off} />;
+              {product.files.map((item, i) => {
+                return <ProductImage src={'/' + item.path + '/' + item.title} discount={item.off} />;
               })}
             </Slider>
             <Slider
@@ -129,49 +137,44 @@ const SingleProduct = (seo) => {
               ref={(slider2) => setNav2(slider2)}
               {...settings}
             >
-              {productSlides.map((item, i) => {
+              {product.files.map((item, i) => {
                 return (
-                  <ProductImage key={i} src={item.img} discount={item.off} />
+                  <ProductImage key={i} src={'/' + item.path + '/' + item.title} discount={item.off} />
                 );
               })}
             </Slider>
           </div>
           <div className="details">
-            <div className="bold">Gray chair</div>
-            <div className="in_stock">in stock</div>
+            <div className="bold">{product.title}</div>
+            <div className={(product.stock == 1) ? 'in_stock': 'no_stock'}>{(product.stock == 1) ? __('client.product_in_stock',sharedData): __('client.product_no_stock',sharedData)}</div>
             <p className="op5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur.
+                {renderHTML(product.description)}
             </p>
             <div className="margin">
               <div style={{ marginBottom: "10px" }}>
-                Categories: <span className="op5">Living room furniture</span>
+                  {__('client.product_categories',sharedData)}: <span className="op5">{category.title}</span>
               </div>
               <div>
-                Product code: <span>ZS 23221 - 321</span>
+                  {__('client.product_code',sharedData)}: <span>{product.code}</span>
               </div>
             </div>
 
-            <MainButton link="/" text="Contact for order" />
+            <MainButton link={route('client.contact.index')} text={__('client.product_order_btn',sharedData)} />
           </div>
         </div>
       </div>
       <div className="wrapper">
-        <div className="similar_products bold">similar products</div>
+        <div className="similar_products bold">{__('client.product_similar_products',sharedData)}</div>
         <div className="grid4">
-          {similarProducts.map((item, i) => {
-              let product = ['product'];
-              let link = route('client.product.show',product);
+          {similar_products.data.map((item, i) => {
+
+              let link = route('client.product.show',item.slug);
             return (
               <ProductBox
                 key={i}
-                src={item.img}
-                discount={item.off}
-                category={item.cat}
+                src={( item.files.length > 0) ? '/' + item.files[0].path + '/' + item.files[0].title : null}
+                discount={item.sale}
+                category={item.title}
                 link={link}
               />
             );

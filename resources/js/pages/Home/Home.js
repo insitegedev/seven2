@@ -8,7 +8,7 @@ import {
   ProductImage,
 } from "../../components/ProductObjects/ProductObjects";
 import { Link } from "@inertiajs/inertia-react";
-import { shopCategories, onSaleCategories, popularProducts } from "./HomeData";
+import { shopCategories, popularProducts } from "./HomeData";
 import "./Home.css";
 import { usePage, Head } from "@inertiajs/inertia-react";
 import Layout from "../../Layouts/Layout";
@@ -16,6 +16,26 @@ import Layout from "../../Layouts/Layout";
 const Home = ({ page, seo }) => {
 
     const sharedData = usePage().props.localizations;
+    const {popular_products, categories, images} = usePage().props
+
+    const onSaleCategories = [
+        {
+            off: "30 % OFF ALL ORDER",
+            cat: "Living Room",
+            whiteButton: true,
+            color: "#fff",
+            bg: images[1],
+        },
+        {
+            off: "30 % OFF ALL ORDER",
+            cat: "Table-chair",
+            whiteButton: false,
+            color: "#05185A",
+            bg: images[2],
+        },
+    ];
+
+    //console.log(popular_products);
   return (
       <Layout seo={seo}>
     <div className="homePage">
@@ -23,21 +43,21 @@ const Home = ({ page, seo }) => {
       <div className="categories_home wrapper flex">
         <div>
           <h4>
-            Shop <br /> by categories
+              {__('client.home_section1_text',sharedData)} <br /> {__('client.home_section1_text2',sharedData)}
           </h4>
-          <MainButton link="/" white transparent text="View all categories" />
+          <MainButton link={route('client.product.index')} white transparent text={__('client.home_view_all_categories',sharedData)} />
         </div>
         <div className="grid4" data-aos="zoom-in">
-          {shopCategories.map((cat, i) => {
+          {categories.map((cat, i) => {
             return (
-              <Link href="/" key={i}>
-                <ProductImage src={cat.img} category={cat.cat} />
+              <Link href={route('client.category.show',cat.slug)} key={i}>
+                <ProductImage src={( cat.files.length > 0) ? '/' + cat.files[0].path + '/' + cat.files[0].title : null} category={cat.title} />
               </Link>
             );
           })}
         </div>
       </div>
-      <div className="exhibition" data-aos="fade-up"></div>
+      <div style={{background: 'url(' + images[0] +') no-repeat'}} className="exhibition" data-aos="fade-up"></div>
       <div className="onsale_cats flex wrapper">
         {onSaleCategories.map((cat, i) => {
           return (
@@ -49,7 +69,7 @@ const Home = ({ page, seo }) => {
               >
                 <div className="bold">{cat.off}</div>
                 <h5>{cat.cat}</h5>
-                <MainButton link="/" text="Shop now" white={cat.whiteButton} />
+                <MainButton link="/" text={__('client.home_shop_now',sharedData)} white={cat.whiteButton} />
               </div>
             </div>
           );
@@ -58,17 +78,19 @@ const Home = ({ page, seo }) => {
       <div className="popular_products wrapper">
         <div className="head flex">
           <div className="title">{__('client.popular_products',sharedData)}</div>
-          <MainButton text="View all" link="/" />
+          <MainButton text={__('client.home_view_all',sharedData)} link="/" />
         </div>
         <div className="grid4" data-aos="fade-up">
-          {popularProducts.map((item, i) => {
-              let link = route("client.product.index");
+          {popular_products.map((item, i) => {
+              //console.log(item)
+              let slug = item.slug;
+              let link = route('client.product.show',slug);
             return (
               <ProductBox
                 key={i}
-                src={item.img}
-                discount={item.off}
-                category={item.cat}
+                src={'/' + item.files[0].path + '/' + item.files[0].title}
+                discount={item.sale}
+                category={item.title}
                 link={link}
               />
             );

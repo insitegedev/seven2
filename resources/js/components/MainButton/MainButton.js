@@ -4,7 +4,7 @@ import "./MainButton.css";
 
 export const MainButton = (props) => {
   return (
-    <Link href={props.link}>
+    <Link onClick={props.onclick} id={props.id} href={props.link}>
       <button
         className={
           props.transparent

@@ -60,9 +60,9 @@
                                             <tr>
                                                 <td>{{$product->id}}</td>
                                                 <td>
-                                                    @if($product->category)
-                                                        {{$product->category->title}}
-                                                    @endif
+                                                    {{--@if($product->category)
+                                                        {{//$product->category->title}}
+                                                    @endif--}}
                                                 </td>
                                                 <td>
                                                     @if($product->status)

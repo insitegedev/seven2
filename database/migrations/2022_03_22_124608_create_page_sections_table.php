@@ -15,6 +15,8 @@ class CreatePageSectionsTable extends Migration
     {
         Schema::create('page_sections', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('page_id')->unsigned();
+            $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
             $table->timestamps();
         });
     }

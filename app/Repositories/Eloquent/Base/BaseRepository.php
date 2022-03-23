@@ -66,12 +66,12 @@ class BaseRepository implements EloquentRepositoryInterface
      */
     public function create(array $attributes = []): Model
     {
-        try {
+       // try {
             return $this->model->create($attributes);
 
-        } catch (\Illuminate\Database\QueryException $exception) {
-            return $exception->errorInfo;
-        }
+        //} catch (\Illuminate\Database\QueryException $exception) {
+            //return $exception->errorInfo;
+       // }
     }
 
     /**
@@ -86,7 +86,7 @@ class BaseRepository implements EloquentRepositoryInterface
     {
         $this->model = $this->findOrFail($id);
         try {
-//            dd($data);
+            //dd($data);
             return $this->model->update($data);
         } catch (\Illuminate\Database\QueryException $exception) {
             return $exception->errorInfo;

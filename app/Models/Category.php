@@ -13,8 +13,12 @@ use App\Traits\ScopeFilter;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Kalnoy\Nestedset\NodeTrait;
 
 
 /**
@@ -55,7 +59,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Category extends Model
 {
-    use Translatable, HasFactory, ScopeFilter;
+    use Translatable, HasFactory, ScopeFilter, NodeTrait;
 
 
     /**
@@ -82,6 +86,11 @@ class Category extends Model
         'title',
         'description'
     ];
+
+
+    protected $with = ['translations'];
+
+
 
 //    public function scopeFilter($query, array $filters)
 //    {
@@ -117,13 +126,32 @@ class Category extends Model
             ]
         ];
     }
-    public function product(): HasMany
+    public function products(): BelongsToMany
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class,'product_categories');
     }
 
     public function project(): HasMany
     {
         return $this->hasMany(Project::class);
     }
+
+
+    /**
+     * @return MorphMany
+     */
+    public function files(): MorphMany
+    {
+        return $this->morphMany(File::class, 'fileable');
+    }
+
+    /**
+     * @return MorphOne
+     */
+    public function file(): MorphOne
+    {
+        return $this->morphOne(File::class, 'fileable');
+    }
+
+
 }

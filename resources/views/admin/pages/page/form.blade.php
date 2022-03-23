@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/pages/form-select2.css')}}">
 @endsection
 
+{{--@dd($page)--}}
 @section('content')
     <div class="row">
         <div class="col s12 m12 12">
@@ -149,6 +150,13 @@
                                         </span>
                                 @endif
                             </div>
+
+                            @foreach($page->sections as $item)
+                                <div class="form-group">
+                                    <input type="file" name="image[{{$item->id}}]">
+                                    <img src="/{{($item->file) ? $item->file->getFileUrlAttribute() : ''}}">
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="row">

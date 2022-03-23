@@ -25,22 +25,6 @@ export const shopCategories = [
   },
 ];
 
-export const onSaleCategories = [
-  {
-    off: "30 % OFF ALL ORDER",
-    cat: "Living Room",
-    whiteButton: true,
-    color: "#fff",
-    bg: "/assets/images/home/2.png",
-  },
-  {
-    off: "30 % OFF ALL ORDER",
-    cat: "Table-chair",
-    whiteButton: false,
-    color: "#05185A",
-    bg: "/assets/images/home/2.png",
-  },
-];
 
 export const popularProducts = [
   {

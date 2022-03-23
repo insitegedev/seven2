@@ -12,11 +12,10 @@
   margin-right: 20px;
 }
 .homePage .exhibition {
-  width: 100%;
-  height: 650px;
-  background: url(/assets/images/home/1.png) no-repeat;
-  background-size: cover;
-  background-position: center;
+  width: 100% !important;
+  height: 650px !important;
+  background-size: cover !important;
+  background-position: center !important;
 }
 .homePage .onsale_cats {
   margin-top: 33px;

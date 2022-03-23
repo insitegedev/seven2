@@ -130,16 +130,16 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="{{locale_route('apartment.show',$item->id)}}">
+                                                <a href="{{locale_route('category.show',$item->id)}}">
                                                     <i class="fas fa-eye">show</i>
                                                 </a>
                                                 |
-                                                <a href="{{locale_route('apartment.edit',$item->id)}}"
+                                                <a href="{{locale_route('category.edit',$item->id)}}"
                                                    class="pl-3">
                                                     <i class="fa fa-edit">edit</i>
                                                 </a>
                                                 |
-                                                <a href="{{locale_route('apartment.edit',$item->id)}}"
+                                                <a href="{{locale_route('category.edit',$item->id)}}"
                                                    class="pl-3">
                                                     <i class="fa fa-trash-alt">delete</i>
                                                 </a>
