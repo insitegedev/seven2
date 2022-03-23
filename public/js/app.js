@@ -3596,14 +3596,14 @@ var Home = function Home(_ref) {
       categories = _usePage$props.categories,
       images = _usePage$props.images;
   var onSaleCategories = [{
-    off: "30 % OFF ALL ORDER",
-    cat: "Living Room",
+    off: __('client.home_sale1_off', sharedData),
+    cat: __('client.home_sale1_title', sharedData),
     whiteButton: true,
     color: "#fff",
     bg: images[1]
   }, {
-    off: "30 % OFF ALL ORDER",
-    cat: "Table-chair",
+    off: __('client.home_sale2_off', sharedData),
+    cat: __('client.home_sale2_title', sharedData),
     whiteButton: false,
     color: "#05185A",
     bg: images[2]
@@ -3657,7 +3657,7 @@ var Home = function Home(_ref) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "bold"
     }, cat.off), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, cat.cat), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
-      link: "/",
+      link: route('client.product.index'),
       text: __('client.home_shop_now', sharedData),
       white: cat.whiteButton
     })));

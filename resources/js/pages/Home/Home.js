@@ -20,15 +20,15 @@ const Home = ({ page, seo }) => {
 
     const onSaleCategories = [
         {
-            off: "30 % OFF ALL ORDER",
-            cat: "Living Room",
+            off: __('client.home_sale1_off',sharedData),
+            cat: __('client.home_sale1_title',sharedData),
             whiteButton: true,
             color: "#fff",
             bg: images[1],
         },
         {
-            off: "30 % OFF ALL ORDER",
-            cat: "Table-chair",
+            off: __('client.home_sale2_off',sharedData),
+            cat: __('client.home_sale2_title',sharedData),
             whiteButton: false,
             color: "#05185A",
             bg: images[2],
@@ -69,7 +69,7 @@ const Home = ({ page, seo }) => {
               >
                 <div className="bold">{cat.off}</div>
                 <h5>{cat.cat}</h5>
-                <MainButton link="/" text={__('client.home_shop_now',sharedData)} white={cat.whiteButton} />
+                <MainButton link={route('client.product.index')} text={__('client.home_shop_now',sharedData)} white={cat.whiteButton} />
               </div>
             </div>
           );
