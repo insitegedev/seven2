@@ -11,9 +11,9 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
     foreach ($categories as $category) {
         if(in_array($category->id,$ids)) $checked = 'checked';
         else $checked = '';
-        $html .= '<li><label class="custom-control-label mt-1">
+        $html .= '<li style="margin-bottom: 5px"><label class="ckbox">
                         <input type="checkbox" name="categories[]" data-checkboxes="mygroup" class="custom-control-input" '. $checked .' id="'.$category->id.'" value="'.$category->id.'">
-                        <span>'.$category->title.'</span>
+                        <span style="margin-left: 5px">'.$category->title.'</span>
 
                         </label></li>';
 
@@ -78,11 +78,22 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                         <h6 class="card-title mb-1">Product categories</h6>
                     </div>
                     <div class="mb-4">
-                        <p class="mg-b-10">parent</p>
+
+
+                        <?=$traverse($categories);?>
+
+                        @error('category_id')
+                        <small class="errorTxt4">
+                            <div class="error">
+                                {{$message}}
+                            </div>
+                        </small>
+                        @enderror
 
                     </div>
                     <div class="mb-4">
-                        <p class="mg-b-10">title</p>
+
+
                         <div class="panel panel-primary tabs-style-2">
                             <div class=" tab-menu-heading">
                                 <div class="tabs-menu1">
@@ -111,16 +122,84 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                                         ?>
                                         <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
                                             <div class="form-group">
+                                                <label class="form-label">Title</label>
                                                 <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="Name" value="{{$product->translate($locale)->title ?? ''}}">
+                                                @error($locale.'.title')
+                                                <small class="errorTxt4">
+                                                    <div class="error">
+                                                        {{$message}}
+                                                    </div>
+                                                </small>
+                                                @enderror
                                             </div>
+
+                                            <div class="form-group">
+                                                {!! Form::label($locale.'[short_description]',__('admin.short_description'),['class' => 'form-label']) !!}
+                                                {!! Form::text($locale.'[short_description]',$product->translate($locale)->short_description ?? '',['class' => 'form-control']) !!}
+
+                                                @error($locale.'.short_description')
+                                                <small class="errorTxt4">
+                                                    <div class="error">
+                                                        {{$message}}
+                                                    </div>
+                                                </small>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                {!! Form::label($locale.'[meta_title]',__('admin.meta_title'),['class' => 'form-label']) !!}
+                                                {!! Form::text($locale.'[meta_title]',$product->translate($locale)->meta_title ?? '',['class' => 'form-control']) !!}
+
+                                                @error($locale.'.meta_title')
+                                                <small class="errorTxt4">
+                                                    <div class="error">
+                                                        {{$message}}
+                                                    </div>
+                                                </small>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                {!! Form::label($locale.'[meta_description]',__('admin.meta_description'),['class' => 'form-label']) !!}
+                                                {!! Form::text($locale.'[meta_description]',$product->translate($locale)->meta_keyword ?? '',['class' => 'form-control']) !!}
+
+                                                @error($locale.'.meta_description')
+                                                <small class="errorTxt4">
+                                                    <div class="error">
+                                                        {{$message}}
+                                                    </div>
+                                                </small>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                {!! Form::label($locale.'[meta_keyword]',__('admin.meta_keyword'),['class' => 'form-label']) !!}
+                                                {!! Form::text($locale.'[meta_keyword]',$product->translate($locale)->meta_description ?? '',['class' => 'form-control']) !!}
+
+                                                @error($locale.'.meta_keyword')
+                                                <small class="errorTxt4">
+                                                    <div class="error">
+                                                        {{$message}}
+                                                    </div>
+                                                </small>
+                                                @enderror
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <h5 for="description">@lang('admin.description')</h5>
+                                                <textarea class="form-control" id="description-{{$locale}}"
+                                                          name="{{$locale}}[description]'">
+                                                {!! $product->translate($locale)->description ?? '' !!}
+                                            </textarea>
+                                                @error($locale.'.description')
+                                                <small class="errorTxt4">
+                                                    <div class="error">
+                                                        {{$message}}
+                                                    </div>
+                                                </small>
+                                                @enderror
+                                            </div>
+
                                         </div>
-                                            @error($locale.'.title')
-                                            <small class="errorTxt4">
-                                                <div class="error">
-                                                    {{$message}}
-                                                </div>
-                                            </small>
-                                            @enderror
+
                                     @endforeach
 
                                 </div>
@@ -128,16 +207,42 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                         </div>
 
                     </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+
                     <div class="form-group">
+                        {!! Form::label('slug',__('admin.slug'),['class' => 'form-label']) !!}
                         <input type="text" name="slug" class="form-control" placeholder="Slug" value="{{$product->slug ?? ''}}">
+                        @error('slug')
+                        <small class="errorTxt4">
+                            <div class="error">
+                                {{$message}}
+                            </div>
+                        </small>
+                        @enderror
                     </div>
-                    @error('slug')
-                    <small class="errorTxt4">
-                        <div class="error">
-                            {{$message}}
-                        </div>
-                    </small>
-                    @enderror
+
+
+                    <div class="form-group">
+                        {!! Form::label('code',__('admin.code'),['class' => 'form-label']) !!}
+                        {!! Form::text('code',$product->code,['class' => 'form-control']) !!}
+
+                        @error('code')
+                        <small class="errorTxt4">
+                            <div class="error">
+                                {{$message}}
+                            </div>
+                        </small>
+                        @enderror
+                    </div>
+
                     <div class="form-group mb-0 justify-content-end">
                         <div class="checkbox">
                             <div class="custom-checkbox custom-control">
@@ -146,6 +251,42 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label class="ckbox">
+                            <input type="checkbox" name="popular"
+                                   value="true" {{$product->popular ? 'checked' : ''}}>
+                            <span>{{__('admin.popular')}}</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="ckbox">
+                            <input type="checkbox" name="stock"
+                                   value="true" {{$product->stock ? 'checked' : ''}}>
+                            <span>{{__('admin.instock')}}</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+
+                        {!! Form::label('sale',__('admin.sale')) !!}
+                        {!! Form::number('sale',$product->sale ?? '',['step'=>'0.1','class' => 'form-control']) !!}
+
+                        @error('sale')
+                        <small class="errorTxt4">
+                            <div class="error">
+                                {{$message}}
+                            </div>
+                        </small>
+                        @enderror
+
+                    </div>
+
+                    <div class="form-group">
+
+                    </div>
+
                     <div class="form-group mb-0 mt-3 justify-content-end">
                         <div>
                             {!! Form::submit($product->created_at ? __('admin.update') : __('admin.create'),['class' => 'btn btn-primary']) !!}
@@ -155,7 +296,6 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                 </div>
             </div>
         </div>
-
     </div>
 
     <!-- /row -->
@@ -164,6 +304,9 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-body">
+                    <div>
+                        <h6 class="card-title mb-1">Product images</h6>
+                    </div>
                     <div class="input-images"></div>
                     @if ($errors->has('images'))
                         <span class="help-block">
@@ -244,6 +387,16 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
         } else {
             $('.input-images').imageUploader();
         }
+    </script>
+
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+        @foreach(config('translatable.locales') as $locale)
+        CKEDITOR.replace('description-{{$locale}}', {
+            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        @endforeach
     </script>
 
 @endsection

@@ -123,7 +123,7 @@ class ProductController extends Controller
             $product = $this->productRepository->saveFiles($product->id, $request);
         }
 
-        return redirect(locale_route('product.show', $product->id))->with('success', __('admin.create_successfully'));
+        return redirect(locale_route('product.index', $product->id))->with('success', __('admin.create_successfully'));
 
     }
 
@@ -196,7 +196,7 @@ class ProductController extends Controller
         $product->categories()->sync($saveData['categories'] ?? []);
 
 
-        return redirect(locale_route('product.show', $product->id))->with('success', __('admin.update_successfully'));
+        return redirect(locale_route('product.index', $product->id))->with('success', __('admin.update_successfully'));
     }
 
     /**
