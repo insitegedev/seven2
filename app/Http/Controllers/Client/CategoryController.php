@@ -95,8 +95,7 @@ class CategoryController extends Controller
 
         }
 
-        $products = Product::where(['product.status' => 1, 'product.popular' => 1])
-            ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')->with('files')
+        $products = Product::where(['products.status' => 1, 'products.popular' => 1])->with('files')
             ->paginate(4);
 
         return Inertia::render('Products/Products',[

@@ -3669,7 +3669,7 @@ var Home = function Home(_ref) {
     className: "title"
   }, __('client.popular_products', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
     text: __('client.home_view_all', sharedData),
-    link: "/"
+    link: route('client.category.popular')
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "grid4",
     "data-aos": "fade-up"
