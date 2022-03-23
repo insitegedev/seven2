@@ -13,7 +13,7 @@
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">@lang('admin.apartment')</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">@lang('admin.products')</span>
         </div>
         <div class="justify-content-center mt-2">
             @include('admin.nowa.views.layouts.components.breadcrump')
@@ -27,10 +27,8 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mg-b-0">@lang('admin.categories')</h4>
+                        <h4 class="card-title mg-b-0">@lang('admin.products')</h4>
                     </div>
-                    <a href="{{locale_route('category.create')}}" class="btn ripple btn-primary" type="button">Create</a>
-
                     {{--<p class="tx-12 tx-gray-500 mb-2">Example of Nowa Simple Table. <a href="">Learn more</a></p>--}}
                 </div>
                 <div class="card-body">
@@ -40,8 +38,9 @@
                                 <thead>
                                 <tr>
                                     <th>@lang('admin.id')</th>
+                                    <th>@lang('admin.category')</th>
+                                    <th>@lang('admin.status')</th>
                                     <th>@lang('admin.title')</th>
-
                                     <th>@lang('admin.actions')</th>
                                 </tr>
                                 </thead>
@@ -54,17 +53,37 @@
                                                class="validate {{$errors->has('id') ? '' : 'valid'}}">
                                     </th>
                                     <th>
+                                        <select class="form-control" name="category" onchange="this.form.submit()">
+
+                                        </select>
+                                    </th>
+                                    <th>
+                                        <select class="form-control" name="status" onchange="this.form.submit()">
+                                            <option value="" {{Request::get('status') === '' ? 'selected' :''}}>@lang('admin.any')</option>
+                                            <option value="1" {{Request::get('status') === '1' ? 'selected' :''}}>@lang('admin.active')</option>
+                                            <option value="0" {{Request::get('status') === '0' ? 'selected' :''}}>@lang('admin.not_active')</option>
+                                        </select>
+                                    </th>
+                                    <th>
                                         <input class="form-control" type="text" name="title" onchange="this.form.submit()"
                                                value="{{Request::get('title')}}"
                                                class="validate {{$errors->has('title') ? '' : 'valid'}}">
                                     </th>
 
-
                                 @if($data)
                                     @foreach($data as $item)
                                         <tr>
                                             <th scope="row">{{$item->id}}</th>
+                                            <td></td>
 
+                                            <td>
+
+                                                @if($item->status)
+                                                    <span class="green-text">@lang('admin.active')</span>
+                                                @else
+                                                    <span class="red-text">@lang('admin.not_active')</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <div class="panel panel-primary tabs-style-2">
                                                     <div class=" tab-menu-heading">
@@ -92,22 +111,20 @@
                                                 </div>
 
                                             </td>
-
                                             <td>
-                                                <a href="{{locale_route('category.show',$item->id)}}">
+                                                <a href="{{locale_route('product.show',$item->id)}}">
                                                     <i class="fas fa-eye">show</i>
                                                 </a>
-                                                |
-                                                <a href="{{locale_route('category.edit',$item->id)}}"
+                                                <a href="{{locale_route('product.edit',$item->id)}}"
                                                    class="pl-3">
                                                     <i class="fa fa-edit">edit</i>
                                                 </a>
-                                                |
-                                                <a href="{{locale_route('category.edit',$item->id)}}"
-                                                   class="pl-3">
+                                                <a href="{{locale_route('product.destroy',$item->id)}}"
+                                                   onclick="return confirm('Are you sure?')" class="pl-3">
                                                     <i class="fa fa-trash-alt">delete</i>
                                                 </a>
                                             </td>
+
                                         </tr>
                                     @endforeach
                                 @endif

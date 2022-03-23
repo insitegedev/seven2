@@ -78,7 +78,7 @@ const Home = ({ page, seo }) => {
       <div className="popular_products wrapper">
         <div className="head flex">
           <div className="title">{__('client.popular_products',sharedData)}</div>
-          <MainButton text={__('client.home_view_all',sharedData)} link="/" />
+          <MainButton text={__('client.home_view_all',sharedData)} link={route('client.category.popular')} />
         </div>
         <div className="grid4" data-aos="fade-up">
           {popular_products.map((item, i) => {

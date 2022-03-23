@@ -80,4 +80,29 @@ class CategoryController extends Controller
             'images' => $images
         ]);
     }
+
+
+    public function popular(){
+        $page = Page::where('key', 'products')->firstOrFail();
+
+        $images = [];
+        foreach ($page->sections as $sections){
+            if($sections->file){
+                $images[] = asset($sections->file->getFileUrlAttribute());
+            } else {
+                $images[] = null;
+            }
+
+        }
+
+        $products = Product::where(['product.status' => 1, 'product.popular' => 1])
+            ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')->with('files')
+            ->paginate(4);
+
+        return Inertia::render('Products/Products',[
+            'products' => $products,
+            'category' => null,
+            'images' => $images
+        ]);
+    }
 }

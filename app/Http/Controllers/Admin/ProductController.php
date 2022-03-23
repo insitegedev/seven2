@@ -58,8 +58,12 @@ class ProductController extends Controller
      */
     public function index(ProductRequest $request)
     {
-        return view('admin.pages.product.index', [
+        /*return view('admin.pages.product.index', [
             'products' => $this->productRepository->getData($request, ['translations', 'categories'])
+        ]);*/
+
+        return view('admin.nowa.views.products.index', [
+            'data' => $this->productRepository->getData($request, ['translations', 'categories'])
         ]);
     }
 

@@ -41,8 +41,7 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Single Select Style</h6>
-                        <p class="text-muted card-sub-title">First import a latest version of jquery in your page. Then the jquery.sumoselect.min.js and its css (sumoselect.css)</p>
+                        <h6 class="card-title mb-1">Product categories</h6>
                     </div>
                     <div class="mb-4">
                         <p class="mg-b-10">parent</p>
