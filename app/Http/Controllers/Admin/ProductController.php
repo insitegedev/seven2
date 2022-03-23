@@ -83,7 +83,14 @@ class ProductController extends Controller
         $url = locale_route('product.store', [], false);
         $method = 'POST';
 
-        return view('admin.pages.product.form', [
+        /*return view('admin.pages.product.form', [
+            'product' => $product,
+            'url' => $url,
+            'method' => $method,
+            'categories' => $this->categories
+        ]);*/
+
+        return view('admin.nowa.views.products.form', [
             'product' => $product,
             'url' => $url,
             'method' => $method,
@@ -148,7 +155,14 @@ class ProductController extends Controller
         $url = locale_route('product.update', $product->id, false);
         $method = 'PUT';
 
-        return view('admin.pages.product.form', [
+        /*return view('admin.pages.product.form', [
+            'product' => $product,
+            'url' => $url,
+            'method' => $method,
+            'categories' => $this->categories
+        ]);*/
+
+        return view('admin.nowa.views.products.form', [
             'product' => $product,
             'url' => $url,
             'method' => $method,
