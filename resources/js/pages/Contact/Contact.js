@@ -113,7 +113,7 @@ const Contact = ({page,seo}) => {
                     );
                 })}
                 <textarea onChange={handleChange} id="inp_message" name="message" placeholder={__('client.contact_form_message',sharedData)}></textarea>
-                {errors.name && <div>{errors.name}</div>}
+
                 <MainButton onclick={handleClick} id="send_eml" text={__('client.contact_form_send_btn',sharedData)} />
 
             </form>

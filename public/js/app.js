@@ -3286,7 +3286,6 @@ var Contact = function Contact(_ref) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route('client.contact.mail'), values);
   }
 
   function handleClick(e) {
@@ -3372,12 +3371,11 @@ var Contact = function Contact(_ref) {
     id: "inp_message",
     name: "message",
     placeholder: __('client.contact_form_message', sharedData)
-  }), errors.name && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, errors.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_5__.MainButton, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_5__.MainButton, {
+    onclick: handleClick,
     id: "send_eml",
     text: __('client.contact_form_send_btn', sharedData)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-    type: "submit"
-  }, "ff"))))));
+  }))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Contact);
