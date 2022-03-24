@@ -71,9 +71,24 @@ class ProductController extends Controller
 
 
         $path = [];
+        $arr = [];
         foreach ($categories as $key =>$item){
 
-            if($item->isLeaf()){
+
+            $ancestors = $item->ancestors;
+            if(count($ancestors)){
+                foreach ($ancestors as $ancestor){
+                    $arr[count($ancestors)]['ancestors'][] = $ancestor;
+                    $arr[count($ancestors)]['current'] = $item;
+                }
+            } else {
+                $arr[0]['ancestors'] = [];
+                $arr[0]['current'] = $item;
+            }
+
+
+
+            /*if($item->isLeaf()){
 
                 $ancestors = $item->ancestors;
 
@@ -90,21 +105,27 @@ class ProductController extends Controller
                 $path[$k]['title'] = $item->title;
                 break;
             } else {
-                $ancestors = $item->ancestors;
-                $k = 0;
-                foreach ($ancestors as $ancestor){
-                    $path[$k]['id'] = $ancestor->id;
-                    $path[$k]['slug'] = $ancestor->slug;
-                    $path[$k]['title'] = $ancestor->title;
-                    $k++;
-                }
-                $path[$k]['id'] = $item->id;
-                $path[$k]['slug'] = $item->slug;
-                $path[$k]['title'] = $item->title;
-            }
+
+            }*/
 
         }
+
+        $max = max(array_keys($arr));
+
+        $k = 0;
+        foreach ($arr[$max]['ancestors'] as $ancestor){
+            $path[$k]['id'] = $ancestor->id;
+            $path[$k]['slug'] = $ancestor->slug;
+            $path[$k]['title'] = $ancestor->title;
+            $k++;
+        }
+
+        $path[$k]['id'] = $arr[$max]['current']->id;
+        $path[$k]['slug'] = $arr[$max]['current']->slug;
+        $path[$k]['title'] = $arr[$max]['current']->title;
         //dd($path);
+
+
         $similar_products = Product::where(['status' => 1, 'product_categories.category_id' => $path[0]['id']])
             ->where('products.id','!=',$product->id)
             ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')
