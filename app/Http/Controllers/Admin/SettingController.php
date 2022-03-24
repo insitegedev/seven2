@@ -38,7 +38,11 @@ class SettingController extends Controller
      */
     public function index(SettingRequest $request)
     {
-        return view('admin.pages.setting.index', [
+        /*return view('admin.pages.setting.index', [
+            'settings' => $this->settingRepository->getData($request, ['translations'])
+        ]);*/
+
+        return view('admin.nowa.views.setting.index', [
             'settings' => $this->settingRepository->getData($request, ['translations'])
         ]);
     }
@@ -67,7 +71,13 @@ class SettingController extends Controller
         $url = locale_route('setting.update', $setting->id, false);
         $method = 'PUT';
 
-        return view('admin.pages.setting.form', [
+        /*return view('admin.pages.setting.form', [
+            'setting' => $setting,
+            'url' => $url,
+            'method' => $method,
+        ]);*/
+
+        return view('admin.nowa.views.setting.form', [
             'setting' => $setting,
             'url' => $url,
             'method' => $method,
@@ -87,6 +97,6 @@ class SettingController extends Controller
         $this->settingRepository->update($setting->id,$saveData);
 
 
-        return redirect(locale_route('setting.show', $setting->id))->with('success', __('admin.update_successfully'));
+        return redirect(locale_route('setting.index', $setting->id))->with('success', __('admin.update_successfully'));
     }
 }

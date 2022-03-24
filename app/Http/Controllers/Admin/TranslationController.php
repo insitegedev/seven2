@@ -40,7 +40,12 @@ class TranslationController extends Controller
      */
     public function index(TranslationRequest $request)
     {
-        return view('admin.pages.translation.index', [
+        /*return view('admin.pages.translation.index', [
+            'translations' => $this->translationRepository->getData($request),
+            'languages' => $this->activeLanguages()
+        ]);*/
+
+        return view('admin.nowa.views.translation.index', [
             'translations' => $this->translationRepository->getData($request),
             'languages' => $this->activeLanguages()
         ]);
@@ -96,7 +101,14 @@ class TranslationController extends Controller
         $url = locale_route('translation.update', $id, false);
         $method = 'PUT';
 
-        return view('admin.pages.translation.form', [
+        /*return view('admin.pages.translation.form', [
+            'translation' => $this->translationRepository->findOrFail($id),
+            'url' => $url,
+            'method' => $method,
+            'languages' => $this->activeLanguages()
+        ]);*/
+
+        return view('admin.nowa.views.translation.form', [
             'translation' => $this->translationRepository->findOrFail($id),
             'url' => $url,
             'method' => $method,
@@ -122,7 +134,7 @@ class TranslationController extends Controller
         // Clear cache
         Artisan::call('cache:clear');
 
-        return redirect(locale_route('translation.show', $id))->with('success', 'Translation Updated.');
+        return redirect(locale_route('translation.index', $id))->with('success', 'Translation Updated.');
     }
 
     /**

@@ -39,7 +39,7 @@ class LoginController extends Controller
 
         //return view('admin.auth.login', []);
 
-        return view('admin.nowa.views.livewire.signin');
+        return view('admin.nowa.views.login.signin');
     }
 
     /**
@@ -56,10 +56,10 @@ class LoginController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ],$request->remember)) {
-            return back()->with('danger','Email or Password is incorrect!');
+             return back()->with('danger','Email or Password is incorrect!');
         }
 
-        return redirect('/ge/adminpanel/apartment');
+        return redirect('/ge/adminpanel/product');
     }
 
 

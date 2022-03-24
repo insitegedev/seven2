@@ -41,7 +41,7 @@
                                 <tr>
                                     <th>@lang('admin.id')</th>
                                     <th>@lang('admin.key')</th>
-                                    <th>@lang('admin.title')</th>
+                                    <th>@lang('admin.value')</th>
                                     <th>@lang('admin.actions')</th>
                                 </tr>
                                 </thead>
@@ -59,17 +59,17 @@
                                                class="validate {{$errors->has('key') ? '' : 'valid'}}">
                                     </th>
                                     <th>
-                                        <input class="form-control" type="text" name="title" onchange="this.form.submit()"
-                                               value="{{Request::get('title')}}"
-                                               class="validate {{$errors->has('title') ? '' : 'valid'}}">
+                                        <input class="form-control" type="text" name="value" onchange="this.form.submit()"
+                                               value="{{Request::get('value')}}"
+                                               class="validate {{$errors->has('value') ? '' : 'valid'}}">
                                     </th>
 
 
-                                @if($data)
-                                    @foreach($data as $item)
+                                @if($settings)
+                                    @foreach($settings as $setting)
                                         <tr>
-                                            <th scope="row">{{$item->id}}</th>
-                                            <td>{{$item->key}}</td>
+                                            <td>{{$setting->id}}</td>
+                                            <td>{{$setting->key}}</td>
                                             <td>
                                                 <div class="panel panel-primary tabs-style-2">
                                                     <div class=" tab-menu-heading">
@@ -77,7 +77,7 @@
                                                             <!-- Tabs -->
                                                             <ul class="nav panel-tabs main-nav-line">
                                                                 @foreach(config('translatable.locales') as $locale)
-                                                                    <li><a href="#cat-{{$locale}}-{{$item->id}}" class="nav-link {{$loop->first?"active":""}}" data-bs-toggle="tab">{{$locale}}</a></li>
+                                                                    <li><a href="#cat-{{$locale}}-{{$setting->id}}" class="nav-link {{$loop->first?"active":""}}" data-bs-toggle="tab">{{$locale}}</a></li>
                                                                 @endforeach
 
                                                             </ul>
@@ -87,8 +87,8 @@
                                                         <div class="tab-content">
 
                                                             @foreach(config('translatable.locales') as $locale)
-                                                                <div class="tab-pane {{$loop->first?"active":""}}" id="cat-{{$locale}}-{{$item->id}}">
-                                                                    {{$item->translate($locale)->title ?? ''}}
+                                                                <div class="tab-pane {{$loop->first?"active":""}}" id="cat-{{$locale}}-{{$setting->id}}">
+                                                                    {{$setting->translate($locale)->value ?? ''}}
                                                                 </div>
                                                             @endforeach
 
@@ -101,12 +101,12 @@
                                             <td>
 
 
-
-
-                                                <a href="{{locale_route('page.edit',$item->id)}}"
+                                                <a href="{{locale_route('setting.edit',$setting->id)}}"
                                                    class="pl-3">
                                                     <i class="fa fa-edit">edit</i>
                                                 </a>
+
+
                                             </td>
                                         </tr>
                                     @endforeach
@@ -122,7 +122,7 @@
         </div>
         <!--/div-->
 
-        {{ $data->appends(request()->input())->links('admin.vendor.pagination.material') }}
+        {{ $settings->appends(request()->input())->links('admin.vendor.pagination.material') }}
     </div>
     <!-- /row -->
 

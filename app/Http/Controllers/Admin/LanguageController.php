@@ -39,7 +39,11 @@ class LanguageController extends Controller
      */
     public function index(LanguageRequest $request)
     {
-        return view('admin.pages.language.index', [
+        /*return view('admin.pages.language.index', [
+            'languages' => $this->languageRepository->getData($request)
+        ]);*/
+
+        return view('admin.nowa.views.language.index', [
             'languages' => $this->languageRepository->getData($request)
         ]);
     }
@@ -56,7 +60,13 @@ class LanguageController extends Controller
         $url = locale_route('language.store', [], false);
         $method = 'POST';
 
-        return view('admin.pages.language.form', [
+        /*return view('admin.pages.language.form', [
+            'language' => $language,
+            'url' => $url,
+            'method' => $method
+        ]);*/
+
+        return view('admin.nowa.views.language.form', [
             'language' => $language,
             'url' => $url,
             'method' => $method
@@ -112,7 +122,13 @@ class LanguageController extends Controller
         $url = locale_route('language.update', $language->id, false);
         $method = 'PUT';
 
-        return view('admin.pages.language.form', [
+        /*return view('admin.pages.language.form', [
+            'language' => $language,
+            'url' => $url,
+            'method' => $method
+        ]);*/
+
+        return view('admin.nowa.views..language.form', [
             'language' => $language,
             'url' => $url,
             'method' => $method
@@ -138,7 +154,7 @@ class LanguageController extends Controller
         ];
         $this->languageRepository->update($language->id, $attributes);
 
-        return redirect(locale_route('language.show', $language->id))->with('success', 'Language Updated.');
+        return redirect(locale_route('language.index', $language->id))->with('success', 'Language Updated.');
     }
 
     /**

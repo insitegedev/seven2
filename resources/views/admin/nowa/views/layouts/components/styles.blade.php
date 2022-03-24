@@ -15,6 +15,12 @@
 
         @yield('styles')
 
+        <!--Internal   Notify -->
+        <link href="{{asset('admin/assets/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/>
+
+        <!--Internal  treeview -->
+        <link href="{{asset('admin/assets/plugins/treeview/treeview.css')}}" rel="stylesheet" type="text/css" />
+
 		<!-- STYLES CSS -->
 		<link href="{{asset('admin/assets/css/style.css')}}" rel="stylesheet">
 		<link href="{{asset('admin/assets/css/style-dark.css')}}" rel="stylesheet">

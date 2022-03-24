@@ -33,6 +33,8 @@
 
         @yield('scripts')
 
+        @include('admin.nowa.views.layouts.components.alerts')
+
 		<!-- EVA-ICONS JS -->
 		<script src="{{asset('admin/assets/plugins/eva-icons/eva-icons.min.js')}}"></script>
 
