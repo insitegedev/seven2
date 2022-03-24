@@ -113,9 +113,7 @@
 
                                             </td>
                                             <td>
-                                                <a href="{{locale_route('product.show',$item->id)}}">
-                                                    <i class="fas fa-eye">show</i>
-                                                </a>
+
                                                 <a href="{{locale_route('product.edit',$item->id)}}"
                                                    class="pl-3">
                                                     <i class="fa fa-edit">edit</i>
