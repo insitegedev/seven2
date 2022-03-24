@@ -43,7 +43,11 @@ class GalleryController extends Controller
      */
     public function index(GalleryRequest $request)
     {
-        return view('admin.pages.gallery.index', [
+        /*return view('admin.pages.gallery.index', [
+            'galleries' => $this->galleryRepository->getData($request)
+        ]);*/
+
+        return view('admin.nowa.views.gallery.index', [
             'galleries' => $this->galleryRepository->getData($request)
         ]);
     }
@@ -62,7 +66,13 @@ class GalleryController extends Controller
 
 //        dd($gallery);
 
-        return view('admin.pages.gallery.form', [
+        /*return view('admin.pages.gallery.form', [
+            'gallery' => $gallery,
+            'url' => $url,
+            'method' => $method,
+        ]);*/
+
+        return view('admin.nowa.views.gallery.form', [
             'gallery' => $gallery,
             'url' => $url,
             'method' => $method,
@@ -89,7 +99,7 @@ class GalleryController extends Controller
             $product = $this->galleryRepository->saveFiles($gallery->id, $request);
         }
 
-        return redirect(locale_route('gallery.show', $gallery->id))->with('success', __('admin.create_successfully'));
+        return redirect(locale_route('gallery.edit', $gallery->id))->with('success', __('admin.create_successfully'));
 
     }
 
@@ -121,7 +131,14 @@ class GalleryController extends Controller
         $url = locale_route('gallery.update', $gallery->id, false);
         $method = 'PUT';
 
-        return view('admin.pages.gallery.form', [
+        /*return view('admin.pages.gallery.form', [
+            'gallery' => $gallery,
+            'url' => $url,
+            'method' => $method,
+
+        ]);*/
+
+        return view('admin.nowa.views.gallery.form', [
             'gallery' => $gallery,
             'url' => $url,
             'method' => $method,
@@ -148,7 +165,7 @@ class GalleryController extends Controller
         $this->galleryRepository->saveFiles($gallery->id, $request);
 
 
-        return redirect(locale_route('gallery.show', $gallery->id))->with('success', __('admin.update_successfully'));
+        return redirect(locale_route('gallery.index', $gallery->id))->with('success', __('admin.update_successfully'));
     }
 
     /**

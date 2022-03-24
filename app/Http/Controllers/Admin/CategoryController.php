@@ -96,7 +96,7 @@ class CategoryController extends Controller
         }
 
 
-        return redirect(locale_route('category.show', $category->id))->with('success', __('admin.create_successfully'));
+        return redirect(locale_route('category.index', $category->id))->with('success', __('admin.create_successfully'));
 
     }
 
@@ -155,6 +155,7 @@ class CategoryController extends Controller
 
         $saveData = Arr::except($request->except('_token','path'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
+        $saveData['parent_id'] = $saveData['parent_id'] ? $saveData['parent_id'] : null;
 
         $this->categoryRepository->update($category->id, $saveData);
 
@@ -166,7 +167,7 @@ class CategoryController extends Controller
         //dd(count($data));
 
 
-        return redirect(locale_route('category.show', $category->id))->with('success', __('admin.update_successfully'));
+        return redirect(locale_route('category.index', $category->id))->with('success', __('admin.update_successfully'));
     }
 
     /**

@@ -13,7 +13,7 @@
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">@lang('admin.categories')</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">@lang('admin.slider')</span>
         </div>
         <div class="justify-content-center mt-2">
             @include('admin.nowa.views.layouts.components.breadcrump')
@@ -27,9 +27,9 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mg-b-0">@lang('admin.categories')</h4>
+                        <h4 class="card-title mg-b-0">@lang('admin.slider')</h4>
                     </div>
-                    <a href="{{locale_route('category.create')}}" class="btn ripple btn-primary" type="button">Create</a>
+                    <a href="{{locale_route('slider.create')}}" class="btn ripple btn-primary" type="button">Create</a>
 
                     {{--<p class="tx-12 tx-gray-500 mb-2">Example of Nowa Simple Table. <a href="">Learn more</a></p>--}}
                 </div>
@@ -66,20 +66,20 @@
                                                class="validate {{$errors->has('title') ? '' : 'valid'}}">
                                     </th>
                                     <th></th>
-                                </tr>
 
 
-                                @if($data)
-                                    @foreach($data as $item)
+                                @if($sliders)
+                                    @foreach($sliders as $slider)
                                         <tr>
-                                            <th scope="row">{{$item->id}}</th>
+                                            <td>{{$slider->id}}</td>
                                             <td>
-                                                @if($item->status)
+                                                @if($slider->status)
                                                     <span class="green-text">@lang('admin.active')</span>
                                                 @else
                                                     <span class="red-text">@lang('admin.not_active')</span>
                                                 @endif
                                             </td>
+
                                             <td>
                                                 <div class="panel panel-primary tabs-style-2">
                                                     <div class=" tab-menu-heading">
@@ -87,7 +87,7 @@
                                                             <!-- Tabs -->
                                                             <ul class="nav panel-tabs main-nav-line">
                                                                 @foreach(config('translatable.locales') as $locale)
-                                                                    <li><a href="#cat-{{$locale}}-{{$item->id}}" class="nav-link {{$loop->first?"active":""}}" data-bs-toggle="tab">{{$locale}}</a></li>
+                                                                    <li><a href="#cat-{{$locale}}-{{$slider->id}}" class="nav-link {{$loop->first?"active":""}}" data-bs-toggle="tab">{{$locale}}</a></li>
                                                                 @endforeach
 
                                                             </ul>
@@ -97,8 +97,8 @@
                                                         <div class="tab-content">
 
                                                             @foreach(config('translatable.locales') as $locale)
-                                                                <div class="tab-pane {{$loop->first?"active":""}}" id="cat-{{$locale}}-{{$item->id}}">
-                                                                    {{$item->translate($locale)->title ?? ''}}
+                                                                <div class="tab-pane {{$loop->first?"active":""}}" id="cat-{{$locale}}-{{$slider->id}}">
+                                                                    {{$slider->translate($locale)->title ?? ''}}
                                                                 </div>
                                                             @endforeach
 
@@ -110,13 +110,12 @@
 
                                             <td>
 
-                                                <a href="{{locale_route('category.edit',$item->id)}}"
+                                                <a href="{{locale_route('slider.edit',$slider->id)}}"
                                                    class="pl-3">
                                                     <i class="fa fa-edit">edit</i>
                                                 </a>
-
-                                                <a href="{{locale_route('category.edit',$item->id)}}"
-                                                   class="pl-3">
+                                                <a href="{{locale_route('slider.destroy',$slider->id)}}"
+                                                   onclick="return confirm('Are you sure?')" class="pl-3">
                                                     <i class="fa fa-trash-alt">delete</i>
                                                 </a>
                                             </td>
@@ -134,7 +133,7 @@
         </div>
         <!--/div-->
 
-        {{ $data->appends(request()->input())->links('admin.vendor.pagination.material') }}
+        {{ $sliders->appends(request()->input())->links('admin.vendor.pagination.material') }}
     </div>
     <!-- /row -->
 

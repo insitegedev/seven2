@@ -33,7 +33,11 @@ class SliderController extends Controller
      */
     public function index(SliderRequest $request)
     {
-        return view('admin.pages.slider.index', [
+        /*return view('admin.pages.slider.index', [
+            'sliders' => $this->slideRepository->getData($request, ['translations'])
+        ]);*/
+
+        return view('admin.nowa.views.slider.index', [
             'sliders' => $this->slideRepository->getData($request, ['translations'])
         ]);
     }
@@ -50,7 +54,13 @@ class SliderController extends Controller
         $url = locale_route('slider.store', [], false);
         $method = 'POST';
 
-        return view('admin.pages.slider.form', [
+        /*return view('admin.pages.slider.form', [
+            'slider' => $slider,
+            'url' => $url,
+            'method' => $method,
+        ]);*/
+
+        return view('admin.nowa.views.slider.form', [
             'slider' => $slider,
             'url' => $url,
             'method' => $method,
@@ -76,7 +86,7 @@ class SliderController extends Controller
             $slider = $this->slideRepository->saveFiles($slider->id, $request);
         }
 
-        return redirect(locale_route('slider.show', $slider->id))->with('success', __('admin.create_successfully'));
+        return redirect(locale_route('slider.index', $slider->id))->with('success', __('admin.create_successfully'));
 
     }
 
@@ -108,7 +118,13 @@ class SliderController extends Controller
         $url = locale_route('slider.update', $slider->id, false);
         $method = 'PUT';
 
-        return view('admin.pages.slider.form', [
+        /*return view('admin.pages.slider.form', [
+            'slider' => $slider,
+            'url' => $url,
+            'method' => $method,
+        ]);*/
+
+        return view('admin.nowa.views.slider.form', [
             'slider' => $slider,
             'url' => $url,
             'method' => $method,
@@ -134,7 +150,7 @@ class SliderController extends Controller
         $this->slideRepository->saveFiles($slider->id, $request);
 
 
-        return redirect(locale_route('slider.show', $slider->id))->with('success', __('admin.update_successfully'));
+        return redirect(locale_route('slider.index', $slider->id))->with('success', __('admin.update_successfully'));
     }
 
     /**

@@ -1,36 +1,4 @@
-<?php
-$_checked = ($category and $category->parent_id == null) ? ' checked':'';
 
-$traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
-
-        //dd($category);
-
-
-    $html = '<ul style="margin: initial !important;padding: initial !important;">';
-
-    foreach ($categories as $_category) {
-        $checked = ($category and $_category->id == $category->parent_id) ? 'checked':'';
-        $html .= '<li style="margin-bottom: 5px"><label class="rdiobox">
-                        <input type="radio" name="parent_id" data-checkboxes="mygroup" class="custom-control-input" '. $checked .' id="'.$_category->id.'" value="'.$_category->id.'">
-                        <span style="margin-left: 15px">'.$_category->title.'</span>
-
-                        </label></li>';
-
-
-        if(count($_category->children)){
-            $html .= '<li style="padding-left: 20px">';
-            $html .= $traverse($_category->children, $prefix.'-');
-            $html .= '</li>';
-        }
-
-    }
-
-    $html .= '</ul>';
-
-    return $html;
-};
-
-?>
 @extends('admin.nowa.views.layouts.app')
 
 @section('styles')
@@ -59,45 +27,24 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$category->created_at ? __('admin.category-update') : __('admin.category-create')}}</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$slider->slider_id ? __('admin.slider-update') : __('admin.slider-create')}}</span>
         </div>
         <div class="justify-content-center mt-2">
             @include('admin.nowa.views.layouts.components.breadcrump')
         </div>
     </div>
     <!-- /breadcrumb -->
-    <input name="old-images[]" id="old_images" hidden disabled value="{{$category->files}}">
+    <input name="old-images[]" id="old_images" hidden disabled value="{{$slider->files}}">
     <!-- row -->
-    {!! Form::model($category,['url' => $url, 'method' => $method,'files' => true]) !!}
+    {!! Form::model($slider,['url' => $url, 'method' => $method,'files' => true]) !!}
     <div class="row">
         <div class="col-lg-6 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">Product categories</h6>
-                    </div>
+
                     <div class="mb-4">
-                        <p class="mg-b-10">parent</p>
 
-                        <ul>
-                            <li style="margin-bottom: 5px"><label class="rdiobox">
-                                    <input type="radio" name="parent_id" data-checkboxes="mygroup" class="custom-control-input" <?=$_checked;?> value="0">
-                                    <span style="margin-left: 15px">-none-</span>
 
-                                </label></li>
-                            <li>
-                                <ul>
-                                    <li>
-                                        <?=$traverse($categories);?>
-                                    </li>
-                                </ul>
-
-                            </li>
-                        </ul>
-
-                    </div>
-                    <div class="mb-4">
-                        <p class="mg-b-10">title</p>
                         <div class="panel panel-primary tabs-style-2">
                             <div class=" tab-menu-heading">
                                 <div class="tabs-menu1">
@@ -125,17 +72,50 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
                                         if($loop->first) $active = 'active';
                                         ?>
                                         <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
+
                                             <div class="form-group">
-                                                <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="Name" value="{{$category->translate($locale)->title ?? ''}}">
+                                                {!! Form::label($locale.'[title]',__('admin.title'),['class' => 'form-label']) !!}
+                                                {!! Form::text($locale.'[title]',$slider->translate($locale)->title ?? '',['class' => 'form-control']) !!}
+
+                                                @error($locale.'.title')
+                                                <small class="errorTxt4">
+                                                    <div class="error">
+                                                        {{$message}}
+                                                    </div>
+                                                </small>
+                                                @enderror
                                             </div>
+                                            <div class="form-group">
+                                                {!! Form::label($locale.'[title_2]',__('admin.title_2'),['class' => 'form-label']) !!}
+                                                {!! Form::text($locale.'[title_2]',$slider->translate($locale)->title_2 ?? '',['class' => 'form-control']) !!}
+
+                                                @error($locale.'.title_2')
+                                                <small class="errorTxt4">
+                                                    <div class="error">
+                                                        {{$message}}
+                                                    </div>
+                                                </small>
+                                                @enderror
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <h5 for="description">@lang('admin.description')</h5>
+                                                <textarea class="form-control" id="description-{{$locale}}"
+                                                          name="{{$locale}}[description]'">
+                                                {!! $slider->translate($locale)->description ?? '' !!}
+                                            </textarea>
+                                                @error($locale.'.description')
+                                                <small class="errorTxt4">
+                                                    <div class="error">
+                                                        {{$message}}
+                                                    </div>
+                                                </small>
+                                                @enderror
+                                            </div>
+
                                         </div>
-                                            @error($locale.'.title')
-                                            <small class="errorTxt4">
-                                                <div class="error">
-                                                    {{$message}}
-                                                </div>
-                                            </small>
-                                            @enderror
+
                                     @endforeach
 
                                 </div>
@@ -143,35 +123,45 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
                         </div>
 
                     </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+
                     <div class="form-group">
-                        <label class="form-label">slug</label>
-                        <input type="text" name="slug" class="form-control" placeholder="Slug" value="{{$category->slug ?? ''}}">
-                    </div>
-                    @error('slug')
-                    <small class="errorTxt4">
-                        <div class="error">
-                            {{$message}}
-                        </div>
-                    </small>
-                    @enderror
-                    <div class="form-group mb-0 justify-content-end">
-                        <div class="checkbox">
-                            <div class="custom-checkbox custom-control">
-                                <input type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$category->status ? 'checked' : ''}}>
-                                <label for="checkbox-2" class="custom-control-label mt-1">Status</label>
+                        {!! Form::label("youtube_url",__('admin.btn_link'),['class' => 'form-label']) !!}
+                        {!! Form::text("youtube_url",$slider->youtube_url ?? '',['class' => 'form-control']) !!}
+
+                        @error($locale.'.youtube_url')
+                        <small class="errorTxt4">
+                            <div class="error">
+                                {{$message}}
                             </div>
-                        </div>
+                        </small>
+                        @enderror
                     </div>
+                    <div class="form-group">
+                        <label class="ckbox">
+                            <input type="checkbox" name="status"
+                                   value="true" {{$slider->status ? 'checked' : ''}}>
+                            <span>{{__('admin.status')}}</span>
+                        </label>
+                    </div>
+
                     <div class="form-group mb-0 mt-3 justify-content-end">
                         <div>
-                            {!! Form::submit($category->created_at ? __('admin.update') : __('admin.create'),['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit($slider->created_at ? __('admin.update') : __('admin.create'),['class' => 'btn btn-primary']) !!}
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
-
     </div>
 
     <!-- /row -->
@@ -180,6 +170,9 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-body">
+                    <div>
+                        <h6 class="card-title mb-1">images</h6>
+                    </div>
                     <div class="input-images"></div>
                     @if ($errors->has('images'))
                         <span class="help-block">
@@ -260,6 +253,16 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
         } else {
             $('.input-images').imageUploader();
         }
+    </script>
+
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+        @foreach(config('translatable.locales') as $locale)
+        CKEDITOR.replace('description-{{$locale}}', {
+            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+        @endforeach
     </script>
 
 @endsection
