@@ -13,7 +13,7 @@
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">@lang('admin.pages')</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">@lang('admin.translations')</span>
         </div>
         <div class="justify-content-center mt-2">
             @include('admin.nowa.views.layouts.components.breadcrump')
@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mg-b-0">@lang('admin.pages')</h4>
+                        <h4 class="card-title mg-b-0">@lang('admin.translations')</h4>
                     </div>
 
 

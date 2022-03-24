@@ -25,32 +25,11 @@
             ]
         },
         {
-            "url": "apartment.index",
-            "name": "apartment",
-            "i18n": "apartment",
-            "icon": "language",
-            "slug": "apartment"
-        },
-        {
-            "url": "floor.index",
-            "name": "floor",
-            "i18n": "floor",
-            "icon": "language",
-            "slug": "floor"
-        },
-        {
             "url": "gallery.index",
             "name": "gallery",
             "i18n": "gallery",
             "icon": "language",
             "slug": "gallery"
-        },
-        {
-            "url": "service.index",
-            "name": "service",
-            "i18n": "service",
-            "icon": "language",
-            "slug": "service"
         },
         {
             "url": "page.index",

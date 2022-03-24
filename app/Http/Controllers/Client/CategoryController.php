@@ -56,7 +56,7 @@ class CategoryController extends Controller
         $page = Page::where('key', 'products')->firstOrFail();
 //        return 1;
         $category = Category::where(['status' => 1, 'slug' => $slug])->firstOrFail();
-       // dd($category);
+        //dd($category->getAncestors());
         $products = Product::where(['status' => 1, 'product_categories.category_id' => $category->id])
             ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')->with('files')
             ->paginate(4);

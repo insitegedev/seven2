@@ -13,7 +13,7 @@
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">@lang('admin.apartment')</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">Languages</span>
         </div>
         <div class="justify-content-center mt-2">
             @include('admin.nowa.views.layouts.components.breadcrump')
@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mg-b-0">@lang('admin.categories')</h4>
+                        <h4 class="card-title mg-b-0">Languages</h4>
                     </div>
                     <a href="{{locale_route('language.create')}}" class="btn ripple btn-primary" type="button">Create</a>
 

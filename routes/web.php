@@ -37,7 +37,7 @@ Route::prefix('{locale?}')
             Route::middleware('auth')->group(function () {
                 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-                Route::redirect('', '/adminpanel/apartment',);
+                Route::redirect('', 'adminpanel/category');
 
                 // Language
                 Route::resource('language', LanguageController::class);

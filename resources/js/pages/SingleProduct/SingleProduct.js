@@ -16,12 +16,13 @@ import {
 
 import Layout from "../../Layouts/Layout";
 import {usePage} from "@inertiajs/inertia-react";
+import { Link } from "@inertiajs/inertia-react";
 
 const SingleProduct = (seo) => {
     const sharedData = usePage().props.localizations;
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
-    const { product, category, similar_products } = usePage().props;
+    const { product, category_path, similar_products } = usePage().props;
     //console.log(product);
     //console.log(category);
     //console.log(similar_products);
@@ -110,13 +111,38 @@ const SingleProduct = (seo) => {
 
     const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
 
+    const breadcrumb = function (path){
+        let rows = [];
+        path.map(function (el,i){
+                rows.push(<span>{el.title}</span>)
+                rows.push(<img src="/assets/images/icons/arrows/2.svg" alt="" />)
+        })
+        return rows
+    }
+
+    const breadcrumb2 = function (path){
+        let rows = [];
+
+        path.map(function (el,i){
+            if(i < path.length - 1){
+                rows.push(<span className="op5">{el.title}</span>)
+                rows.push(<span className="op5">,</span>)
+            } else {
+                rows.push(<span className="op5">{el.title}</span>)
+            }
+
+
+        })
+        return rows
+    }
+
   return (
       <Layout seo={seo}>
     <div className="SingleProduct">
       <div className="container">
         <div className="path">
           <span>{__('client.nav_home',sharedData)}</span> <img src="/assets/images/icons/arrows/2.svg" alt="" />
-          <span>{category.title}</span> <img src="/assets/images/icons/arrows/2.svg" alt="" />
+            {breadcrumb(category_path)}
           <span className="active">{product.title}</span>
         </div>
         <div className="flex main">
@@ -152,7 +178,7 @@ const SingleProduct = (seo) => {
             </p>
             <div className="margin">
               <div style={{ marginBottom: "10px" }}>
-                  {__('client.product_categories',sharedData)}: <span className="op5">{category.title}</span>
+                  {__('client.product_categories',sharedData)}: <span className="op5">{breadcrumb2(category_path)}</span>
               </div>
               <div>
                   {__('client.product_code',sharedData)}: <span>{product.code}</span>

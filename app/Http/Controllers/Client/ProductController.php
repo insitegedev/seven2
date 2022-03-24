@@ -67,18 +67,54 @@ class ProductController extends Controller
         })->with(['files','categories'])->firstOrFail();
 
         //dd(last($product->categories));
-        $category = $product->categories->toArray();
+        $categories = $product->categories;
 
-        $similar_products = Product::where(['status' => 1, 'product_categories.category_id' => $category[0]['id']])
+
+        $path = [];
+        foreach ($categories as $key =>$item){
+
+            if($item->isLeaf()){
+
+                $ancestors = $item->ancestors;
+
+                $k = 0;
+                foreach ($ancestors as $ancestor){
+                    $path[$k]['id'] = $ancestor->id;
+                    $path[$k]['slug'] = $ancestor->slug;
+                    $path[$k]['title'] = $ancestor->title;
+                    $k++;
+                }
+
+                $path[$k]['id'] = $item->id;
+                $path[$k]['slug'] = $item->slug;
+                $path[$k]['title'] = $item->title;
+                break;
+            } else {
+                $ancestors = $item->ancestors;
+                $k = 0;
+                foreach ($ancestors as $ancestor){
+                    $path[$k]['id'] = $ancestor->id;
+                    $path[$k]['slug'] = $ancestor->slug;
+                    $path[$k]['title'] = $ancestor->title;
+                    $k++;
+                }
+                $path[$k]['id'] = $item->id;
+                $path[$k]['slug'] = $item->slug;
+                $path[$k]['title'] = $item->title;
+            }
+
+        }
+        //dd($path);
+        $similar_products = Product::where(['status' => 1, 'product_categories.category_id' => $path[0]['id']])
             ->where('products.id','!=',$product->id)
             ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')
             ->inRandomOrder()
             ->with('files')
             ->paginate(8);
         //dd($category);
-        $result = [];
-        $result['id'] = $category[0]['id'];
-        $result['title'] = $category[0]['title'];
+        //$result = [];
+        //$result['id'] = $category[0]['id'];
+        //$result['title'] = $category[0]['title'];
         //dd(\Illuminate\Support\Facades\DB::getQueryLog());
 
         /*return view('client.pages.product.show', [
@@ -86,7 +122,7 @@ class ProductController extends Controller
         ]);*/
         return Inertia::render('SingleProduct/SingleProduct',[
             'product' => $product,
-            'category' => $result,
+            'category_path' => $path,
             'similar_products' => $similar_products
         ]);
     }

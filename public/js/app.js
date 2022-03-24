@@ -4012,6 +4012,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var SingleProduct = function SingleProduct(seo) {
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.usePage)().props.localizations;
 
@@ -4027,7 +4028,7 @@ var SingleProduct = function SingleProduct(seo) {
 
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.usePage)().props,
       product = _usePage$props.product,
-      category = _usePage$props.category,
+      category_path = _usePage$props.category_path,
       similar_products = _usePage$props.similar_products; //console.log(product);
   //console.log(category);
   //console.log(similar_products);
@@ -4104,6 +4105,37 @@ var SingleProduct = function SingleProduct(seo) {
     });
   };
 
+  var breadcrumb = function breadcrumb(path) {
+    var rows = [];
+    path.map(function (el, i) {
+      rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, el.title));
+      rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: "/assets/images/icons/arrows/2.svg",
+        alt: ""
+      }));
+    });
+    return rows;
+  };
+
+  var breadcrumb2 = function breadcrumb2(path) {
+    var rows = [];
+    path.map(function (el, i) {
+      if (i < path.length - 1) {
+        rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "op5"
+        }, el.title));
+        rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "op5"
+        }, ","));
+      } else {
+        rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "op5"
+        }, el.title));
+      }
+    });
+    return rows;
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_7__["default"], {
     seo: seo
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -4115,10 +4147,7 @@ var SingleProduct = function SingleProduct(seo) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.nav_home', sharedData)), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/arrows/2.svg",
     alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, category.title), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/assets/images/icons/arrows/2.svg",
-    alt: ""
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }), breadcrumb(category_path), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: "active"
   }, product.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex main"
@@ -4164,7 +4193,7 @@ var SingleProduct = function SingleProduct(seo) {
     }
   }, __('client.product_categories', sharedData), ": ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: "op5"
-  }, category.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, __('client.product_code', sharedData), ": ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, product.code))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
+  }, breadcrumb2(category_path))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, __('client.product_code', sharedData), ": ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, product.code))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
     link: route('client.contact.index'),
     text: __('client.product_order_btn', sharedData)
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {

@@ -3,7 +3,7 @@
 					<div class=" main-container container-fluid">
 						<div class="main-header-left ">
 							<div class="responsive-logo">
-								<a href="{{url('index')}}" class="header-logo">
+								<a href="{{url('adminpanel')}}" class="header-logo">
 									<img src="{{asset('admin/assets/img/brand/logo.png')}}" class="mobile-logo logo-1" alt="logo">
 									<img src="{{asset('admin/assets/img/brand/logo-white.png')}}" class="mobile-logo dark-logo-1" alt="logo">
 								</a>
@@ -13,15 +13,15 @@
 								<a class="close-toggle" href="javascript:void(0);"><i class="header-icon fe fe-x"></i></a>
 							</div>
 							<div class="logo-horizontal">
-								<a href="{{url('index')}}" class="header-logo">
+								<a href="{{url('adminpanel')}}" class="header-logo">
 									<img src="{{asset('admin/assets/img/brand/logo.png')}}" class="mobile-logo logo-1" alt="logo">
 									<img src="{{asset('admin/assets/img/brand/logo-white.png')}}" class="mobile-logo dark-logo-1" alt="logo">
 								</a>
 							</div>
-							<div class="main-header-center ms-4 d-sm-none d-md-none d-lg-block form-group">
+							{{--<div class="main-header-center ms-4 d-sm-none d-md-none d-lg-block form-group">
 								<input class="form-control" placeholder="Search..." type="search">
 								<button class="btn"><i class="fas fa-search"></i></button>
-							</div>
+							</div>--}}
 						</div>
 						<div class="main-header-right">
 							<button class="navbar-toggler navresponsive-toggler d-md-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@
 												<span class="light-layout"><svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" width="24" height="24" viewBox="0 0 24 24"><path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"/></svg></span>
 											</a>
 										</li>
-										<li class="dropdown nav-item  main-header-message ">
+										{{--<li class="dropdown nav-item  main-header-message ">
 											<a class="new nav-link"  data-bs-toggle="dropdown" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" width="24" height="24" viewBox="0 0 24 24"><path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"/></svg><span class="badge bg-secondary header-badge">5</span></a>
 											<div class="dropdown-menu">
 												<div class="menu-header-content text-start border-bottom">
@@ -115,8 +115,8 @@
 													<a class="btn btn-primary btn-sm btn-block text-center"  href="{{url('chat')}}">VIEW ALL</a>
 												</div>
 											</div>
-										</li>
-										<li class="dropdown nav-item main-header-notification d-flex">
+										</li>--}}
+										{{--<li class="dropdown nav-item main-header-notification d-flex">
 											<a class="new nav-link"  data-bs-toggle="dropdown" href="javascript:void(0);">
 												<svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13.586V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v3.586l-1.707 1.707A.996.996 0 0 0 3 16v2a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-2a.996.996 0 0 0-.293-.707L19 13.586zM19 17H5v-.586l1.707-1.707A.996.996 0 0 0 7 14v-4c0-2.757 2.243-5 5-5s5 2.243 5 5v4c0 .266.105.52.293.707L19 16.414V17zm-7 5a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22z"/></svg><span class=" pulse"></span>
 											</a>
@@ -206,16 +206,16 @@
 													<a class="btn btn-primary btn-sm btn-block" href="{{url('mail')}}">VIEW ALL</a>
 												</div>
 											</div>
-										</li>
+										</li>--}}
 										<li class="nav-item full-screen fullscreen-button">
 											<a class="new nav-link full-screen-link" href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" width="24" height="24" viewBox="0 0 24 24"><path d="M5 5h5V3H3v7h2zm5 14H5v-5H3v7h7zm11-5h-2v5h-5v2h7zm-2-4h2V3h-7v2h5z"/></svg></a>
 										</li>
-										<li class="dropdown main-header-message right-toggle">
+										{{--<li class="dropdown main-header-message right-toggle">
 											<a class="new nav-link nav-link pe-0" data-bs-toggle="sidebar-right" data-bs-target=".sidebar-right">
 												<svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" width="24" height="24" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm4 5h12v2H8zm5 5h7v2h-7z"/></svg>
 											</a>
-										</li>
-										<li class="nav-link search-icon d-lg-none d-block">
+										</li>--}}
+										{{--<li class="nav-link search-icon d-lg-none d-block">
 											<form class="navbar-form" role="search">
 												<div class="input-group">
 													<input type="text" class="form-control" placeholder="Search">
@@ -229,7 +229,7 @@
 													</span>
 												</div>
 											</form>
-										</li>
+										</li>--}}
 										<li class="dropdown main-profile-menu nav nav-item nav-link ps-lg-2">
 											<a class="new nav-link profile-user d-flex" href="" data-bs-toggle="dropdown"><img alt="" src="{{asset('admin/assets/img/faces/2.jpg')}}" class=""></a>
 											<div class="dropdown-menu">
