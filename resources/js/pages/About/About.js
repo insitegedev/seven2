@@ -12,7 +12,7 @@ import Layout from "../../Layouts/Layout";
 import "./About.css";
 import {usePage} from "@inertiajs/inertia-react";
 
-const About = (page,seo) => {
+const About = ({page, seo}) => {
     const sharedData = usePage().props.localizations;
     const {gallery_img, images} = usePage().props;
     console.log(images)

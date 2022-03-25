@@ -3054,7 +3054,8 @@ function Layout(_ref) {
       _ref$seo = _ref.seo,
       seo = _ref$seo === void 0 ? null : _ref$seo;
 
-  if (seo) {// setSeoData(seo);
+  if (seo) {
+    (0,_SetSeoData__WEBPACK_IMPORTED_MODULE_5__["default"])(seo);
   }
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -3149,7 +3150,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var About = function About(page, seo) {
+var About = function About(_ref) {
+  var page = _ref.page,
+      seo = _ref.seo;
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.localizations;
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props,
       gallery_img = _usePage$props.gallery_img,
@@ -3778,7 +3781,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //import Img3 from "../../assets/images/products/3.png";
 //import Img4 from "../../assets/images/products/4.png";
 
-var Products = function Products(page, seo) {
+var Products = function Products(_ref) {
+  var page = _ref.page,
+      seo = _ref.seo;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState2 = _slicedToArray(_useState, 2),
       showTab = _useState2[0],
@@ -4013,7 +4019,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var SingleProduct = function SingleProduct(seo) {
+var SingleProduct = function SingleProduct(_ref) {
+  var page = _ref.page,
+      seo = _ref.seo;
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.usePage)().props.localizations;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),

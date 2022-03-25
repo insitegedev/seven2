@@ -57,7 +57,7 @@ class ContactController extends Controller
                 'message' => 'required|max:1024'
             ]);
 
-            dd($request->all());
+            //dd($request->all());
 
             $data = [
                 'name' => $request->name,

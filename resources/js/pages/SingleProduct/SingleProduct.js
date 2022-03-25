@@ -18,7 +18,7 @@ import Layout from "../../Layouts/Layout";
 import {usePage} from "@inertiajs/inertia-react";
 import { Link } from "@inertiajs/inertia-react";
 
-const SingleProduct = (seo) => {
+const SingleProduct = ({page,seo}) => {
     const sharedData = usePage().props.localizations;
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();

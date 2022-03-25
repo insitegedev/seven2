@@ -13,8 +13,8 @@
     @if($image)
         <meta property="og:image" content={{"/".$image->path."/".$image->title}}>
     @endif
-{{--    <meta property="og:url" content="{{ request()->fullUrl() }}">--}}
-{{--    <meta property="og:type" content="page">--}}
+    <meta property="og:url" content="{{ request()->fullUrl() }}">
+    <meta property="og:type" content="page">
 {{--    <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>--}}
 {{--    @if(app()->getLocale()=="ge")--}}
 {{--        <link href="{{ mix('/css/AppGeo.css') }}" rel="stylesheet"/>--}}

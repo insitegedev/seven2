@@ -9,7 +9,7 @@ import { usePage, Head } from "@inertiajs/inertia-react";
 //import Img3 from "../../assets/images/products/3.png";
 //import Img4 from "../../assets/images/products/4.png";
 
-const Products = (page,seo) => {
+const Products = ({page, seo}) => {
   const [showTab, setShowTab] = useState(0);
     const { categories, products, category, images } = usePage().props;
     const sharedData = usePage().props.localizations;
