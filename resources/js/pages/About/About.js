@@ -47,7 +47,7 @@ const About = ({page, seo}) => {
               {__('client.about_us_section1_header2',sharedData)}
           </div>
           <p>
-              {__('client.about_us_section1_p1',sharedData)}
+              {__('client.about_us_section1_p1',sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')}
           </p>
           <p>
               {__('client.about_us_section1_p2',sharedData)}
