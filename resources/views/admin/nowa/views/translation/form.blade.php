@@ -75,7 +75,7 @@
                                         <div class="tab-pane {{$active}}" id="lang-{{$key}}">
                                             <div class="form-group">
                                                 {!! Form::label('text['.$key.']',__('admin.text'),['class' => 'form-label']) !!}
-                                                {!! Form::text('text['.$key.']',isset($translation->text[$key]) ? $translation->text[$key]:  '',['class' => 'form-control']) !!}
+                                                {!! Form::textarea('text['.$key.']',isset($translation->text[$key]) ? $translation->text[$key]:  '',['class' => 'form-control','rows' => '3']) !!}
 
                                                 @error('text.*')
                                                 <small class="errorTxt4">
