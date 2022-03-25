@@ -40,7 +40,7 @@
                                                    href="@if(($menu->url)==='javascript:void(0)'){{$menu->url}} @else{{locale_route($menu->url)}} @endif"
                                                     {{isset($menu->newTab) ? 'target="_blank"':''}}>
                                                     <i class="material-icons"></i>
-                                                    <span class="menu-title">{{ __('admin.'.$menu->name)}}</span>
+                                                    <span class="menu-title">{{ $menu->name}}</span>
                                                     @if(isset($menu->tag))
                                                         <span class="{{$menu->tagcustom}}">{{$menu->tag}}</span>
                                                     @endif
