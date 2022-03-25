@@ -50,9 +50,11 @@ class ContactController extends Controller
     {
 
         if ($request->method() == 'POST') {
+
+            //dd($request->all());
             $request->validate([
                 'name' => 'required|string|max:55',
-                'mail' => 'required|email',
+                'email' => 'required|email',
                 'phone' => 'required',
                 'message' => 'required|max:1024'
             ]);
@@ -61,7 +63,7 @@ class ContactController extends Controller
 
             $data = [
                 'name' => $request->name,
-                'mail' => $request->mail,
+                'mail' => $request->email,
                 'phone' => $request->phone,
                 "subject" => "subject",
                 'message' => $request->message
