@@ -12,6 +12,9 @@ import Layout from "../../Layouts/Layout";
 import "./About.css";
 import {usePage} from "@inertiajs/inertia-react";
 
+
+const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
 const About = ({page, seo}) => {
     const sharedData = usePage().props.localizations;
     const {gallery_img, images} = usePage().props;
@@ -47,11 +50,11 @@ const About = ({page, seo}) => {
               {__('client.about_us_section1_header2',sharedData)}
           </div>
           <p>
-              {__('client.about_us_section1_p1',sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')}
+              {renderHTML(__('client.about_us_section1_p1',sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
           </p>
-          <p>
+          {/*<p>
               {__('client.about_us_section1_p2',sharedData)}
-          </p>
+          </p>*/}
         </div>
       </div>
       <div className="flex two">
@@ -61,7 +64,7 @@ const About = ({page, seo}) => {
               {__('client.about_us_section2_header2',sharedData)}
           </div>
           <p>
-              {__('client.about_us_section2_p1',sharedData)}
+              {renderHTML(__('client.about_us_section2_p1',sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))}
           </p>
         </div>
         <img src={images[2]} alt="" />

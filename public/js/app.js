@@ -3150,6 +3150,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var renderHTML = function renderHTML(rawHTML) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    dangerouslySetInnerHTML: {
+      __html: rawHTML
+    }
+  });
+};
+
 var About = function About(_ref) {
   var page = _ref.page,
       seo = _ref.seo;
@@ -3184,7 +3192,7 @@ var About = function About(_ref) {
     className: "bold"
   }, __('client.about_us_section1_header', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "title underline"
-  }, __('client.about_us_section1_header2', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.about_us_section1_p1', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.about_us_section1_p2', sharedData)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __('client.about_us_section1_header2', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.about_us_section1_p1', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>'))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex two"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "content"
@@ -3192,7 +3200,7 @@ var About = function About(_ref) {
     className: "bold"
   }, __('client.about_us_section2_header1', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "title underline"
-  }, __('client.about_us_section2_header2', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, __('client.about_us_section2_p1', sharedData))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, __('client.about_us_section2_header2', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, renderHTML(__('client.about_us_section2_p1', sharedData).replace(/(?:\r\n|\r|\n)/g, '<br>')))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: images[2],
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
