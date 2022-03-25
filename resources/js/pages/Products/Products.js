@@ -232,7 +232,7 @@ const Products = ({page, seo}) => {
         </div>
       </div>
       <div style={{background: 'url(' + images[0] +') no-repeat'}} className="fixed_bg last">
-          {__('client.products_section_text1',sharedData)} <br /> {__('client.products_section_text1',sharedData)}
+          {__('client.products_section_text1',sharedData)} <br /> {__('client.products_section_text2',sharedData)}
       </div>
     </div>
       </Layout>
