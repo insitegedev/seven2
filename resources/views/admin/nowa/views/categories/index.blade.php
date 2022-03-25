@@ -115,8 +115,8 @@
                                                     <i class="fa fa-edit">edit</i>
                                                 </a>
 
-                                                <a href="{{locale_route('category.edit',$item->id)}}"
-                                                   class="pl-3">
+                                                <a href="{{locale_route('category.destroy',$item->id)}}"
+                                                   onclick="return confirm('Are you sure?')" class="pl-3">
                                                     <i class="fa fa-trash-alt">delete</i>
                                                 </a>
                                             </td>
