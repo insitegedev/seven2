@@ -3160,7 +3160,10 @@ var About = function About(_ref) {
   console.log(images);
   var gallery = ["/assets/images/gallery/1.png", "/assets/images/gallery/2.png", "/assets/images/gallery/3.png", "/assets/images/gallery/2.png", "/assets/images/gallery/3.png", "/assets/images/gallery/4.png", "/assets/images/gallery/5.png", "/assets/images/gallery/2.png", "/assets/images/gallery/3.png", "/assets/images/gallery/4.png", "/assets/images/gallery/6.png", "/assets/images/gallery/3.png", "/assets/images/gallery/4.png", "/assets/images/gallery/5.png"];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    seo: seo
+    seo: {
+      page: page,
+      seo: seo
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "aboutPage wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
