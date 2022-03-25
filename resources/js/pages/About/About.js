@@ -33,7 +33,7 @@ const About = ({page, seo}) => {
     "/assets/images/gallery/5.png",
   ];
   return (
-      <Layout seo={seo}>
+      <Layout seo={{page,seo}}>
     <div className="aboutPage wrapper">
       <div className="head bold">{__('client.about_us_header',sharedData)}</div>
       <div className="showcase img">
