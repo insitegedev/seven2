@@ -60,7 +60,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$product->created_at ? __('admin.category-update') : __('admin.category-create')}}</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$product->created_at ? __('admin.product-update') : __('admin.product-create')}}</span>
         </div>
         <div class="justify-content-center mt-2">
             @include('admin.nowa.views.layouts.components.breadcrump')
