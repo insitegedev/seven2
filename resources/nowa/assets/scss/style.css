@@ -2,13 +2,12 @@
 /*------------------------------------------------------------------
 [Master Stylesheet]
 
-Project        :   NOWA - HTML5 Bootstrap Admin Template
+Project        :   Insite - Admin Panel
 Version        :   V.1
-Copyright      :   Spruko Technologies Private Limited 
-Author         :   SprukoSoft
-Author URL     :   https://themeforest.net/user/sprukosoft
-Support	       :   support@spruko.com
-License        :   Licensed under ThemeForest License
+Copyright      :   Insite LLC 
+Author         :   Insite LLC
+Author URL     :   https://insite.ge
+Support	       :   hello@insite.international
 
 -------------------------------------------------------------------*/
 /*
@@ -25477,7 +25476,19 @@ pre {
   line-height: 100px;
   color: var(--primary-bg-color);
   font-weight: 700;
-  font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Archivo",
+ -apple-system,
+ BlinkMacSystemFont,
+ "Segoe UI",
+ Roboto,
+ "Helvetica Neue",
+ Arial,
+ "Noto Sans",
+ sans-serif,
+ "Apple Color Emoji",
+ "Segoe UI Emoji",
+ "Segoe UI Symbol",
+ "Noto Color Emoji";
   font-size: 32px;
 }
 
