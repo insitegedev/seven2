@@ -65,6 +65,13 @@
             "i18n": "translation",
             "icon": "g_translate",
             "slug": "translation"
+        },
+        {
+            "url": "password.index",
+            "name": "change password",
+            "i18n": "change password",
+            "icon": "g_translate",
+            "slug": "change_password"
         }
     ],
     "_comment": [

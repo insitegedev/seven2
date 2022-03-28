@@ -78,9 +78,9 @@ Route::prefix('{locale?}')
                 Route::resource('service', \App\Http\Controllers\Admin\ServiceController::class);
                 Route::get('service/{service}/destroy', [\App\Http\Controllers\Admin\ServiceController::class, 'destroy'])->name('service.destroy');
 
-                // Certificate
-//                Route::resource('certificate', CertificateController::class);
-//                Route::get('certificate/{certificate}/destroy', [CertificateController::class, 'destroy'])->name('certificate.destroy');
+                // Password
+                Route::get('password', [\App\Http\Controllers\Admin\PasswordController::class, 'index'])->name('password.index');
+                Route::post('password', [\App\Http\Controllers\Admin\PasswordController::class, 'update'])->name('password.update');
 
 
                 // Apartment
