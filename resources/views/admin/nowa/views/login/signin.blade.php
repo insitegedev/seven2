@@ -19,7 +19,7 @@
                             <div class="card-sigin mt-5 mt-md-0">
                                 <!-- Demo content-->
                                 <div class="main-card-signin d-md-flex">
-                                    <div class="wd-100p"><div class="d-flex mb-4"><a href="{{url('index')}}"><img src="{{asset('admin/assets/img/brand/favicon.png')}}" class="sign-favicon ht-40" alt="logo"></a></div>
+                                    <div class="wd-100p"><div class="d-flex mb-4"><a href="{{url('index')}}"></a></div>
                                         <div class="">
                                             <div class="main-signup-header">
                                                 <h2>Welcome back!</h2>
@@ -28,7 +28,7 @@
                                                 <div class=" tab-menu-heading mb-2 border-bottom-0">
                                                     <div class="tabs-menu1">
                                                         <ul class="nav panel-tabs">
-                                                            <li class="me-2"><a href="#tab5" class="active" data-bs-toggle="tab">Email</a></li>
+                                                            <!-- <li class="me-2"><a href="#tab5" class="active" data-bs-toggle="tab">Email</a></li> -->
                                                             {{--<li><a href="#tab6" data-bs-toggle="tab" class="">Mobile no</a></li>--}}
                                                         </ul>
                                                     </div>
@@ -39,7 +39,7 @@
                                                             <form method="post" action="{{ locale_route('login') }}">
                                                                 @csrf
                                                                 <div class="form-group">
-                                                                    <label>{{ __('Username') }}</label> <input type="email" name="email" class="form-control" placeholder="Enter your email">
+                                                                    <label>{{ __('Email') }}</label> <input type="email" name="email" class="form-control" placeholder="Enter your email">
                                                                     @error('email')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -47,7 +47,7 @@
                                                                     @enderror
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label>{{ __('password') }}</label> <input name="password"  class="form-control" placeholder="Enter your password" type="password">
+                                                                    <label>{{ __('Password') }}</label> <input name="password"  class="form-control" placeholder="Enter your password" type="password">
                                                                     @error('password')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
