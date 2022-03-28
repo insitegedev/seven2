@@ -115,7 +115,7 @@
 
                                                                     <div class="tab-pane {{$active}}" id="cat-{{$key_p.'-'.$key}}">
 
-                                                                        {!! Form::textarea('text['.$key.']',isset($translation->text[$key]) ? $translation->text[$key]:  '',['class' => 'form-control','rows' => '2']) !!}
+                                                                        {!! Form::textarea('text['.$key.']',isset($translation->text[$key]) ? $translation->text[$key]:  '',['class' => 'form-control','rows' => '1']) !!}
 
                                                                     </div>
 
