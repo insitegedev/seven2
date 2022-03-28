@@ -1,5 +1,5 @@
 			<!-- Country-selector modal-->
-			<div class="modal fade" id="country-selector">
+			<!-- <div class="modal fade" id="country-selector">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
 						<div class="modal-header border-bottom">
@@ -101,7 +101,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- Country-selector modal-->
 
 			<!-- Message Modal -->
