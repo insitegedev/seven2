@@ -176,7 +176,8 @@
                     type: "success",
                     msg: "<b>Success: </b>Successfully Saved",
                     position: "center",
-                    autohide: false
+                    //autohide: false,
+                    time: 3000
                 });
             },
             error: function (){
@@ -184,7 +185,8 @@
                     type: "error",
                     msg: "<b>Danger: </b>Error occurred!",
                     position: "center",
-                    autohide: false
+                    time: 3000,
+                    //autohide: false
                 });
             }
         });

@@ -12,13 +12,17 @@ import {Languages} from "../Languages/Languages";
 
 const Header = () => {
     const { url, component } = usePage();
-    const { pathname } = usePage().props;
+    const { pathname, currentLocale } = usePage().props;
+    //console.log(usePage().props);
+    let url_ = new URL(pathname);
+    let pathname_ = url_.pathname;
+    console.log(pathname_);
   return (
     <div
       className="header"
       style={{
-        position: pathname === "/" ? "absolute" : "relative",
-        background: pathname === "/" ? "transparent" : "#ECF0F7",
+        position: pathname_ === "/" + currentLocale ? "absolute" : "relative",
+        background: pathname_ === "/" + currentLocale ? "transparent" : "#ECF0F7",
       }}
     >
       <div className="wrapper flex">

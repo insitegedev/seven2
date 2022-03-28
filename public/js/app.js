@@ -4430,12 +4430,18 @@ var Header = function Header() {
       url = _usePage.url,
       component = _usePage.component;
 
-  var pathname = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.pathname;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+      pathname = _usePage$props.pathname,
+      currentLocale = _usePage$props.currentLocale; //console.log(usePage().props);
+
+  var url_ = new URL(pathname);
+  var pathname_ = url_.pathname;
+  console.log(pathname_);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "header",
     style: {
-      position: pathname === "/" ? "absolute" : "relative",
-      background: pathname === "/" ? "transparent" : "#ECF0F7"
+      position: pathname_ === "/" + currentLocale ? "absolute" : "relative",
+      background: pathname_ === "/" + currentLocale ? "transparent" : "#ECF0F7"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper flex"
