@@ -35,7 +35,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <form class="mr-0 p-0">
+
                             <table class="table mg-b-0 text-md-nowrap">
                                 <thead>
                                 <tr>
@@ -48,31 +48,37 @@
                                 <tbody>
 
                                 <tr>
-                                    <th>
-                                        <input class="form-control" type="number" name="id" onchange="this.form.submit()"
-                                               value="{{Request::get('id')}}"
-                                               class="validate {{$errors->has('id') ? '' : 'valid'}}">
-                                    </th>
-                                    <th>
-                                        <input class="form-control" type="text" name="group" onchange="this.form.submit()"
-                                               value="{{Request::get('group')}}"
-                                               class="validate {{$errors->has('group') ? '' : 'valid'}}">
-                                    </th>
-                                    <th>
-                                        <input class="form-control" type="text" name="key" onchange="this.form.submit()"
-                                               value="{{Request::get('key')}}"
-                                               class="validate {{$errors->has('key') ? '' : 'valid'}}">
-                                    </th>
-                                    <th>
-                                        <input class="form-control" type="text" name="text" onchange="this.form.submit()"
-                                               value="{{Request::get('text')}}"
-                                               class="validate {{$errors->has('text') ? '' : 'valid'}}">
-                                    </th>
-                                    <th></th>
-
+                                    <form class="mr-0 p-0">
+                                        <th>
+                                            <input class="form-control" type="number" name="id" onchange="this.form.submit()"
+                                                   value="{{Request::get('id')}}"
+                                                   class="validate {{$errors->has('id') ? '' : 'valid'}}">
+                                        </th>
+                                        <th>
+                                            <input class="form-control" type="text" name="group" onchange="this.form.submit()"
+                                                   value="{{Request::get('group')}}"
+                                                   class="validate {{$errors->has('group') ? '' : 'valid'}}">
+                                        </th>
+                                        <th>
+                                            <input class="form-control" type="text" name="key" onchange="this.form.submit()"
+                                                   value="{{Request::get('key')}}"
+                                                   class="validate {{$errors->has('key') ? '' : 'valid'}}">
+                                        </th>
+                                        <th>
+                                            <input class="form-control" type="text" name="text" onchange="this.form.submit()"
+                                                   value="{{Request::get('text')}}"
+                                                   class="validate {{$errors->has('text') ? '' : 'valid'}}">
+                                        </th>
+                                        <th></th>
+                                    </form>
+                                </tr>
 
                                 @if($translations)
-                                    @foreach($translations as $translation)
+                                    @foreach($translations as $key_p => $translation)
+                                        <?php
+                                        $url = locale_route('translation.update', $translation->id, false);
+                                        $method = 'PUT';
+                                        ?>
                                         <tr>
                                             <td>{{$translation->id}}</td>
                                             <td>{{$translation->group}}</td>
@@ -80,16 +86,19 @@
                                             <td>
 
 
-
+                                                <form method="post" action="{{$url}}" class="edit-form-index" id="edit_index_{{$translation->id}}">
                                                     <div class="panel panel-primary tabs-style-2">
                                                         <div class=" tab-menu-heading">
                                                             <div class="tabs-menu1">
                                                                 <!-- Tabs -->
                                                                 <ul class="nav panel-tabs main-nav-line">
-                                                                    @foreach($translation->text as $key => $text)
-                                                                        @if(isset($languages[$key]))
-                                                                        <li><a href="#cat-{{$translation->id}}-{{$key}}" class="nav-link {{$loop->first?"active":""}}" data-bs-toggle="tab">{{$languages[$key]->locale}}</a></li>
-                                                                        @endif
+                                                                    @foreach($languages as $key => $language)
+                                                                        <?php
+                                                                        $active = '';
+                                                                        if($loop->first) $active = 'active';
+                                                                        ?>
+                                                                        <li><a href="#cat-{{$key_p.'-'.$key}}" class="nav-link {{$active}}" data-bs-toggle="tab">{{$language->locale}}</a></li>
+
                                                                     @endforeach
 
                                                                 </ul>
@@ -98,25 +107,28 @@
                                                         <div class="panel-body tabs-menu-body main-content-body-right border">
                                                             <div class="tab-content">
 
-                                                                @foreach($translation->text as $key => $text)
-                                                                    @if(isset($languages[$key]))
-                                                                    <div class="tab-pane {{$loop->first?"active":""}}" id="cat-{{$translation->id}}-{{$key}}">
-                                                                        {{$text}}
+                                                                @foreach($languages as $key => $language)
+                                                                    <?php
+                                                                    $active = '';
+                                                                    if($loop->first) $active = 'active';
+                                                                    ?>
+
+                                                                    <div class="tab-pane {{$active}}" id="cat-{{$key_p.'-'.$key}}">
+
+                                                                        {!! Form::textarea('text['.$key.']',isset($translation->text[$key]) ? $translation->text[$key]:  '',['class' => 'form-control','rows' => '1']) !!}
+
                                                                     </div>
-                                                                    @endif
+
                                                                 @endforeach
 
                                                             </div>
                                                         </div>
                                                     </div>
-
+                                                </form>
                                             </td>
                                             <td>
 
-                                                <a href="{{locale_route('translation.edit',$translation->id)}}"
-                                                   class="pl-3">
-                                                    <i class="fa fa-edit">edit</i>
-                                                </a>
+                                                <button class="btn btn-primary" data-save_translation="{{$translation->id}}">Save</button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -125,7 +137,7 @@
 
                                 </tbody>
                             </table>
-                        </form>
+
                     </div>
                 </div>
             </div>
@@ -141,6 +153,48 @@
 
 @section('scripts')
 
+<script>
+    $('.edit-form-index').submit(function (e){
+        e.preventDefault();
+        let $this = $(this);
+        let data = $this.serialize();
 
+        data = data + '&_token={{csrf_token()}}'
+
+        console.log(data);
+
+        $.ajax({
+            url: $this.attr('action'),
+            data: data,
+            dataType: 'json',
+            type: 'put',
+            beforeSend: function (){
+
+            },
+            success: function (data){
+                notif({
+                    type: "success",
+                    msg: "<b>Success: </b>Successfully Saved",
+                    position: "center",
+                    autohide: false
+                });
+            },
+            error: function (){
+                notif({
+                    type: "error",
+                    msg: "<b>Danger: </b>Error occurred!",
+                    position: "center",
+                    autohide: false
+                });
+            }
+        });
+    });
+
+    $('[data-save_translation]').click(function (e){
+        let id = $(this).data('save_translation');
+        //alert(id);
+        $('#edit_index_' + id).submit();
+    });
+</script>
 
 @endsection

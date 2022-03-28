@@ -3,7 +3,7 @@ $_checked = ($category and $category->parent_id == null) ? ' checked':'';
 
 $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
 
-        //dd($category);
+        //dd($categories);
 
 
     $html = '<ul style="margin: initial !important;padding: initial !important;">';
