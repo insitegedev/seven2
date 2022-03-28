@@ -134,7 +134,9 @@ class TranslationController extends Controller
         // Clear cache
         Artisan::call('cache:clear');
 
-        return redirect(locale_route('translation.index', $id))->with('success', 'Translation Updated.');
+        return ['msg' => 'success','status' => 'ok'];
+
+        //return redirect(locale_route('translation.index', $id))->with('success', 'Translation Updated.');
     }
 
     /**
