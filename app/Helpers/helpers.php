@@ -4,7 +4,7 @@
  *
  * Date-Time: 03.06.21
  * Time: 15:21
- * @author Vito Makhatadze <vitomaxatadze@gmail.com>
+ * @author Insite LLC
  */
 namespace App\Helpers;
 use Config;
