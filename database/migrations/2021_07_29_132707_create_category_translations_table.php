@@ -4,7 +4,7 @@
  *
  * Date-Time: 29.07.21
  * Time: 17:29
- * @author Vito Makhatadze <vitomaxatadze@gmail.com>
+ * @author Insite LLC <hello@insite.international>
  */
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

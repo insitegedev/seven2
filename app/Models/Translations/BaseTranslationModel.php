@@ -4,7 +4,7 @@
  *
  * Date-Time: 29.07.21
  * Time: 17:39
- * @author Vito Makhatadze <vitomaxatadze@gmail.com>
+ * @author Insite LLC <hello@insite.international>
  */
 
 namespace App\Models\Translations;

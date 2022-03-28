@@ -4,7 +4,7 @@
  *
  * Date-Time: 04.06.21
  * Time: 14:35
- * @author Vito Makhatadze <vitomaxatadze@gmail.com>
+ * @author Insite LLC <hello@insite.international>
  */
 
 use Illuminate\Support\Arr;

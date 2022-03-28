@@ -4,7 +4,7 @@
  *
  * Date-Time: 06.08.21
  * Time: 14:59
- * @author Vito Makhatadze <vitomakhatadze@gmail.com>
+ * @author Insite LLC <hello@insite.international>
  */
 
 namespace App\Http\Controllers\Admin;

@@ -5,7 +5,7 @@
  * User:
  * Date-Time: 21.12.20
  * Time: 13:49
- * @author Vito Makhatadze <vitomaxatadze@gmail.com>
+ * @author Insite LLC <hello@insite.international>
  */
 namespace App\Mail;
 
