@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Repeat New Password</label>
-                                    <input type="password" name="r_pass" class="form-control" id="exampleInputPassword1" placeholder="Repeat Current Password">
+                                    <input type="password" name="r_pass" class="form-control" id="exampleInputPassword1" placeholder="Repeat New Password">
                                     @error('r_pass')
                                     <small class="errorTxt4">
                                         <div class="text-danger">
