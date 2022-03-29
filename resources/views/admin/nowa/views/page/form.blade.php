@@ -27,7 +27,7 @@
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
-            <span class="main-content-title mg-b-0 mg-b-lg-1">{{$page->created_at ? __('admin.category-update') : __('admin.category-create')}}</span>
+            <span class="main-content-title mg-b-0 mg-b-lg-1">{{ __('admin.page-update')}}</span>
         </div>
         <div class="justify-content-center mt-2">
             @include('admin.nowa.views.layouts.components.breadcrump')
@@ -81,7 +81,7 @@
                                                 {!! Form::text($locale.'[title]',$page->translate($locale)->title ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.title')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -93,7 +93,7 @@
                                                 {!! Form::text($locale.'[title_2]',$page->translate($locale)->title_2 ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.title_2')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -107,7 +107,7 @@
                                                 {!! $page->translate($locale)->description ?? '' !!}
                                             </textarea>
                                                 @error($locale.'.description')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -121,7 +121,7 @@
                                                 {!! $page->translate($locale)->description_2 ?? '' !!}
                                             </textarea>
                                                 @error($locale.'.description_2')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -134,7 +134,7 @@
                                                 {!! Form::text($locale.'[meta_title]',$page->translate($locale)->meta_title ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.meta_title')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -146,7 +146,7 @@
                                                 {!! Form::text($locale.'[meta_description]',$page->translate($locale)->meta_description ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.meta_description')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -158,7 +158,7 @@
                                                 {!! Form::text($locale.'[meta_keyword]',$page->translate($locale)->meta_keyword ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.meta_keyword')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -170,7 +170,7 @@
                                                 {!! Form::text($locale.'[meta_og_title]',$page->translate($locale)->meta_og_title ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.meta_og_title')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -182,7 +182,7 @@
                                                 {!! Form::text($locale.'[meta_og_description]',$page->translate($locale)->meta_og_description ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.meta_og_description')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -224,23 +224,7 @@
 
     <!-- /row -->
     <!-- row -->
-    <div class="row">
-        <div class="col-lg-12 col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">Page images</h6>
-                    </div>
-                    <div class="input-images"></div>
-                    @if ($errors->has('images'))
-                        <span class="help-block">
-                                            {{ $errors->first('images') }}
-                                        </span>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 
     <div class="row">
@@ -261,6 +245,36 @@
             </div>
         </div>
     </div>
+
+
+    @if($page->key == 'about')
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <h6 class="card-title mb-1">Gallery</h6>
+                        </div>
+                        <div class="form-group">
+                            <label class="ckbox">
+                                <input type="checkbox" name="images"
+                                       value="true" {{$page->images ? 'checked' : ''}}>
+                                <span>{{__('admin.status')}}</span>
+                            </label>
+                        </div>
+                        <div class="input-images"></div>
+                        @if ($errors->has('images'))
+                            <span class="help-block">
+                                            {{ $errors->first('images') }}
+                                        </span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    @endif
 
 
 

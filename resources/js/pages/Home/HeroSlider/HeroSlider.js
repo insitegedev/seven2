@@ -80,12 +80,14 @@ const HeroSlider = () => {
       })}
       <div className="flex controllers wrapper">
         <div className="sm">
-          <Link href={info.facebook.translation ? info.facebook.translation.value : null}>
-            <img src="/assets/images/icons/sm/fb.svg" alt="" />
-          </Link>
-          <Link href={info.instagram.translation ? info.instagram.translation.value : null}>
-            <img src="/assets/images/icons/sm/ig.svg" alt="" />
-          </Link>
+            {
+             info.facebook.active == 1 ?   <Link href={info.facebook.translation ? info.facebook.translation.value : null}><img src="/assets/images/icons/sm/fb.svg" alt="" /></Link> : ''
+            }
+
+            {
+                info.instagram.active == 1 ?   <Link href={info.instagram.translation ? info.instagram.translation.value : null}><img src="/assets/images/icons/sm/ig.svg" alt="" /></Link> : ''
+            }
+
         </div>
         <div>
           <button

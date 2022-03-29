@@ -78,7 +78,7 @@
                                                 {!! Form::text($locale.'[title]',$slider->translate($locale)->title ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.title')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -90,7 +90,7 @@
                                                 {!! Form::text($locale.'[title_2]',$slider->translate($locale)->title_2 ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.title_2')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -106,7 +106,7 @@
                                                 {!! $slider->translate($locale)->description ?? '' !!}
                                             </textarea>
                                                 @error($locale.'.description')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -138,7 +138,7 @@
                         {!! Form::text("youtube_url",$slider->youtube_url ?? '',['class' => 'form-control']) !!}
 
                         @error($locale.'.youtube_url')
-                        <small class="errorTxt4">
+                        <small class="text-danger">
                             <div class="error">
                                 {{$message}}
                             </div>

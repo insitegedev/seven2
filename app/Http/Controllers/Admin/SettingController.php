@@ -10,6 +10,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
 
@@ -98,5 +99,11 @@ class SettingController extends Controller
 
 
         return redirect(locale_route('setting.index', $setting->id))->with('success', __('admin.update_successfully'));
+    }
+
+
+    public function setActive(Request $request){
+        //dd($request->all());
+        Setting::where('id',$request->get('id'))->update(['active' => $request->get('active')]);
     }
 }

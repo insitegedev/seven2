@@ -20,7 +20,8 @@ class Page extends Model
     protected $table = 'pages';
 
     protected $fillable = [
-        'key'
+        'key',
+        'images'
     ];
 
     //protected $with = 'sections';

@@ -113,6 +113,7 @@ class ProductController extends Controller
         $saveData = Arr::except($request->except('_token'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
         $saveData['stock'] = isset($saveData['stock']) && (bool)$saveData['stock'];
+        $saveData['popular'] = isset($saveData['popular']) && (bool)$saveData['popular'];
 
         //dd($saveData);
         $product = $this->productRepository->create($saveData);

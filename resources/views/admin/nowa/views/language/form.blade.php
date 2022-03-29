@@ -49,7 +49,7 @@
                             {!! Form::text('title',$language->title,['class' => 'form-control']) !!}
 
                             @error('title')
-                            <small class="errorTxt4">
+                            <small class="text-danger">
                                 <div class="error">
                                     {{$message}}
                                 </div>
@@ -62,7 +62,7 @@
                             {!! Form::text('locale',$language->locale,['class' => 'form-control']) !!}
 
                             @error('locale')
-                            <small class="errorTxt4">
+                            <small class="text-danger">
                                 <div class="error">
                                     {{$message}}
                                 </div>

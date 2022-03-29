@@ -53,21 +53,30 @@ const Footer = () => {
 
           </div>
         </div>
-        <div className="part">
-          <h6>{__('client.footer_social_links',sharedData)}:</h6>
-          <Link href={info.facebook.translation ? info.facebook.translation.value : null} className="sm flex">
-            <div className="icon flex centered">
-              <img src="/assets/images/icons/sm/fb.svg" alt="" />
-            </div>
-            <p>Facebook</p>
-          </Link>
-          <Link href={info.instagram.translation ? info.instagram.translation.value : null} className="sm flex">
-            <div className="icon flex centered">
-              <img src="/assets/images/icons/sm/ig.svg" alt="" />
-            </div>
-            <p>Instagram</p>
-          </Link>
-        </div>
+          {
+              info.instagram.active == 1 || info.facebook.active ? <div className="part">
+                  <h6>{__('client.footer_social_links',sharedData)}:</h6>
+                  {
+                      info.facebook.active == 1 ?  <Link href={info.facebook.translation ? info.facebook.translation.value : null} className="sm flex">
+                          <div className="icon flex centered">
+                              <img src="/assets/images/icons/sm/fb.svg" alt="" />
+                          </div>
+                          <p>Facebook</p>
+                      </Link>  : ''
+                  }
+
+                  {
+                      info.instagram.active == 1 ? <Link href={info.instagram.translation ? info.instagram.translation.value : null} className="sm flex">
+                          <div className="icon flex centered">
+                              <img src="/assets/images/icons/sm/ig.svg" alt="" />
+                          </div>
+                          <p>Instagram</p>
+                      </Link> : ''
+                  }
+
+              </div> : ''
+          }
+
         <div className="part map">
           <Map />
         </div>

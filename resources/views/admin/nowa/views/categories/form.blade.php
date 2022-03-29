@@ -128,14 +128,15 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
                                             <div class="form-group">
                                                 <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="Name" value="{{$category->translate($locale)->title ?? ''}}">
                                             </div>
-                                        </div>
                                             @error($locale.'.title')
-                                            <small class="errorTxt4">
+                                            <small class="text-danger">
                                                 <div class="error">
                                                     {{$message}}
                                                 </div>
                                             </small>
                                             @enderror
+                                        </div>
+
                                     @endforeach
 
                                 </div>
@@ -148,7 +149,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
                         <input type="text" name="slug" class="form-control" placeholder="Slug" value="{{$category->slug ?? ''}}">
                     </div>
                     @error('slug')
-                    <small class="errorTxt4">
+                    <small class="text-danger">
                         <div class="error">
                             {{$message}}
                         </div>
