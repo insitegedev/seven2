@@ -55,7 +55,7 @@
                                     </th>
                                     <th>
                                         <select class="form-control" name="category_id" onchange="this.form.submit()">
-                                            <option value="" {{Request::get('category_id') === '' ? 'selected' :''}}></option>
+                                            <option value="" {{Request::get('category_id') === '' ? 'selected' :''}}>@lang('admin.any')</option>
                                             @foreach($categories as $category)
                                                 <option value="{{$category->id}}" {{Request::get('category_id') == $category->id ? 'selected' :''}}>{{$category->title}}</option>
                                             @endforeach
