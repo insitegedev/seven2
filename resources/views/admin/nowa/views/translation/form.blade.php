@@ -78,7 +78,7 @@
                                                 {!! Form::textarea('text['.$key.']',isset($translation->text[$key]) ? $translation->text[$key]:  '',['class' => 'form-control','rows' => '3']) !!}
 
                                                 @error('text.*')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>

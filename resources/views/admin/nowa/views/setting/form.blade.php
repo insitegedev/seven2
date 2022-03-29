@@ -78,7 +78,7 @@
                                                 {!! Form::text($locale.'[value]',$setting->translate($locale)->value ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.value')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>

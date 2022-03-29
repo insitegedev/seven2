@@ -19,7 +19,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
 
 
         if(count($category->children)){
-            $html .= '<li style="padding-left: 20px">';
+            $html .= '<li class="child" style="padding-left: 20px;margin-bottom: 5px">';
             $html .= $traverse($category->children, $prefix.'-');
             $html .= '</li>';
         }
@@ -74,23 +74,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
         <div class="col-lg-6 col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div>
-                        <h6 class="card-title mb-1">Product categories</h6>
-                    </div>
-                    <div class="mb-4">
 
-
-                        <?=$traverse($categories);?>
-
-                        @error('category_id')
-                        <small class="errorTxt4">
-                            <div class="error">
-                                {{$message}}
-                            </div>
-                        </small>
-                        @enderror
-
-                    </div>
                     <div class="mb-4">
 
 
@@ -113,7 +97,9 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                             </div>
                             <div class="panel-body tabs-menu-body main-content-body-right border">
                                 <div class="tab-content">
-
+                                    <div class="main-content-label mg-b-5">
+                                        Product info
+                                    </div>
                                     @foreach(config('translatable.locales') as $locale)
 
                                         <?php
@@ -125,7 +111,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                                                 <label class="form-label">Title</label>
                                                 <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="Name" value="{{$product->translate($locale)->title ?? ''}}">
                                                 @error($locale.'.title')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -138,19 +124,40 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                                                 {!! Form::text($locale.'[short_description]',$product->translate($locale)->short_description ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.short_description')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
                                                 </small>
                                                 @enderror
                                             </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="description">@lang('admin.description')</label>
+                                                <textarea class="form-control" id="description-{{$locale}}"
+                                                          name="{{$locale}}[description]'">
+                                                    {!! $product->translate($locale)->description ?? '' !!}
+                                                </textarea>
+                                                @error($locale.'.description')
+                                                <small class="text-danger">
+                                                    <div class="error">
+                                                        {{$message}}
+                                                    </div>
+                                                </small>
+                                                @enderror
+                                            </div>
+
+
+
+                                            <div class="main-content-label mg-b-5 text-danger">
+                                                Product SEO
+                                            </div>
                                             <div class="form-group">
                                                 {!! Form::label($locale.'[meta_title]',__('admin.meta_title'),['class' => 'form-label']) !!}
                                                 {!! Form::text($locale.'[meta_title]',$product->translate($locale)->meta_title ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.meta_title')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -162,7 +169,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                                                 {!! Form::text($locale.'[meta_description]',$product->translate($locale)->meta_keyword ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.meta_description')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -174,7 +181,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                                                 {!! Form::text($locale.'[meta_keyword]',$product->translate($locale)->meta_description ?? '',['class' => 'form-control']) !!}
 
                                                 @error($locale.'.meta_keyword')
-                                                <small class="errorTxt4">
+                                                <small class="text-danger">
                                                     <div class="error">
                                                         {{$message}}
                                                     </div>
@@ -183,20 +190,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                                             </div>
 
 
-                                            <div class="form-group">
-                                                <h5 for="description">@lang('admin.description')</h5>
-                                                <textarea class="form-control" id="description-{{$locale}}"
-                                                          name="{{$locale}}[description]'">
-                                                {!! $product->translate($locale)->description ?? '' !!}
-                                            </textarea>
-                                                @error($locale.'.description')
-                                                <small class="errorTxt4">
-                                                    <div class="error">
-                                                        {{$message}}
-                                                    </div>
-                                                </small>
-                                                @enderror
-                                            </div>
+
 
                                         </div>
 
@@ -216,12 +210,29 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
             <div class="card">
                 <div class="card-body">
 
+                    <div>
+                        <h6 class="card-title mb-1">Product categories</h6>
+                    </div>
+                    <div class="mb-4">
+
+
+                        <?=$traverse($categories);?>
+
+                        @error('category_id')
+                        <small class="text-danger">
+                            <div class="error">
+                                {{$message}}
+                            </div>
+                        </small>
+                        @enderror
+
+                    </div>
 
                     <div class="form-group">
                         {!! Form::label('slug',__('admin.slug'),['class' => 'form-label']) !!}
                         <input type="text" name="slug" class="form-control" placeholder="Slug" value="{{$product->slug ?? ''}}">
                         @error('slug')
-                        <small class="errorTxt4">
+                        <small class="text-danger">
                             <div class="error">
                                 {{$message}}
                             </div>
@@ -235,7 +246,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                         {!! Form::text('code',$product->code,['class' => 'form-control']) !!}
 
                         @error('code')
-                        <small class="errorTxt4">
+                        <small class="text-danger">
                             <div class="error">
                                 {{$message}}
                             </div>
@@ -274,7 +285,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                         {!! Form::number('sale',$product->sale ?? '',['step'=>'0.1','class' => 'form-control']) !!}
 
                         @error('sale')
-                        <small class="errorTxt4">
+                        <small class="text-danger">
                             <div class="error">
                                 {{$message}}
                             </div>
@@ -397,6 +408,35 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
             filebrowserUploadMethod: 'form'
         });
         @endforeach
+    </script>
+
+    <script>
+        $('[name="categories[]"]').click(function (e){
+            let $this = $(this);
+
+
+                let next = $this.closest('li').next('li');
+                //console.log(next);
+                if(next.hasClass('child')){
+                    if($this.is(':checked')){
+
+                        next.find('input[type=checkbox]').prop('checked',true);
+                    } else {
+                        next.find('input[type=checkbox]').prop('checked',false);
+                    }
+                } else {
+                    if($this.is(':checked')){
+
+                        $this.parents('.child').prev('li').find('input[type=checkbox]').prop('checked',true);
+                        $this.parents('.child').find('input[type=checkbox]').prop('checked',true);
+                    } else {
+                        $this.parents('.child').find('input[type=checkbox]').prop('checked',false);
+                        $this.parents('.child').prev('li').find('input[type=checkbox]').prop('checked',false);
+                    }
+                }
+
+
+        });
     </script>
 
 @endsection

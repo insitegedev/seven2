@@ -32,7 +32,7 @@ class ProductController extends Controller
     public function index(string $locale, Request $request)
     {
         $page = Page::where('key', 'products')->firstOrFail();
-        $products = Product::with(['files'])->paginate(4);
+        $products = Product::with(['files'])->paginate(16);
 
         $images = [];
         foreach ($page->sections as $sections){

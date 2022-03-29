@@ -25,13 +25,6 @@
             ]
         },
         {
-            "url": "gallery.index",
-            "name": "gallery (about us)",
-            "i18n": "gallery",
-            "icon": "language",
-            "slug": "gallery"
-        },
-        {
             "url": "page.index",
             "name": "page",
             "i18n": "page",

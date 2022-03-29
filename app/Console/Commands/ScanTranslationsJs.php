@@ -18,14 +18,14 @@ use Spatie\TranslationLoader\LanguageLine;
  * Class ScanTranslations
  * @package App\Console\Commands
  */
-class ScanTranslations extends Command
+class ScanTranslationsJs extends Command
 {
     /**
      *  The name and signature of the console command
      *
      * @var string
      */
-    protected $signature = 'scan:translations';
+    protected $signature = 'scan:translationsjs';
 
     /**
      * The console command description
@@ -48,7 +48,7 @@ class ScanTranslations extends Command
      */
     public function handle(): void
     {
-        $path = base_path() . '/resources/views';
+        $path = base_path() . '/resources/js';
 
         $this->info('Start read files recursive.');
         $files = iterator_to_array($this->filesIn($path));

@@ -40,6 +40,7 @@
                                 <thead>
                                 <tr>
                                     <th>@lang('admin.id')</th>
+                                    <th>@lang('admin.status')</th>
                                     <th>@lang('admin.key')</th>
                                     <th>@lang('admin.value')</th>
                                     <th>@lang('admin.actions')</th>
@@ -54,6 +55,9 @@
                                                class="validate {{$errors->has('id') ? '' : 'valid'}}">
                                     </th>
                                     <th>
+
+                                    </th>
+                                    <th>
                                         <input class="form-control" type="text" name="key" onchange="this.form.submit()"
                                                value="{{Request::get('key')}}"
                                                class="validate {{$errors->has('key') ? '' : 'valid'}}">
@@ -63,12 +67,22 @@
                                                value="{{Request::get('value')}}"
                                                class="validate {{$errors->has('value') ? '' : 'valid'}}">
                                     </th>
-
+                                </tr>
 
                                 @if($settings)
                                     @foreach($settings as $setting)
                                         <tr>
                                             <td>{{$setting->id}}</td>
+                                            <td>
+                                                @if($setting->key == 'instagram' || $setting->key == 'facebook')
+                                                <div class="checkbox">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" data-setting="{{$setting->id}}" name="status" class="custom-control-input" id="checkbox-{{$setting->id}}" {{$setting->active ? 'checked' : ''}}>
+                                                        <label for="checkbox-{{$setting->id}}" class="custom-control-label mt-1">Active</label>
+                                                    </div>
+                                                </div>
+                                                @endif
+                                            </td>
                                             <td>{{$setting->key}}</td>
                                             <td>
                                                 <div class="panel panel-primary tabs-style-2">
@@ -130,6 +144,29 @@
 
 @section('scripts')
 
-
+<script>
+    $('[data-setting]').click(function (e){
+        let $this = $(this);
+       let id = $(this).data('setting');
+       let active = 0;
+       if($(this).is(':checked')) active = 1;
+       //alert(id);
+        $.ajax({
+            url: '{{locale_route('setting.active')}}',
+            data: { id:id, active: active, _token: '{{csrf_token()}}' },
+            type: 'get',
+            beforeSend: function (){
+                $this.prop('disabled',true);
+            },
+            success: function (data){
+                $this.prop('disabled',false);
+            },
+            error: function (){
+                $this.prop('disabled',true);
+                alert('error');
+            }
+        });
+    });
+</script>
 
 @endsection

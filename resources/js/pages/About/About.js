@@ -72,7 +72,7 @@ const About = ({page, seo}) => {
       <div className="gallery">
         <div className="bold underline">{__('client.about_us_gallery',sharedData)}</div>
         <div className="grid">
-          {gallery_img.files.map((img, i) => {
+          {gallery_img.map((img, i) => {
             return (
               <div key={i} className="img">
                 <img src={ '/' + img.path + '/' + img.title } alt="" />

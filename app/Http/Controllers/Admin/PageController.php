@@ -107,6 +107,7 @@ class PageController extends Controller
     {
         //dd($request->files);
         $saveData = Arr::except($request->except('_token'), []);
+        $saveData['images'] = isset($saveData['images']) && (bool)$saveData['images'];
         $this->pageRepository->update($page->id,$saveData);
         $this->pageRepository->saveFiles($page->id, $request);
 

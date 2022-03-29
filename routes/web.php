@@ -69,6 +69,8 @@ Route::prefix('{locale?}')
                 Route::resource('page', PageController::class);
                 Route::get('page/{page}/destroy', [PageController::class, 'destroy'])->name('page.destroy');
 
+
+                Route::get('setting/active',[SettingController::class,'setActive'])->name('setting.active');
                 // Setting
                 Route::resource('setting', SettingController::class);
                 Route::get('setting/{setting}/destroy', [SettingController::class, 'destroy'])->name('setting.destroy');
@@ -92,6 +94,8 @@ Route::prefix('{locale?}')
                 Route::get('floor/{floor}/destroy', [FloorController::class, 'destroy'])->name('floor.destroy');
 
                 Route::get('categories/autocomplete',[\App\Http\Controllers\Admin\CategoryController::class,'autocomplete'])->name('autocomplete');
+
+
 
             });
         });

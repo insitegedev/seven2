@@ -59,7 +59,7 @@ class CategoryController extends Controller
         //dd($category->getAncestors());
         $products = Product::where(['status' => 1, 'product_categories.category_id' => $category->id])
             ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')->with('files')
-            ->paginate(4);
+            ->paginate(16);
 
         $images = [];
         foreach ($page->sections as $sections){
@@ -112,7 +112,7 @@ class CategoryController extends Controller
         }
 
         $products = Product::where(['products.status' => 1, 'products.popular' => 1])->with('files')
-            ->paginate(4);
+            ->paginate(16);
 
         return Inertia::render('Products/Products',[
             'products' => $products,
