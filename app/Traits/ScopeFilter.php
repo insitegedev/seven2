@@ -210,4 +210,11 @@ trait ScopeFilter
             return $query->where('value', 'like', '%' . $value . '%');
         });
     }
+
+
+    public function scopeCategoryId($query, $category_id){
+        return $query->whereHas('categories', function ($query) use ($category_id) {
+            return $query->where('category_id',  $category_id );
+        });
+    }
 }

@@ -63,7 +63,8 @@ class ProductController extends Controller
         ]);*/
 
         return view('admin.nowa.views.products.index', [
-            'data' => $this->productRepository->getData($request, ['translations', 'categories'])
+            'data' => $this->productRepository->getData($request, ['translations', 'categories']),
+            'categories' => $this->categoryRepository->all()
         ]);
     }
 

@@ -108,6 +108,10 @@ class Product extends Model implements Searchable
             'title' => [
                 'hasParam' => true,
                 'scopeMethod' => 'titleTranslation'
+            ],
+            'category_id' => [
+                'hasParam' => true,
+                'scopeMethod' => 'categoryId'
             ]
         ];
     }

@@ -8,7 +8,7 @@
 
 @section('content')
 
-
+{{--@dd($categories)--}}
 
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
@@ -54,7 +54,11 @@
                                                class="validate {{$errors->has('id') ? '' : 'valid'}}">
                                     </th>
                                     <th>
-                                        <select class="form-control" name="category" onchange="this.form.submit()">
+                                        <select class="form-control" name="category_id" onchange="this.form.submit()">
+                                            <option value="" {{Request::get('category_id') === '' ? 'selected' :''}}></option>
+                                            @foreach($categories as $category)
+                                                <option value="{{$category->id}}" {{Request::get('category_id') == $category->id ? 'selected' :''}}>{{$category->title}}</option>
+                                            @endforeach
 
                                         </select>
                                     </th>
