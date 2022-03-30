@@ -1,28 +1,13 @@
 @font-face {
-    font-family: "worksans";
-    src: url(/fonts/geo/bpg2010.ttf);
-}
-@font-face {
-    font-family: "playfair";
-    src: url(/fonts/geo/alk_tommaso.ttf);
+    font-family: "mtav";
+    src: url(/public/assets/fonts/AS-Grammatika-Regular_Mtav.ttf);
 }
 *,
 *::after,
 *::before {
-    font-family: "worksans";
+    font-family: "mtav";
 }
 body {
-    font-family: "worksans";
-}
-.playfair {
-    font-family: "playfair";
-}
-.mainSlider .content .playfair {
-    max-width: 620px !important;
-}
-@media screen and (max-width: 1350px) {
-    .mainSlider .content .playfair {
-        max-width: 281px !important;
-    }
+    font-family: "mtav";
 }
 
