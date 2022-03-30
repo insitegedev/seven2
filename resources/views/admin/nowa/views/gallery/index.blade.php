@@ -30,7 +30,7 @@
                         <h4 class="card-title mg-b-0">@lang('admin.gallery')</h4>
                     </div>
                     <div>
-                        <a href="{{locale_route('gallery.create')}}" class="btn ripple btn-primary" type="button">Create</a>
+                        <a href="{{locale_route('gallery.create')}}" class="btn ripple btn-primary" type="button">@lang('admin.createbutt')</a>
                     </div>
 
 
@@ -84,11 +84,11 @@
 
                                                 <a href="{{locale_route('gallery.edit',$gallery->id)}}"
                                                    class="pl-3">
-                                                    <i class="fa fa-edit">edit</i>
+                                                    <i class="fa fa-edit">შეცვლა</i>
                                                 </a>
                                                 <a href="{{locale_route('gallery.destroy',$gallery->id)}}"
                                                    onclick="return confirm('Are you sure?')" class="pl-3">
-                                                    <i class="fa fa-trash-alt">delete</i>
+                                                    <i class="fa fa-edit">წაშლა</i>
                                                 </a>
                                             </td>
                                         </tr>

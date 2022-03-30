@@ -134,12 +134,12 @@
                                                             |
                                                             <a href="{{locale_route('apartment.edit',$item->id)}}"
                                                                class="pl-3">
-                                                                <i class="fa fa-edit">edit</i>
+                                                                <i class="fa fa-edit">შეცვლა</i>
                                                             </a>
                                                             |
                                                             <a href="{{locale_route('apartment.edit',$item->id)}}"
                                                                class="pl-3">
-                                                                <i class="fa fa-trash-alt">delete</i>
+                                                                <i class="fa fa-edit">წაშლა</i>
                                                             </a>
                                                         </td>
                                                     </tr>

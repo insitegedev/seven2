@@ -207,7 +207,7 @@
                     <div class="input-group telephone-input">
                         <input type="tel" id="mobile-number" placeholder="e.g. +1 702 123 4567">
                         <span class="input-group-btn">
-											<button class="btn ripple btn-primary" type="button">Submit</button>
+											<button class="btn ripple btn-primary" type="button">@lang('admin.submitbutt')</button>
 										</span>
                     </div>
                 </div>

@@ -117,7 +117,7 @@
 
                                                 <a href="{{locale_route('setting.edit',$setting->id)}}"
                                                    class="pl-3">
-                                                    <i class="fa fa-edit">edit</i>
+                                                    <i class="fa fa-edit">შეცვლა</i>
                                                 </a>
 
 

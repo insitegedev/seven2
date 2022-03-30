@@ -105,7 +105,7 @@
 
                                                 <a href="{{locale_route('page.edit',$item->id)}}"
                                                    class="pl-3">
-                                                    <i class="fa fa-edit">edit</i>
+                                                    <i class="fa fa-edit">შეცვლა</i>
                                                 </a>
                                             </td>
                                         </tr>

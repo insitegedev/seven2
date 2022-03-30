@@ -2,14 +2,14 @@
     "menu": [
         {
             "url": "category.index",
-            "name": "category",
+            "name": "პროდ. კატეგორიები",
             "i18n": "category",
             "icon": "language",
             "slug": "category"
         },
         {
             "url": "product.index",
-            "name": "product",
+            "name": "პროდუქცია",
             "i18n": "product",
             "icon": "language",
             "slug": "product",
@@ -17,7 +17,7 @@
 
                 {
                     "url": "category.index",
-                    "name": "category",
+                    "name": "კატეგორიები",
                     "i18n": "category",
                     "icon": "language",
                     "slug": "category"
@@ -26,42 +26,42 @@
         },
         {
             "url": "page.index",
-            "name": "page",
+            "name": "გვერდები",
             "i18n": "page",
             "icon": "language",
             "slug": "page"
         },
         {
             "url": "slider.index",
-            "name": "slider",
+            "name": "სლაიდერი",
             "i18n": "slider",
             "icon": "language",
             "slug": "slider"
         },
         {
             "url": "language.index",
-            "name": "language",
+            "name": "ენები",
             "i18n": "language",
             "icon": "language",
             "slug": "language"
         },
         {
             "url": "setting.index",
-            "name": "setting",
+            "name": "პარამეტრები",
             "i18n": "setting",
             "icon": "language",
             "slug": "setting"
         },
         {
             "url": "translation.index",
-            "name": "translation",
+            "name": "თარგმნა",
             "i18n": "translation",
             "icon": "g_translate",
             "slug": "translation"
         },
         {
             "url": "password.index",
-            "name": "change password",
+            "name": "პაროლის შეცვლა",
             "i18n": "change password",
             "icon": "g_translate",
             "slug": "change_password"

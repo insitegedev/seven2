@@ -171,7 +171,7 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">images</h6>
+                        <h6 class="card-title mb-1">@lang('admin.sliderimages')</h6>
                     </div>
                     <div class="input-images"></div>
                     @if ($errors->has('images'))

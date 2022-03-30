@@ -41,11 +41,11 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Translations</h6>
+                        <h6 class="card-title mb-1">@lang('admin.tranlationssection')</h6>
                     </div>
 
                     <div class="mb-4">
-                        <p class="mg-b-10">title</p>
+                        <p class="mg-b-10">@lang('admin.titleintrans')</p>
                         <div class="panel panel-primary tabs-style-2">
                             <div class=" tab-menu-heading">
                                 <div class="tabs-menu1">

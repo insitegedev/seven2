@@ -29,7 +29,7 @@
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title mg-b-0">Languages</h4>
                     </div>
-                    <a href="{{locale_route('language.create')}}" class="btn ripple btn-primary" type="button">Create</a>
+                    <a href="{{locale_route('language.create')}}" class="btn ripple btn-primary" type="button">@lang('admin.createbutt')</a>
 
                     {{--<p class="tx-12 tx-gray-500 mb-2">Example of Nowa Simple Table. <a href="">Learn more</a></p>--}}
                 </div>
@@ -95,12 +95,12 @@
                                                 @if(!$language->default)
                                                     <a href="{{locale_route('language.edit',$language->id)}}"
                                                        class="pl-3">
-                                                        <i class="fa fa-edit">edit</i>
+                                                        <i class="fa fa-edit">შეცვლა</i>
                                                     </a>
 
                                                     <a href="{{locale_route('language.destroy',$language->id)}}"
                                                        onclick="return confirm('Are you sure?')" class="pl-3">
-                                                        <i class="fa fa-trash-alt">delete</i>
+                                                        <i class="fa fa-edit">წაშლა</i>
                                                     </a>
                                                 @endif
                                             </td>

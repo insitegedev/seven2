@@ -42,7 +42,7 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Edit Page</h6>
+                        <h6 class="card-title mb-1">@lang('admin.editpage')</h6>
                     </div>
 
                     <div class="mb-4">
@@ -232,7 +232,7 @@
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Page section images</h6>
+                        <h6 class="card-title mb-1">@lang('admin.sectionimages')</h6>
                     </div>
                     @foreach($page->sections as $item)
                         <div class="form-group">

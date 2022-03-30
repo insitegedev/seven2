@@ -98,7 +98,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                             <div class="panel-body tabs-menu-body main-content-body-right border">
                                 <div class="tab-content">
                                     <div class="main-content-label mg-b-5">
-                                        Product info
+                                    @lang('admin.productinfo')
                                     </div>
                                     @foreach(config('translatable.locales') as $locale)
 
@@ -108,7 +108,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                                         ?>
                                         <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
                                             <div class="form-group">
-                                                <label class="form-label">Title</label>
+                                                <label class="form-label">@lang('admin.titledescrs')</label>
                                                 <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="Name" value="{{$product->translate($locale)->title ?? ''}}">
                                                 @error($locale.'.title')
                                                 <small class="text-danger">
@@ -150,7 +150,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
 
 
                                             <div class="main-content-label mg-b-5 text-danger">
-                                                Product SEO
+                                            @lang('admin.productseo')
                                             </div>
                                             <div class="form-group">
                                                 {!! Form::label($locale.'[meta_title]',__('admin.meta_title'),['class' => 'form-label']) !!}
@@ -211,7 +211,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                 <div class="card-body">
 
                     <div>
-                        <h6 class="card-title mb-1">Product categories</h6>
+                        <h6 class="card-title mb-1">@lang('admin.prodcategoriesss')</h6>
                     </div>
                     <div class="mb-4">
 
@@ -316,7 +316,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Product images</h6>
+                        <h6 class="card-title mb-1">@lang('admin.prouctimages')</h6>
                     </div>
                     <div class="input-images"></div>
                     @if ($errors->has('images'))

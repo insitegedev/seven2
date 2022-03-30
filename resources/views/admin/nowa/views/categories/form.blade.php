@@ -74,10 +74,10 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
             <div class="card">
                 <div class="card-body">
                     <div>
-                        <h6 class="card-title mb-1">Product categories</h6>
+                        <h6 class="card-title mb-1">@lang('admin.productcatergories')</h6>
                     </div>
                     <div class="mb-4">
-                        <p class="mg-b-10">parent</p>
+                        <p class="mg-b-10">@lang('admin.catparent')</p>
 
                         <ul>
                             <li style="margin-bottom: 5px"><label class="rdiobox">
@@ -97,7 +97,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
 
                     </div>
                     <div class="mb-4">
-                        <p class="mg-b-10">title</p>
+                        <p class="mg-b-10">@lang('admin.categparrent')</p>
                         <div class="panel panel-primary tabs-style-2">
                             <div class=" tab-menu-heading">
                                 <div class="tabs-menu1">
