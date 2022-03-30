@@ -57,21 +57,21 @@ const Footer = () => {
               info.instagram.active == 1 || info.facebook.active ? <div className="part">
                   <h6>{__('client.footer_social_links',sharedData)}:</h6>
                   {
-                      info.facebook.active == 1 ?  <Link href={info.facebook.translation ? info.facebook.translation.value : null} className="sm flex">
+                      info.facebook.active == 1 ?  <a href={info.facebook.translation ? info.facebook.translation.value : null} className="sm flex">
                           <div className="icon flex centered">
                               <img src="/assets/images/icons/sm/fb.svg" alt="" />
                           </div>
                           <p>Facebook</p>
-                      </Link>  : ''
+                      </a>  : ''
                   }
 
                   {
-                      info.instagram.active == 1 ? <Link href={info.instagram.translation ? info.instagram.translation.value : null} className="sm flex">
+                      info.instagram.active == 1 ? <a href={info.instagram.translation ? info.instagram.translation.value : null} className="sm flex">
                           <div className="icon flex centered">
                               <img src="/assets/images/icons/sm/ig.svg" alt="" />
                           </div>
                           <p>Instagram</p>
-                      </Link> : ''
+                      </a> : ''
                   }
 
               </div> : ''

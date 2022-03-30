@@ -42,6 +42,7 @@ const HeroSlider = () => {
         if (index > lastIndex) {
             setIndex(0);
         }
+<<<<<<< HEAD
     }, [index]);
     useEffect(() => {
         let slider = setInterval(() => {
@@ -52,6 +53,28 @@ const HeroSlider = () => {
             clearInterval(slider);
         };
     }, [index]);
+=======
+        return (
+          <article className={position} key={indexData}>
+            <div className="content wrapper">
+              <div className="bold">{data.title}</div>
+              <h3>{renderHTML(data.description)}</h3>
+              <MainButton link={data.youtube_url} text={__('client.home_slider_button',sharedData)} />
+            </div>
+            <img className="slide_img" src={'/' + data.file.path + '/' + data.file.title} alt="" />
+          </article>
+        );
+      })}
+      <div className="flex controllers wrapper">
+        <div className="sm">
+            {
+             info.facebook.active == 1 ?   <a href={info.facebook.translation ? info.facebook.translation.value : null}><img src="/assets/images/icons/sm/fb.svg" alt="" /></a> : ''
+            }
+
+            {
+                info.instagram.active == 1 ?   <a href={info.instagram.translation ? info.instagram.translation.value : null}><img src="/assets/images/icons/sm/ig.svg" alt="" /></a> : ''
+            }
+>>>>>>> c380b2f1575474cddfa1308713c8976747c2e297
 
     const moveDot = (i) => {
         setIndex(i);
