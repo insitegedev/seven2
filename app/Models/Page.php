@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Page extends Model
 {
-    use SoftDeletes, Translatable, HasFactory, ScopeFilter;
+    use Translatable, HasFactory, ScopeFilter;
 
 
     protected $table = 'pages';
