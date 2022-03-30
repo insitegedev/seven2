@@ -431,9 +431,9 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                     if($this.is(':checked')){
 
                         $this.parents('.child').prev('li').find('input[type=checkbox]').prop('checked',true);
-                        $this.parents('.child').find('input[type=checkbox]').prop('checked',true);
+                        //$this.parents('.child').find('input[type=checkbox]').prop('checked',true);
                     } else {
-                        $this.parents('.child').find('input[type=checkbox]').prop('checked',false);
+                        //$this.parents('.child').find('input[type=checkbox]').prop('checked',false);
                         $this.parents('.child').prev('li').find('input[type=checkbox]').prop('checked',false);
                     }
                 }
