@@ -183,7 +183,7 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, string $locale, Product $product)
     {
-        //dd($product->id);
+        //dd($request->all());
         $saveData = Arr::except($request->except('_token'), []);
         $saveData['status'] = isset($saveData['status']) && (bool)$saveData['status'];
         $saveData['popular'] = isset($saveData['popular']) && (bool)$saveData['popular'];

@@ -91,7 +91,7 @@ class Product extends Model implements Searchable
         'meta_keyword',
     ];
 
-    protected $with = ['translation'];
+    //protected $with = ['translation'];
 
 
     public function getFilterScopes(): array
