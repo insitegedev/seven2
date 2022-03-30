@@ -64,7 +64,9 @@ class ProductController extends Controller
 
         return view('admin.nowa.views.products.index', [
             'data' => $this->productRepository->getData($request, ['translations', 'categories']),
-            'categories' => $this->categoryRepository->all()
+            'categories' => $this->categoryRepository->model->leftJoin('category_translations',function ($join){
+                $join->on('category_translations.category_id','categories.id')->where('category_translations.locale',app()->getLocale());
+            })->orderBy('title')->get()
         ]);
     }
 
