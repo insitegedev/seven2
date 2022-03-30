@@ -424,7 +424,10 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                     } else {
                         next.find('input[type=checkbox]').prop('checked',false);
                     }
-                } else {
+                }
+
+                if($this.parents('li').hasClass('child')){
+
                     if($this.is(':checked')){
 
                         $this.parents('.child').prev('li').find('input[type=checkbox]').prop('checked',true);
