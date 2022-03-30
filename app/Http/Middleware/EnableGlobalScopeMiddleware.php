@@ -9,8 +9,6 @@
 namespace App\Http\Middleware;
 
 use App\Models\Product;
-use App\Models\Project;
-use App\Models\Service;
 use App\Models\Slider;
 use Closure;
 use Illuminate\Database\Eloquent\Builder;
@@ -31,13 +29,6 @@ class EnableGlobalScopeMiddleware
             $builder->where('status', true);
         });
 
-        Project::addGlobalScope('active', function (Builder $builder) {
-            $builder->where('status', true);
-        });
-
-        Service::addGlobalScope('active', function (Builder $builder) {
-            $builder->where('status', true);
-        });
 
         Slider::addGlobalScope('active', function (Builder $builder) {
             $builder->where('status', true);

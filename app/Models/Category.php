@@ -131,11 +131,6 @@ class Category extends Model
         return $this->belongsToMany(Product::class,'product_categories');
     }
 
-    public function project(): HasMany
-    {
-        return $this->hasMany(Project::class);
-    }
-
 
     /**
      * @return MorphMany

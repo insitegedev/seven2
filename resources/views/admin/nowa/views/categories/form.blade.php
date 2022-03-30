@@ -126,7 +126,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
                                         ?>
                                         <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
                                             <div class="form-group">
-                                                <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="Name" value="{{$category->translate($locale)->title ?? ''}}">
+                                                <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="@lang('admin.name')" value="{{$category->translate($locale)->title ?? ''}}">
                                             </div>
                                             @error($locale.'.title')
                                             <small class="text-danger">
@@ -145,8 +145,8 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
 
                     </div>
                     <div class="form-group">
-                        <label class="form-label">slug</label>
-                        <input type="text" name="slug" class="form-control" placeholder="Slug" value="{{$category->slug ?? ''}}">
+                        <label class="form-label">@lang('admin.slug')</label>
+                        <input type="text" name="slug" class="form-control" placeholder="@lang('admin.slug')" value="{{$category->slug ?? ''}}">
                     </div>
                     @error('slug')
                     <small class="text-danger">
@@ -159,7 +159,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
                         <div class="checkbox">
                             <div class="custom-checkbox custom-control">
                                 <input type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$category->status ? 'checked' : ''}}>
-                                <label for="checkbox-2" class="custom-control-label mt-1">Status</label>
+                                <label for="checkbox-2" class="custom-control-label mt-1">{{__('admin.status')}}</label>
                             </div>
                         </div>
                     </div>

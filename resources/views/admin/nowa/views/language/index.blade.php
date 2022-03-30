@@ -29,7 +29,7 @@
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title mg-b-0">Languages</h4>
                     </div>
-                    <a href="{{locale_route('language.create')}}" class="btn ripple btn-primary" type="button">@lang('admin.createbutt')</a>
+                    <a href="{{locale_route('language.create')}}" class="btn ripple btn-primary" type="button">@lang('admin.create')</a>
 
                     {{--<p class="tx-12 tx-gray-500 mb-2">Example of Nowa Simple Table. <a href="">Learn more</a></p>--}}
                 </div>
@@ -82,9 +82,9 @@
                                             <td>{{$language->locale}}</td>
                                             <td>
                                                 @if($language->status)
-                                                    <span class="green-text">Active</span>
+                                                    <span class="green-text">@lang('admin.active')</span>
                                                 @else
-                                                    <span class="red-text">Not active</span>
+                                                    <span class="red-text">@lang('admin.not_active')</span>
                                                 @endif
                                             </td>
 

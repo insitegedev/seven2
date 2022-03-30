@@ -85,7 +85,7 @@
                                                 </small>
                                                 @enderror
                                             </div>
-                                            <div class="form-group">
+                                            {{--<div class="form-group">
                                                 {!! Form::label($locale.'[title_2]',__('admin.title_2'),['class' => 'form-label']) !!}
                                                 {!! Form::text($locale.'[title_2]',$slider->translate($locale)->title_2 ?? '',['class' => 'form-control']) !!}
 
@@ -96,11 +96,11 @@
                                                     </div>
                                                 </small>
                                                 @enderror
-                                            </div>
+                                            </div>--}}
 
 
                                             <div class="form-group">
-                                                <h5 for="description">@lang('admin.description')</h5>
+                                                <label class="form-label" for="description">@lang('admin.description')</label>
                                                 <textarea class="form-control" id="description-{{$locale}}"
                                                           name="{{$locale}}[description]'">
                                                 {!! $slider->translate($locale)->description ?? '' !!}

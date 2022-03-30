@@ -56,20 +56,5 @@ class HomeController extends Controller
 
     }
 
-    public function gallery()
-    {
-        return Inertia::render('Gallery/Gallery');
-    }
-
-    public function doctors()
-    {
-        return Inertia::render('OurDoctors/OurDoctors');
-    }
-
-    public function choosefloor()
-    {
-        return Inertia::render('ChooseFloor/ChooseFloor');
-    }
-
 
 }

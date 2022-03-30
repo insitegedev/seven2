@@ -128,7 +128,7 @@
                                             </td>
                                             <td>
 
-                                                <button class="btn btn-primary" data-save_translation="{{$translation->id}}">@lang('admin.savethething')</button>
+                                                <button class="btn btn-primary" data-save_translation="{{$translation->id}}">@lang('admin.save')</button>
                                             </td>
                                         </tr>
                                     @endforeach

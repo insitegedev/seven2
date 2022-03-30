@@ -7,9 +7,7 @@
  * @author Insite LLC <hello@insite.international>
  */
 
-use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Admin\Auth\LoginController;
-use App\Http\Controllers\Admin\FloorController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\PageController;
@@ -20,7 +18,6 @@ use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\Client\AboutUsController;
-use App\Http\Controllers\Client\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('ckeditor/image_upload', [CKEditorController::class, 'upload'])->name('upload');
@@ -57,9 +54,7 @@ Route::prefix('{locale?}')
                 Route::resource('gallery', GalleryController::class);
                 Route::get('gallery/{gallery}/destroy', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 
-                // Project
-//                Route::resource('project', ProjectController::class);
-//                Route::get('project/{project}/destroy', [ProjectController::class, 'destroy'])->name('project.destroy');
+
 
                 // Slider
                 Route::resource('slider', SliderController::class);
@@ -76,24 +71,10 @@ Route::prefix('{locale?}')
                 Route::get('setting/{setting}/destroy', [SettingController::class, 'destroy'])->name('setting.destroy');
 
 
-                // Service
-                Route::resource('service', \App\Http\Controllers\Admin\ServiceController::class);
-                Route::get('service/{service}/destroy', [\App\Http\Controllers\Admin\ServiceController::class, 'destroy'])->name('service.destroy');
 
                 // Password
                 Route::get('password', [\App\Http\Controllers\Admin\PasswordController::class, 'index'])->name('password.index');
                 Route::post('password', [\App\Http\Controllers\Admin\PasswordController::class, 'update'])->name('password.update');
-
-
-                // Apartment
-                Route::resource('apartment', ApartmentController::class);
-                Route::get('apartment/{apartment}/destroy', [ApartmentController::class, 'destroy'])->name('apartment.destroy');
-
-                // Floor
-                Route::resource('floor', FloorController::class);
-                Route::get('floor/{floor}/destroy', [FloorController::class, 'destroy'])->name('floor.destroy');
-
-                Route::get('categories/autocomplete',[\App\Http\Controllers\Admin\CategoryController::class,'autocomplete'])->name('autocomplete');
 
 
 
@@ -103,14 +84,7 @@ Route::prefix('{locale?}')
 
             // Home Page
             Route::get('', [HomeController::class, 'index'])->name('client.home.index');
-            Route::get('/gallery', [\App\Http\Controllers\Client\GalleryController::class, 'index'])->name('client.gallery.index');
-//            Route::get('/doctors', [HomeController::class, 'doctors'])->name('client.doctors.index');
-//            Route::get('/choosefloor', [HomeController::class, 'choosefloor'])->name('client.choosefloor.index');
-            Route::get('/apartment/{apartment?}', [\App\Http\Controllers\Client\ApartmentController::class, 'show'])->name('client.apartment.index');
-            Route::get('/choose-floor', [\App\Http\Controllers\Client\ApartmentController::class, 'index'])->name('client.choosefloor.index');
 
-            // Floor Plan
-            Route::get('/choose-apartment/{floor?}', [\App\Http\Controllers\Client\ApartmentController::class, 'showFloor'])->name('client.showFloor.index');
 
 
             // Contact Page
@@ -128,19 +102,8 @@ Route::prefix('{locale?}')
            Route::get('category/{category}',[\App\Http\Controllers\Client\CategoryController::class,'show'])->name('client.category.show');
             Route::get('popular',[\App\Http\Controllers\Client\CategoryController::class,'popular'])->name('client.category.popular');
 
-            // Project Page
-//            Route::get('/project', [\App\Http\Controllers\Client\ProjectController::class, 'index'])->name('client.project.index');
-//            Route::get('/project/{project}', [\App\Http\Controllers\Client\ProjectController::class, "show"])->name('client.project.show');
-            // Search Page
-//            Route::get('/search', [\App\Http\Controllers\Client\SearchController::class, 'index'])->name('client.search.index');
 
-            // Project Page
-//            Route::get('/project', [\App\Http\Controllers\Client\ProjectController::class, 'index'])->name('client.project.index');
-//            Route::get('/project/{project}', [\App\Http\Controllers\Client\ProjectController::class, "show"])->name('client.project.show');
 
-            // Service Page
-            Route::get('/service', [ServiceController::class, "index"])->name('client.service.index');
-            Route::get('/service/{service?}', [ServiceController::class, "show"])->name('client.service.show');
         });
     });
 

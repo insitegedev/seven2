@@ -75,7 +75,9 @@
                                         if($loop->first) $active = 'active';
                                         ?>
                                         <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
-
+                                            <div class="main-content-label mg-b-5">
+                                                @lang('admin.page_info')
+                                            </div>
                                             <div class="form-group">
                                                 {!! Form::label($locale.'[title]',__('admin.title'),['class' => 'form-label']) !!}
                                                 {!! Form::text($locale.'[title]',$page->translate($locale)->title ?? '',['class' => 'form-control']) !!}
@@ -101,7 +103,7 @@
                                                 @enderror
                                             </div>
                                             <div class="form-group">
-                                                <h5 for="description">@lang('admin.description')</h5>
+                                                <label class="form-label" for="description">@lang('admin.description')</label>
                                                 <textarea class="form-control" id="description-{{$locale}}"
                                                           name="{{$locale}}[description]'">
                                                 {!! $page->translate($locale)->description ?? '' !!}
@@ -115,7 +117,7 @@
                                                 @enderror
                                             </div>
                                             <div class="form-group">
-                                                <h5 for="description_2">@lang('admin.description_2')</h5>
+                                                <label class="form-label" for="description_2">@lang('admin.description_2')</label>
                                                 <textarea class="form-control" id="description_2-{{$locale}}"
                                                           name="{{$locale}}[description_2]'">
                                                 {!! $page->translate($locale)->description_2 ?? '' !!}
@@ -127,6 +129,10 @@
                                                     </div>
                                                 </small>
                                                 @enderror
+                                            </div>
+
+                                            <div class="main-content-label mg-b-5 text-danger">
+                                                @lang('admin.page_seo')
                                             </div>
 
                                             <div class="form-group">

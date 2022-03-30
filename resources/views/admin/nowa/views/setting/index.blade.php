@@ -78,7 +78,7 @@
                                                 <div class="checkbox">
                                                     <div class="custom-checkbox custom-control">
                                                         <input type="checkbox" data-setting="{{$setting->id}}" name="status" class="custom-control-input" id="checkbox-{{$setting->id}}" {{$setting->active ? 'checked' : ''}}>
-                                                        <label for="checkbox-{{$setting->id}}" class="custom-control-label mt-1">Active</label>
+                                                        <label for="checkbox-{{$setting->id}}" class="custom-control-label mt-1">@lang('admin.active')</label>
                                                     </div>
                                                 </div>
                                                 @endif

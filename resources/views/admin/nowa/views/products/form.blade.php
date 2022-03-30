@@ -108,7 +108,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                                         ?>
                                         <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
                                             <div class="form-group">
-                                                <label class="form-label">@lang('admin.titledescrs')</label>
+                                                <label class="form-label">@lang('admin.title')</label>
                                                 <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="Name" value="{{$product->translate($locale)->title ?? ''}}">
                                                 @error($locale.'.title')
                                                 <small class="text-danger">
@@ -150,7 +150,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
 
 
                                             <div class="main-content-label mg-b-5 text-danger">
-                                            @lang('admin.productseo')
+                                            @lang('admin.product_seo')
                                             </div>
                                             <div class="form-group">
                                                 {!! Form::label($locale.'[meta_title]',__('admin.meta_title'),['class' => 'form-label']) !!}
@@ -230,7 +230,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
 
                     <div class="form-group">
                         {!! Form::label('slug',__('admin.slug'),['class' => 'form-label']) !!}
-                        <input type="text" name="slug" class="form-control" placeholder="Slug" value="{{$product->slug ?? ''}}">
+                        <input type="text" name="slug" class="form-control" placeholder="@lang('admin.slug')" value="{{$product->slug ?? ''}}">
                         @error('slug')
                         <small class="text-danger">
                             <div class="error">
@@ -258,7 +258,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
                         <div class="checkbox">
                             <div class="custom-checkbox custom-control">
                                 <input type="checkbox" data-checkboxes="mygroup" name="status" class="custom-control-input" id="checkbox-2" {{$product->status ? 'checked' : ''}}>
-                                <label for="checkbox-2" class="custom-control-label mt-1">Status</label>
+                                <label for="checkbox-2" class="custom-control-label mt-1">@lang('admin.status')</label>
                             </div>
                         </div>
                     </div>

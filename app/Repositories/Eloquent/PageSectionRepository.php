@@ -12,9 +12,8 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\File;
 use App\Models\PageSection;
-use App\Models\Product;
 use App\Repositories\Eloquent\Base\BaseRepository;
-use App\Repositories\ProductRepositoryInterface;
+use App\Repositories\PageSectionRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use ReflectionClass;
@@ -23,7 +22,7 @@ use ReflectionClass;
  * Class LanguageRepository
  * @package App\Repositories\Eloquent
  */
-class PageSectionRepository extends BaseRepository implements ProductRepositoryInterface
+class PageSectionRepository extends BaseRepository implements PageSectionRepositoryInterface
 {
     /**
      * @param \App\Models\Product $model

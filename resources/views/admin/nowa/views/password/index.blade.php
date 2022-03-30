@@ -50,8 +50,8 @@
 
                             <div class="">
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Current Password</label>
-                                    <input type="password" name="c_pass" class="form-control" id="exampleInputPassword1" placeholder="Current Password">
+                                    <label for="exampleInputPassword1">@lang('admin.cur_pass')</label>
+                                    <input type="password" name="c_pass" class="form-control" id="exampleInputPassword1" placeholder="@lang('admin.cur_pass')">
                                     @error('c_pass')
                                     <small class="errorTxt4">
                                         <div class="text-danger">
@@ -61,8 +61,8 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">New Password</label>
-                                    <input type="password" name="n_pass" class="form-control" id="exampleInputPassword1" placeholder="New Password">
+                                    <label for="exampleInputPassword1">@lang('admin.new_pass')</label>
+                                    <input type="password" name="n_pass" class="form-control" id="exampleInputPassword1" placeholder="@lang('admin.new_pass')">
                                     @error('n_pass')
                                     <small class="errorTxt4">
                                         <div class="text-danger">
@@ -72,8 +72,8 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Repeat New Password</label>
-                                    <input type="password" name="r_pass" class="form-control" id="exampleInputPassword1" placeholder="Repeat New Password">
+                                    <label for="exampleInputPassword1">@lang('admin.repeat_pass')</label>
+                                    <input type="password" name="r_pass" class="form-control" id="exampleInputPassword1" placeholder="@lang('admin.repeat_pass')">
                                     @error('r_pass')
                                     <small class="errorTxt4">
                                         <div class="text-danger">
@@ -89,7 +89,7 @@
                                     </div>
                                 </div>--}}
                             </div>
-                            <button type="submit" class="btn btn-primary mt-3 mb-0">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-3 mb-0">@lang('admin.update')</button>
                         </form>
                     </div>
                 </div>
