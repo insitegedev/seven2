@@ -75,7 +75,7 @@
 }
 .mainSlider .controllers .pagination {
   font-size: 350px;
-  line-height: 70%;
+  margin-bottom: -20%;
 }
 .mainSlider .controllers .sm {
   margin-right: 70px;
