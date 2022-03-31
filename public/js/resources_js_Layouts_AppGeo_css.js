@@ -17,7 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\r\n    font-family: \"mtav\";\r\n    src: url(/assets/fonts/AS-Grammatika-Regular_Mtav.ttf);\r\n}\r\n*,\r\n*::after,\r\n*::before {\r\n    font-family: \"mtav\";\r\n}\r\nbody {\r\n    font-family: \"mtav\";\r\n}\r\n.bold {\r\n    font-family: \"mtav\";\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@font-face {\n    font-family: \"mtav\";\n    src: url(/assets/fonts/AS-Grammatika-Regular_Mtav.ttf);\n}\n*,\n*::after,\n*::before {\n    font-family: \"mtav\";\n}\nbody {\n    font-family: \"mtav\";\n}\n.bold {\n    font-family: \"mtav\";\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
