@@ -1,19 +1,15 @@
 import React from "react";
-import {Link, usePage} from "@inertiajs/inertia-react";
-
+import { Link, usePage } from "@inertiajs/inertia-react";
 
 export const Languages = () => {
-    const {locales, currentLocale, locale_urls} = usePage().props;
-
+    const { locales, currentLocale, locale_urls } = usePage().props;
 
     return (
         <div className="languages">
             <div className="lang_on">
                 {Object.keys(locales).map((name, index) => {
                     if (locales[name] === currentLocale) {
-                        return (
-                            <a href={locale_urls[name]} key={name + "locale"}>{name}</a>
-                        );
+                        return <div key={name + "locale"}>{name}</div>;
                     }
                 })}
             </div>
@@ -21,12 +17,13 @@ export const Languages = () => {
                 {Object.keys(locales).map((name, index) => {
                     if (locales[name] !== currentLocale) {
                         return (
-                            <a href={locale_urls[name]} key={name + "locale"}>{name}</a>
+                            <a href={locale_urls[name]} key={name + "locale"}>
+                                {name}
+                            </a>
                         );
                     }
                 })}
             </div>
         </div>
-
     );
 };

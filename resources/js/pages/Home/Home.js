@@ -39,23 +39,28 @@ const Home = ({ page, seo }) => {
 
     const popularSlider = {
         slidesToShow: 4,
+        slidesToScroll: 1,
         autoplay: true,
         speed: 6000,
         cssEase: "linear",
         autoplaySpeed: 0,
+        infinite: true,
         responsive: [
             {
                 breakpoint: 1300,
                 settings: {
                     slidesToShow: 3,
+                    slidesToScroll: 1,
                 },
                 breakpoint: 900,
                 settings: {
                     slidesToShow: 2,
+                    slidesToScroll: 1,
                 },
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 1,
+                    slidesToScroll: 1,
                 },
             },
         ],
@@ -163,11 +168,12 @@ const Home = ({ page, seo }) => {
                                 <ProductBox
                                     key={i}
                                     src={
-                                        item.files.length > 0 ?
-                                        "/" +
-                                        item.files[0].path +
-                                        "/" +
-                                        item.files[0].title : null
+                                        item.files.length > 0
+                                            ? "/" +
+                                              item.files[0].path +
+                                              "/" +
+                                              item.files[0].title
+                                            : null
                                     }
                                     discount={item.sale}
                                     category={item.title}
