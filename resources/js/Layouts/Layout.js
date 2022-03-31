@@ -25,9 +25,7 @@ export default function Layout({ children, seo = null }) {
 
     if (currentLocale == "ge") {
         import("./AppGeo.css");
-    }
-
-    if (currentLocale == "ru") {
+    } else if (currentLocale == "ru") {
         import("./AppRus.css");
     }
 
