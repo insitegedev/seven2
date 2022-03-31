@@ -3397,9 +3397,171 @@ var Contact = function Contact(_ref) {
 /*!**********************************************************!*\
   !*** ./resources/js/Pages/Home/HeroSlider/HeroSlider.js ***!
   \**********************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\resources\\js\\Pages\\Home\\HeroSlider\\HeroSlider.js: Unexpected token (45:1)\n\n\u001b[0m \u001b[90m 43 |\u001b[39m             setIndex(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 44 |\u001b[39m         }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 45 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 46 |\u001b[39m     }\u001b[33m,\u001b[39m [index])\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 47 |\u001b[39m     useEffect(() \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 48 |\u001b[39m         \u001b[36mlet\u001b[39m slider \u001b[33m=\u001b[39m setInterval(() \u001b[33m=>\u001b[39m {\u001b[0m\n    at Object._raise (C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:476:17)\n    at Object.raiseWithData (C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:469:17)\n    at Object.raise (C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:430:17)\n    at Object.unexpected (C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:3789:16)\n    at Object.jsxParseIdentifier (C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:7559:12)\n    at Object.jsxParseNamespacedName (C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:7569:23)\n    at Object.jsxParseElementName (C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:7580:21)\n    at Object.jsxParseOpeningElementAt (C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:7677:22)\n    at Object.jsxParseElementAt (C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:7710:33)\n    at Object.jsxParseElement (C:\\Users\\Shamisa\\Desktop\\local-projects\\seven2\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:7793:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/MainButton/MainButton */ "./resources/js/components/MainButton/MainButton.js");
+/* harmony import */ var _HeroSlider_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HeroSlider.css */ "./resources/js/Pages/Home/HeroSlider/HeroSlider.css");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+ //import Arrow from "../../../assets/images/icons/arrows/1.svg";
+//import FB from "../../../assets/images/icons/sm/fb.svg";
+//import IG from "../../../assets/images/icons/sm/ig.svg";
+//import Img1 from "../../../assets/images/hero/1.png";
+
+
+
+
+var HeroSlider = function HeroSlider() {
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
+
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props,
+      sliders = _usePage$props.sliders,
+      info = _usePage$props.info; //console.log(sliders);
+
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.localizations;
+  var sliderData = [{
+    text1: "Living room furniture",
+    text2: "New Collection",
+    img: "/assets/images/hero/1.png"
+  }, {
+    text1: "Kitchen cabinets",
+    text2: "50% discount",
+    img: "/assets/images/hero/1.png"
+  }, {
+    text1: "Kitchen cabinets",
+    text2: "50% discount",
+    img: "/assets/images/hero/1.png"
+  }];
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      index = _useState2[0],
+      setIndex = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var lastIndex = sliders.length - 1;
+
+    if (index < 0) {
+      setIndex(lastIndex);
+    }
+
+    if (index > lastIndex) {
+      setIndex(0);
+    }
+  }, [index]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var slider = setInterval(function () {
+      setIndex(index + 1);
+    }, 5000);
+    return function () {
+      clearInterval(slider);
+    };
+  }, [index]);
+
+  var moveDot = function moveDot(i) {
+    setIndex(i);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "mainSlider"
+  }, sliders.map(function (data, indexData) {
+    var position = "nextSlide";
+
+    if (indexData === index) {
+      position = "activeSlide";
+    }
+
+    if (indexData === index - 1 || index === 0 && indexData === data.length - 1) {
+      position = "lastSlide";
+    }
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
+      className: position,
+      key: indexData
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "content wrapper"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "bold"
+    }, data.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, renderHTML(data.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
+      link: data.youtube_url,
+      text: __("client.home_slider_button", sharedData)
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      className: "slide_img",
+      src: "/" + data.file.path + "/" + data.file.title,
+      alt: ""
+    }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "flex controllers wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "sm"
+  }, info.facebook.active == 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
+    href: info.facebook.translation ? info.facebook.translation.value : null
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "/assets/images/icons/sm/fb.svg",
+    alt: ""
+  })) : "", info.instagram.active == 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
+    href: info.instagram.translation ? info.instagram.translation.value : null
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "/assets/images/icons/sm/ig.svg",
+    alt: ""
+  })) : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: function onClick() {
+      return setIndex(index - 1);
+    },
+    className: "arrow prev",
+    style: {
+      transform: "rotate(180deg) translateY(22%)"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "/assets/images/icons/arrows/1.svg",
+    alt: ""
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "pagination"
+  }, "0", index + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: function onClick() {
+      return setIndex(index + 1);
+    },
+    className: "arrow next"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "/assets/images/icons/arrows/1.svg",
+    alt: ""
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "dots flex centered"
+  }, sliders.map(function (item, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: index === i ? "dot active" : "dot",
+      onClick: function onClick() {
+        return moveDot(i);
+      }
+    });
+  }))));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeroSlider);
 
 /***/ }),
 
@@ -3446,14 +3608,14 @@ var Home = function Home(_ref) {
       categories = _usePage$props.categories,
       images = _usePage$props.images;
   var onSaleCategories = [{
-    off: __('client.home_sale1_off', sharedData),
-    cat: __('client.home_sale1_title', sharedData),
+    off: __("client.home_sale1_off", sharedData),
+    cat: __("client.home_sale1_title", sharedData),
     whiteButton: true,
     color: "#fff",
     bg: images[1]
   }, {
-    off: __('client.home_sale2_off', sharedData),
-    cat: __('client.home_sale2_title', sharedData),
+    off: __("client.home_sale2_off", sharedData),
+    cat: __("client.home_sale2_title", sharedData),
     whiteButton: false,
     color: "#05185A",
     bg: images[2]
@@ -3465,25 +3627,25 @@ var Home = function Home(_ref) {
     className: "homePage"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_HeroSlider_HeroSlider__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "categories_home wrapper flex"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, __('client.home_section1_text', sharedData), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", __('client.home_section1_text2', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
-    link: route('client.product.index'),
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, __("client.home_section1_text", sharedData), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", __("client.home_section1_text2", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
+    link: route("client.product.index"),
     white: true,
     transparent: true,
-    text: __('client.home_view_all_categories', sharedData)
+    text: __("client.home_view_all_categories", sharedData)
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "grid4",
     "data-aos": "zoom-in"
   }, categories.map(function (cat, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.Link, {
-      href: route('client.category.show', cat.slug),
+      href: route("client.category.show", cat.slug),
       key: i
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_5__.ProductImage, {
-      src: cat.files.length > 0 ? '/' + cat.files[0].path + '/' + cat.files[0].title : null,
+      src: cat.files.length > 0 ? "/" + cat.files[0].path + "/" + cat.files[0].title : null,
       category: cat.title
     }));
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     style: {
-      background: 'url(' + images[0] + ') no-repeat'
+      background: "url(" + images[0] + ") no-repeat"
     },
     className: "exhibition",
     "data-aos": "fade-up"
@@ -3507,8 +3669,8 @@ var Home = function Home(_ref) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "bold"
     }, cat.off), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", null, cat.cat), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
-      link: route('client.product.index'),
-      text: __('client.home_shop_now', sharedData),
+      link: route("client.product.index"),
+      text: __("client.home_shop_now", sharedData),
       white: cat.whiteButton
     })));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3517,19 +3679,19 @@ var Home = function Home(_ref) {
     className: "head flex"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "title"
-  }, __('client.popular_products', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
-    text: __('client.home_view_all', sharedData),
-    link: route('client.category.popular')
+  }, __("client.popular_products", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
+    text: __("client.home_view_all", sharedData),
+    link: route("client.category.popular")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "grid4",
     "data-aos": "fade-up"
   }, popular_products.map(function (item, i) {
     //console.log(item)
     var slug = item.slug;
-    var link = route('client.product.show', slug);
+    var link = route("client.product.show", slug);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_5__.ProductBox, {
       key: i,
-      src: '/' + item.files[0].path + '/' + item.files[0].title,
+      src: "/" + item.files[0].path + "/" + item.files[0].title,
       discount: item.sale,
       category: item.title,
       link: link
