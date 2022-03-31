@@ -3068,8 +3068,12 @@ function Layout(_ref) {
   console.log((0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.usePage)().props);
   var currentLocale = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.usePage)().props.currentLocale;
 
-  if (currentLocale == 'ge' || currentLocale == 'ru') {
+  if (currentLocale == "ge") {
     __webpack_require__.e(/*! import() */ "resources_js_Layouts_AppGeo_css").then(__webpack_require__.bind(__webpack_require__, /*! ./AppGeo.css */ "./resources/js/Layouts/AppGeo.css"));
+  }
+
+  if (currentLocale == "ru") {
+    __webpack_require__.e(/*! import() */ "resources_js_Layouts_AppRus_css").then(__webpack_require__.bind(__webpack_require__, /*! ./AppRus.css */ "./resources/js/Layouts/AppRus.css"));
   }
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Header_Header__WEBPACK_IMPORTED_MODULE_3__["default"], null), children, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Footer_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null));
@@ -44721,7 +44725,7 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Users\\\\Shamisa\\
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "resources_js_Layouts_AppGeo_css") return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Layouts_AppGeo_css":1,"resources_js_Layouts_AppRus_css":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

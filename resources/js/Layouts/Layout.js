@@ -10,11 +10,11 @@ import setSeoData from "./SetSeoData";
 // import {Fragment} from "react";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Aos from "aos";
-import {usePage} from "@inertiajs/inertia-react";
+import { usePage } from "@inertiajs/inertia-react";
 
-export default function Layout({children, seo=null}) {
-    if (seo){
-         setSeoData(seo);
+export default function Layout({ children, seo = null }) {
+    if (seo) {
+        setSeoData(seo);
     }
     useEffect(() => {
         Aos.init({ duration: 2000 });
@@ -23,17 +23,21 @@ export default function Layout({children, seo=null}) {
     console.log(usePage().props);
     const { currentLocale } = usePage().props;
 
-    if(currentLocale == 'ge' || currentLocale == 'ru'){
-        import("./AppGeo.css")
+    if (currentLocale == "ge") {
+        import("./AppGeo.css");
+    }
+
+    if (currentLocale == "ru") {
+        import("./AppRus.css");
     }
 
     return (
         <>
             {/*<Router>*/}
             {/*<Fragment>*/}
-                <Header/>
-                {children}
-                <Footer/>
+            <Header />
+            {children}
+            <Footer />
             {/*</Fragment>*/}
             {/*</Router>*/}
         </>
