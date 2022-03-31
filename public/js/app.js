@@ -3070,9 +3070,7 @@ function Layout(_ref) {
 
   if (currentLocale == "ge") {
     __webpack_require__.e(/*! import() */ "resources_js_Layouts_AppGeo_css").then(__webpack_require__.bind(__webpack_require__, /*! ./AppGeo.css */ "./resources/js/Layouts/AppGeo.css"));
-  }
-
-  if (currentLocale == "ru") {
+  } else if (currentLocale == "ru") {
     __webpack_require__.e(/*! import() */ "resources_js_Layouts_AppRus_css").then(__webpack_require__.bind(__webpack_require__, /*! ./AppRus.css */ "./resources/js/Layouts/AppRus.css"));
   }
 
