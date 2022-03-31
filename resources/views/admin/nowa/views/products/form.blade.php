@@ -218,13 +218,10 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$ids) {
 
                         <?=$traverse($categories);?>
 
-                        @error('category_id')
-                        <small class="text-danger">
-                            <div class="error">
-                                {{$message}}
-                            </div>
-                        </small>
-                        @enderror
+                            @if($errors->has('categories'))
+                                <small class="error text-danger">{{ $errors->first('categories') }}</small>
+                            @endif
+
 
                     </div>
 
