@@ -3068,7 +3068,7 @@ function Layout(_ref) {
   console.log((0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.usePage)().props);
   var currentLocale = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.usePage)().props.currentLocale;
 
-  if (currentLocale == 'ge') {
+  if (currentLocale == 'ge' || currentLocale == 'ru') {
     __webpack_require__.e(/*! import() */ "resources_js_Layouts_AppGeo_css").then(__webpack_require__.bind(__webpack_require__, /*! ./AppGeo.css */ "./resources/js/Layouts/AppGeo.css"));
   }
 

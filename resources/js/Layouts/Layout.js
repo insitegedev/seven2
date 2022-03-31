@@ -23,7 +23,7 @@ export default function Layout({children, seo=null}) {
     console.log(usePage().props);
     const { currentLocale } = usePage().props;
 
-    if(currentLocale == 'ge'){
+    if(currentLocale == 'ge' || currentLocale == 'ru'){
         import("./AppGeo.css")
     }
 
