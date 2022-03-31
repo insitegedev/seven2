@@ -12,6 +12,9 @@ import { shopCategories, popularProducts } from "./HomeData";
 import "./Home.css";
 import { usePage, Head } from "@inertiajs/inertia-react";
 import Layout from "../../Layouts/Layout";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = ({ page, seo }) => {
     const sharedData = usePage().props.localizations;
@@ -33,6 +36,30 @@ const Home = ({ page, seo }) => {
             bg: images[2],
         },
     ];
+
+    const popularSlider = {
+        slidesToShow: 4,
+        autoplay: true,
+        speed: 6000,
+        cssEase: "linear",
+        autoplaySpeed: 0,
+        responsive: [
+            {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 3,
+                },
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 2,
+                },
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+        ],
+    };
 
     //console.log(popular_products);
     return (
@@ -127,7 +154,7 @@ const Home = ({ page, seo }) => {
                             link={route("client.category.popular")}
                         />
                     </div>
-                    <div className="grid4" data-aos="fade-up">
+                    <Slider className="slider" {...popularSlider}>
                         {popular_products.map((item, i) => {
                             //console.log(item)
                             let slug = item.slug;
@@ -147,7 +174,7 @@ const Home = ({ page, seo }) => {
                                 />
                             );
                         })}
-                    </div>
+                    </Slider>
                 </div>
             </div>
         </Layout>

@@ -3587,6 +3587,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _HomeData__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./HomeData */ "./resources/js/Pages/Home/HomeData.js");
 /* harmony import */ var _Home_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Home.css */ "./resources/js/Pages/Home/Home.css");
 /* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
+/* harmony import */ var slick_carousel_slick_slick_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
+/* harmony import */ var slick_carousel_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
 
 
 
@@ -3600,6 +3610,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Home = function Home(_ref) {
+  var _ref2;
+
   var page = _ref.page,
       seo = _ref.seo;
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.usePage)().props.localizations;
@@ -3619,7 +3631,24 @@ var Home = function Home(_ref) {
     whiteButton: false,
     color: "#05185A",
     bg: images[2]
-  }]; //console.log(popular_products);
+  }];
+  var popularSlider = {
+    slidesToShow: 4,
+    autoplay: true,
+    speed: 6000,
+    cssEase: "linear",
+    autoplaySpeed: 0,
+    responsive: [(_ref2 = {
+      breakpoint: 1300,
+      settings: {
+        slidesToShow: 3
+      }
+    }, _defineProperty(_ref2, "breakpoint", 900), _defineProperty(_ref2, "settings", {
+      slidesToShow: 2
+    }), _defineProperty(_ref2, "breakpoint", 600), _defineProperty(_ref2, "settings", {
+      slidesToShow: 1
+    }), _ref2)]
+  }; //console.log(popular_products);
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_9__["default"], {
     seo: seo
@@ -3682,10 +3711,9 @@ var Home = function Home(_ref) {
   }, __("client.popular_products", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
     text: __("client.home_view_all", sharedData),
     link: route("client.category.popular")
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "grid4",
-    "data-aos": "fade-up"
-  }, popular_products.map(function (item, i) {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_slick__WEBPACK_IMPORTED_MODULE_10__["default"], _extends({
+    className: "slider"
+  }, popularSlider), popular_products.map(function (item, i) {
     //console.log(item)
     var slug = item.slug;
     var link = route("client.product.show", slug);
@@ -5044,7 +5072,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".homePage .categories_home {\r\n  margin-top: 60px;\r\n  margin-bottom: 33px;\r\n}\r\n.homePage .categories_home h4 {\r\n  font-size: 40px;\r\n  font-weight: lighter;\r\n  opacity: 0.5;\r\n  line-height: 100%;\r\n  margin-bottom: 20px;\r\n  white-space: nowrap;\r\n  margin-right: 20px;\r\n}\r\n.homePage .exhibition {\r\n  width: 100% !important;\r\n  height: 650px !important;\r\n  background-size: cover !important;\r\n  background-position: center !important;\r\n}\r\n.homePage .onsale_cats {\r\n  margin-top: 33px;\r\n  margin-bottom: 60px;\r\n}\r\n.homePage .onsale_cats .box {\r\n  width: 50%;\r\n  height: 420px;\r\n  margin: 0 8px;\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n.homePage .onsale_cats .box .bg {\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  z-index: -1;\r\n  width: 100%;\r\n  height: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\r\n  transition: 1s;\r\n}\r\n.homePage .onsale_cats .box .container {\r\n  width: calc(100% - 120px);\r\n  height: calc(100% - 120px);\r\n  text-align: center;\r\n  flex-direction: column;\r\n}\r\n.homePage .onsale_cats .box h5 {\r\n  font-size: 40px;\r\n  font-weight: lighter;\r\n  margin-bottom: 20px;\r\n}\r\n.homePage .onsale_cats .box:hover .bg {\r\n  transform: scale(1.2);\r\n}\r\n.homePage .popular_products .head {\r\n  margin-bottom: 45px;\r\n}\r\n.homePage .popular_products .head .title {\r\n  font-size: 35px;\r\n  position: relative;\r\n}\r\n.homePage .popular_products .head .title::after {\r\n  height: 3px;\r\n  width: 73px;\r\n  background-color: #05185a;\r\n  left: 0;\r\n  bottom: -7px;\r\n}\r\n\r\n/* responsivenesssssss */\r\n\r\n@media screen and (max-width: 1320px) {\r\n  .homePage .categories_home {\r\n    align-items: flex-start;\r\n  }\r\n}\r\n@media screen and (max-width: 1200px) {\r\n  .homePage .exhibition {\r\n    height: 340px;\r\n  }\r\n  .homePage .onsale_cats .box .container {\r\n    width: calc(100% - 60px);\r\n    height: calc(100% - 60px);\r\n  }\r\n  .homePage .onsale_cats .box h5 {\r\n    font-size: 34px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .homePage .onsale_cats .box {\r\n    height: 282px;\r\n  }\r\n}\r\n@media screen and (max-width: 900px) {\r\n  .homePage .categories_home {\r\n    flex-direction: column;\r\n  }\r\n  .homePage .popular_products .head .title {\r\n    font-size: 25px;\r\n  }\r\n}\r\n@media screen and (max-width: 800px) {\r\n  .homePage .onsale_cats {\r\n    flex-direction: column;\r\n    margin-bottom: 20px;\r\n  }\r\n  .homePage .onsale_cats .box {\r\n    width: 100%;\r\n    margin: 0;\r\n    margin-bottom: 20px;\r\n  }\r\n}\r\n@media screen and (max-width: 600px) {\r\n  .homePage .exhibition {\r\n    height: 160px;\r\n  }\r\n}\r\n@media screen and (max-width: 500px) {\r\n  .homePage .categories_home {\r\n    margin-top: 21px;\r\n  }\r\n  .homePage .categories_home h4 {\r\n    font-size: 30px;\r\n    margin-bottom: 6px;\r\n    margin-right: 0;\r\n  }\r\n  .homePage .onsale_cats .box .container {\r\n    width: calc(100% - 30px);\r\n    height: calc(100% - 30px);\r\n  }\r\n  .homePage .onsale_cats .box h5 {\r\n    font-size: 27px;\r\n    margin-bottom: 10px;\r\n  }\r\n  .homePage .onsale_cats .box .bold {\r\n    font-size: 13px;\r\n  }\r\n  .homePage .onsale_cats .box {\r\n    height: 230px;\r\n  }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".homePage .categories_home {\r\n    margin-top: 60px;\r\n    margin-bottom: 33px;\r\n}\r\n.homePage .categories_home h4 {\r\n    font-size: 40px;\r\n    font-weight: lighter;\r\n    opacity: 0.5;\r\n    line-height: 100%;\r\n    margin-bottom: 20px;\r\n    white-space: nowrap;\r\n    margin-right: 20px;\r\n}\r\n.homePage .exhibition {\r\n    width: 100% !important;\r\n    height: 650px !important;\r\n    background-size: cover !important;\r\n    background-position: center !important;\r\n}\r\n.homePage .onsale_cats {\r\n    margin-top: 33px;\r\n    margin-bottom: 60px;\r\n}\r\n.homePage .onsale_cats .box {\r\n    width: 50%;\r\n    height: 420px;\r\n    margin: 0 8px;\r\n    position: relative;\r\n    overflow: hidden;\r\n}\r\n.homePage .onsale_cats .box .bg {\r\n    position: absolute;\r\n    left: 0;\r\n    top: 0;\r\n    z-index: -1;\r\n    width: 100%;\r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    transition: 1s;\r\n}\r\n.homePage .onsale_cats .box .container {\r\n    width: calc(100% - 120px);\r\n    height: calc(100% - 120px);\r\n    text-align: center;\r\n    flex-direction: column;\r\n}\r\n.homePage .onsale_cats .box h5 {\r\n    font-size: 40px;\r\n    font-weight: lighter;\r\n    margin-bottom: 20px;\r\n}\r\n.homePage .onsale_cats .box:hover .bg {\r\n    transform: scale(1.2);\r\n}\r\n.homePage .popular_products .head {\r\n    margin-bottom: 45px;\r\n}\r\n.homePage .popular_products .head .title {\r\n    font-size: 35px;\r\n    position: relative;\r\n}\r\n.homePage .popular_products .head .title::after {\r\n    height: 3px;\r\n    width: 73px;\r\n    background-color: #05185a;\r\n    left: 0;\r\n    bottom: -7px;\r\n}\r\n.homePage .popular_products {\r\n    margin-bottom: 80px;\r\n}\r\n.homePage .popular_products .product_box {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* responsivenesssssss */\r\n\r\n@media screen and (max-width: 1320px) {\r\n    .homePage .categories_home {\r\n        align-items: flex-start;\r\n    }\r\n}\r\n@media screen and (max-width: 1200px) {\r\n    .homePage .exhibition {\r\n        height: 340px;\r\n    }\r\n    .homePage .onsale_cats .box .container {\r\n        width: calc(100% - 60px);\r\n        height: calc(100% - 60px);\r\n    }\r\n    .homePage .onsale_cats .box h5 {\r\n        font-size: 34px;\r\n        margin-bottom: 10px;\r\n    }\r\n    .homePage .onsale_cats .box {\r\n        height: 282px;\r\n    }\r\n}\r\n@media screen and (max-width: 900px) {\r\n    .homePage .categories_home {\r\n        flex-direction: column;\r\n    }\r\n    .homePage .popular_products .head .title {\r\n        font-size: 25px;\r\n    }\r\n}\r\n@media screen and (max-width: 800px) {\r\n    .homePage .onsale_cats {\r\n        flex-direction: column;\r\n        margin-bottom: 20px;\r\n    }\r\n    .homePage .onsale_cats .box {\r\n        width: 100%;\r\n        margin: 0;\r\n        margin-bottom: 20px;\r\n    }\r\n}\r\n@media screen and (max-width: 600px) {\r\n    .homePage .exhibition {\r\n        height: 160px;\r\n    }\r\n}\r\n@media screen and (max-width: 500px) {\r\n    .homePage .categories_home {\r\n        margin-top: 21px;\r\n    }\r\n    .homePage .categories_home h4 {\r\n        font-size: 30px;\r\n        margin-bottom: 6px;\r\n        margin-right: 0;\r\n    }\r\n    .homePage .onsale_cats .box .container {\r\n        width: calc(100% - 30px);\r\n        height: calc(100% - 30px);\r\n    }\r\n    .homePage .onsale_cats .box h5 {\r\n        font-size: 27px;\r\n        margin-bottom: 10px;\r\n    }\r\n    .homePage .onsale_cats .box .bold {\r\n        font-size: 13px;\r\n    }\r\n    .homePage .onsale_cats .box {\r\n        height: 230px;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
