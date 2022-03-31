@@ -1,140 +1,146 @@
 .homePage .categories_home {
-  margin-top: 60px;
-  margin-bottom: 33px;
+    margin-top: 60px;
+    margin-bottom: 33px;
 }
 .homePage .categories_home h4 {
-  font-size: 40px;
-  font-weight: lighter;
-  opacity: 0.5;
-  line-height: 100%;
-  margin-bottom: 20px;
-  white-space: nowrap;
-  margin-right: 20px;
+    font-size: 40px;
+    font-weight: lighter;
+    opacity: 0.5;
+    line-height: 100%;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    margin-right: 20px;
 }
 .homePage .exhibition {
-  width: 100% !important;
-  height: 650px !important;
-  background-size: cover !important;
-  background-position: center !important;
+    width: 100% !important;
+    height: 650px !important;
+    background-size: cover !important;
+    background-position: center !important;
 }
 .homePage .onsale_cats {
-  margin-top: 33px;
-  margin-bottom: 60px;
+    margin-top: 33px;
+    margin-bottom: 60px;
 }
 .homePage .onsale_cats .box {
-  width: 50%;
-  height: 420px;
-  margin: 0 8px;
-  position: relative;
-  overflow: hidden;
+    width: 50%;
+    height: 420px;
+    margin: 0 8px;
+    position: relative;
+    overflow: hidden;
 }
 .homePage .onsale_cats .box .bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 1s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s;
 }
 .homePage .onsale_cats .box .container {
-  width: calc(100% - 120px);
-  height: calc(100% - 120px);
-  text-align: center;
-  flex-direction: column;
+    width: calc(100% - 120px);
+    height: calc(100% - 120px);
+    text-align: center;
+    flex-direction: column;
 }
 .homePage .onsale_cats .box h5 {
-  font-size: 40px;
-  font-weight: lighter;
-  margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: lighter;
+    margin-bottom: 20px;
 }
 .homePage .onsale_cats .box:hover .bg {
-  transform: scale(1.2);
+    transform: scale(1.2);
 }
 .homePage .popular_products .head {
-  margin-bottom: 45px;
+    margin-bottom: 45px;
 }
 .homePage .popular_products .head .title {
-  font-size: 35px;
-  position: relative;
+    font-size: 35px;
+    position: relative;
 }
 .homePage .popular_products .head .title::after {
-  height: 3px;
-  width: 73px;
-  background-color: #05185a;
-  left: 0;
-  bottom: -7px;
+    height: 3px;
+    width: 73px;
+    background-color: #05185a;
+    left: 0;
+    bottom: -7px;
+}
+.homePage .popular_products {
+    margin-bottom: 80px;
+}
+.homePage .popular_products .product_box {
+    margin: 0 10px;
 }
 
 /* responsivenesssssss */
 
 @media screen and (max-width: 1320px) {
-  .homePage .categories_home {
-    align-items: flex-start;
-  }
+    .homePage .categories_home {
+        align-items: flex-start;
+    }
 }
 @media screen and (max-width: 1200px) {
-  .homePage .exhibition {
-    height: 340px;
-  }
-  .homePage .onsale_cats .box .container {
-    width: calc(100% - 60px);
-    height: calc(100% - 60px);
-  }
-  .homePage .onsale_cats .box h5 {
-    font-size: 34px;
-    margin-bottom: 10px;
-  }
-  .homePage .onsale_cats .box {
-    height: 282px;
-  }
+    .homePage .exhibition {
+        height: 340px;
+    }
+    .homePage .onsale_cats .box .container {
+        width: calc(100% - 60px);
+        height: calc(100% - 60px);
+    }
+    .homePage .onsale_cats .box h5 {
+        font-size: 34px;
+        margin-bottom: 10px;
+    }
+    .homePage .onsale_cats .box {
+        height: 282px;
+    }
 }
 @media screen and (max-width: 900px) {
-  .homePage .categories_home {
-    flex-direction: column;
-  }
-  .homePage .popular_products .head .title {
-    font-size: 25px;
-  }
+    .homePage .categories_home {
+        flex-direction: column;
+    }
+    .homePage .popular_products .head .title {
+        font-size: 25px;
+    }
 }
 @media screen and (max-width: 800px) {
-  .homePage .onsale_cats {
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  .homePage .onsale_cats .box {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 20px;
-  }
+    .homePage .onsale_cats {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .homePage .onsale_cats .box {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 20px;
+    }
 }
 @media screen and (max-width: 600px) {
-  .homePage .exhibition {
-    height: 160px;
-  }
+    .homePage .exhibition {
+        height: 160px;
+    }
 }
 @media screen and (max-width: 500px) {
-  .homePage .categories_home {
-    margin-top: 21px;
-  }
-  .homePage .categories_home h4 {
-    font-size: 30px;
-    margin-bottom: 6px;
-    margin-right: 0;
-  }
-  .homePage .onsale_cats .box .container {
-    width: calc(100% - 30px);
-    height: calc(100% - 30px);
-  }
-  .homePage .onsale_cats .box h5 {
-    font-size: 27px;
-    margin-bottom: 10px;
-  }
-  .homePage .onsale_cats .box .bold {
-    font-size: 13px;
-  }
-  .homePage .onsale_cats .box {
-    height: 230px;
-  }
+    .homePage .categories_home {
+        margin-top: 21px;
+    }
+    .homePage .categories_home h4 {
+        font-size: 30px;
+        margin-bottom: 6px;
+        margin-right: 0;
+    }
+    .homePage .onsale_cats .box .container {
+        width: calc(100% - 30px);
+        height: calc(100% - 30px);
+    }
+    .homePage .onsale_cats .box h5 {
+        font-size: 27px;
+        margin-bottom: 10px;
+    }
+    .homePage .onsale_cats .box .bold {
+        font-size: 13px;
+    }
+    .homePage .onsale_cats .box {
+        height: 230px;
+    }
 }
