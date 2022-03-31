@@ -3501,7 +3501,7 @@ var HeroSlider = function HeroSlider() {
 
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("article", {
       className: position,
-      key: indexData
+      key: data.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "content wrapper"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -3518,12 +3518,12 @@ var HeroSlider = function HeroSlider() {
     className: "flex controllers wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "sm"
-  }, info.facebook.active == 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
+  }, info.facebook.active == 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: info.facebook.translation ? info.facebook.translation.value : null
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/sm/fb.svg",
     alt: ""
-  })) : "", info.instagram.active == 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
+  })) : "", info.instagram.active == 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: info.instagram.translation ? info.instagram.translation.value : null
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/sm/ig.svg",

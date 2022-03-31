@@ -71,7 +71,7 @@ const HeroSlider = () => {
                     position = "lastSlide";
                 }
                 return (
-                    <article className={position} key={indexData}>
+                    <article className={position} key={data.id}>
                         <div className="content wrapper">
                             <div className="bold">{data.title}</div>
                             <h3>{renderHTML(data.description)}</h3>
@@ -94,7 +94,7 @@ const HeroSlider = () => {
             <div className="flex controllers wrapper">
                 <div className="sm">
                     {info.facebook.active == 1 ? (
-                        <Link
+                        <a
                             href={
                                 info.facebook.translation
                                     ? info.facebook.translation.value
@@ -102,13 +102,13 @@ const HeroSlider = () => {
                             }
                         >
                             <img src="/assets/images/icons/sm/fb.svg" alt="" />
-                        </Link>
+                        </a>
                     ) : (
                         ""
                     )}
 
                     {info.instagram.active == 1 ? (
-                        <Link
+                        <a
                             href={
                                 info.instagram.translation
                                     ? info.instagram.translation.value
@@ -116,7 +116,7 @@ const HeroSlider = () => {
                             }
                         >
                             <img src="/assets/images/icons/sm/ig.svg" alt="" />
-                        </Link>
+                        </a>
                     ) : (
                         ""
                     )}
