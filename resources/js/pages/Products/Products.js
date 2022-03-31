@@ -172,7 +172,7 @@ const Products = ({page, seo}) => {
   return (
       <Layout seo={seo}>
     <div className="productsPage">
-      <div style={{background: 'url(' + images[0] +') no-repeat'}} className="showcase fixed_bg"></div>
+      <div style={{background: 'url(' + images[0] +') no-repeat center center fixed'}} className="showcase fixed_bg"></div>
       <div className="wrapper flex main">
         <div className="cat_column">
           {categories.map((item, i) => {
