@@ -97,7 +97,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
 
                     </div>
                     <div class="mb-4">
-                        <p class="mg-b-10">@lang('admin.categparrent')</p>
+                        <p class="mg-b-10">@lang('admin.title')</p>
                         <div class="panel panel-primary tabs-style-2">
                             <div class=" tab-menu-heading">
                                 <div class="tabs-menu1">
@@ -126,7 +126,7 @@ $traverse = function ($categories, $prefix = '-') use (&$traverse,$category) {
                                         ?>
                                         <div class="tab-pane {{$active}}" id="lang-{{$locale}}">
                                             <div class="form-group">
-                                                <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="@lang('admin.name')" value="{{$category->translate($locale)->title ?? ''}}">
+                                                <input type="text" name="{{$locale.'[title]'}}" class="form-control" placeholder="@lang('admin.title')" value="{{$category->translate($locale)->title ?? ''}}">
                                             </div>
                                             @error($locale.'.title')
                                             <small class="text-danger">
