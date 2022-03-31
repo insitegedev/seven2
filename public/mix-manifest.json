@@ -1,7 +1,7 @@
 {
-    "/js/app.js": "/js/app.js?id=964d15cd1e1bbb565f02803c182b1201",
-    "/js/admin.js": "/js/admin.js?id=dd879d3fb1b98186096d97fd10309742",
-    "/css/AppEng.css": "/css/AppEng.css?id=85857cfa3c31d768d6104aeb5d4dff9d",
-    "/css/AppGeo.css": "/css/AppGeo.css?id=e423d51c5cff3afb866d51cd33a7b5b7",
-    "/css/app.css": "/css/app.css?id=5852dcec71e230a236ddf9e750d52a71"
+    "/js/app.js": "/js/app.js",
+    "/js/admin.js": "/js/admin.js",
+    "/css/AppEng.css": "/css/AppEng.css",
+    "/css/AppGeo.css": "/css/AppGeo.css",
+    "/css/app.css": "/css/app.css"
 }

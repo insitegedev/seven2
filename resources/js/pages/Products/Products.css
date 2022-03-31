@@ -1,10 +1,7 @@
 .productsPage .fixed_bg {
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background-position: center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
 }
 .productsPage .showcase {
   height: 266px;
