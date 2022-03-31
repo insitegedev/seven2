@@ -3700,7 +3700,7 @@ var Home = function Home(_ref) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "box flex centered",
       key: i,
-      "data-aos": "zoom-out"
+      "data-aos": "zoom-in"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
       className: "bg",
       src: cat.bg,
@@ -5231,7 +5231,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".nav_link {\r\n    margin-right: 40px;\r\n    text-transform: uppercase;\r\n    font-size: 20px;\r\n    position: relative;\r\n}\r\n.nav_link::after {\r\n    width: 73px;\r\n    height: 3px;\r\n    left: 50%;\r\n    bottom: -10px;\r\n    transform: translateX(-50%) scaleX(0);\r\n    transform-origin: center;\r\n    background-color: #05185a;\r\n    transition: 0.4s;\r\n}\r\n.nav_link:hover::after,\r\n.nav_link.active::after {\r\n    transform: translateX(-50%) scaleX(1);\r\n}\r\n@media screen and (max-width: 1500px) {\r\n    .nav_link {\r\n        font-size: 16px;\r\n    }\r\n}\r\n@media screen and (max-width: 900px) {\r\n    .nav_link {\r\n        margin-right: 18px;\r\n        font-size: 14px;\r\n    }\r\n}\r\n@media screen and (max-width: 600px) {\r\n    .nav_link {\r\n        margin-right: 11px;\r\n        font-size: 12px;\r\n    }\r\n    .nav_link::after {\r\n        width: 51px;\r\n        height: 1px;\r\n        bottom: 0px;\r\n    }\r\n}\r\n@media screen and (max-width: 500px) {\r\n    .nav_link {\r\n        margin-right: 10px;\r\n        font-size: 10px;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".nav_link {\r\n    margin-right: 40px;\r\n    text-transform: uppercase;\r\n    font-size: 20px;\r\n    position: relative;\r\n}\r\n.nav_link::after {\r\n    width: 73px;\r\n    height: 3px;\r\n    left: 50%;\r\n    bottom: -10px;\r\n    transform: translateX(-50%) scaleX(0);\r\n    transform-origin: center;\r\n    background-color: #05185a;\r\n    transition: 0.4s;\r\n}\r\n.nav_link:hover::after,\r\n.nav_link.active::after {\r\n    transform: translateX(-50%) scaleX(1);\r\n}\r\n@media screen and (max-width: 1500px) {\r\n    .nav_link {\r\n        font-size: 16px;\r\n    }\r\n}\r\n@media screen and (max-width: 900px) {\r\n    .nav_link {\r\n        margin-right: 18px;\r\n        font-size: 14px;\r\n    }\r\n}\r\n@media screen and (max-width: 600px) {\r\n    .nav_link {\r\n        margin-right: 11px;\r\n        font-size: 12px;\r\n    }\r\n    .nav_link::after {\r\n        width: 28px;\r\n        height: 1px;\r\n        bottom: 0px;\r\n    }\r\n}\r\n@media screen and (max-width: 500px) {\r\n    .nav_link {\r\n        margin-right: 10px;\r\n        font-size: 10px;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

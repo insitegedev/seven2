@@ -124,7 +124,7 @@ const Home = ({ page, seo }) => {
                             <div
                                 className="box flex centered"
                                 key={i}
-                                data-aos="zoom-out"
+                                data-aos="zoom-in"
                             >
                                 <img className="bg" src={cat.bg} alt="" />
                                 <div
