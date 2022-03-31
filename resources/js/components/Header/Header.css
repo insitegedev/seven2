@@ -24,6 +24,8 @@
     transform-origin: top;
     transition: 0.3s;
     opacity: 0;
+    display: flex;
+    flex-direction: column;
 }
 .header .languages .lang_on {
     position: relative;
