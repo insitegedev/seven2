@@ -1,73 +1,78 @@
 .header {
-  padding-top: 66px;
-  padding-bottom: 40px;
-  text-transform: uppercase;
-  font-size: 20px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  overflow: hidden;
+    padding-top: 66px;
+    padding-bottom: 40px;
+    text-transform: uppercase;
+    font-size: 20px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    overflow: hidden;
 }
 .header .logo {
-  margin-right: 100px;
+    margin-right: 100px;
 }
 .header .languages {
-  position: relative;
-  cursor: default;
+    position: relative;
+    cursor: default;
 }
 .header .languages .lang_drop {
-  position: absolute;
-  left: 0;
-  top: 100%;
-  transform: rotate(-90deg) scale(0.7) translateY(20px) translateX(10px);
-  transform-origin: top;
-  transition: 0.3s;
-  opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform: rotate(-90deg) scale(0.7) translateY(20px) translateX(10px);
+    transform-origin: top;
+    transition: 0.3s;
+    opacity: 0;
 }
 .header .languages .lang_on {
-  position: relative;
+    position: relative;
 }
 .header .languages .lang_on::before {
-  width: 11px;
-  height: 10px;
-  left: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: url(/assets/images/icons/header/triangle.svg) no-repeat;
-  background-position: center;
-  background-size: contain;
-  transition: 0.3s;
-  transform-origin: center;
+    width: 11px;
+    height: 10px;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url(/assets/images/icons/header/triangle.svg) no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: 0.3s;
+    transform-origin: center;
 }
 .header .languages:hover .lang_on::before {
-  transform: translateY(-50%) rotate(-180deg);
+    transform: translateY(-50%) rotate(-180deg);
 }
 .header .languages:hover .lang_drop {
-  transform: rotate(0) scale(1) translateY(0) translateX(0);
-  opacity: 1;
+    transform: rotate(0) scale(1) translateY(0) translateX(0);
+    opacity: 1;
 }
 
 @media screen and (max-width: 1500px) {
-  .header {
-    padding: 24px 0;
-    font-size: 16px;
-  }
+    .header {
+        padding: 24px 0;
+        font-size: 16px;
+    }
 }
 @media screen and (max-width: 900px) {
-  .header .logo {
-    margin-right: 24px;
-  }
+    .header .logo {
+        margin-right: 24px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .header {
+        font-size: 12px;
+    }
 }
 @media screen and (max-width: 500px) {
-  .header .logo {
-    margin-right: 4px;
-  }
-  .header {
-    padding: 13px 0;
-    font-size: 13px;
-  }
-  .header .languages .lang_on::before {
-    left: -13px;
-  }
+    .header .logo {
+        margin-right: 4px;
+    }
+    .header {
+        padding: 13px 0;
+        font-size: 10px;
+    }
+    .header .languages .lang_on::before {
+        left: -13px;
+    }
 }

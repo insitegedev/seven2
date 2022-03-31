@@ -13,7 +13,7 @@
 }
 .homePage .exhibition {
     width: 100% !important;
-    height: 650px !important;
+    height: 650px;
     background-size: cover !important;
     background-position: center !important;
 }
