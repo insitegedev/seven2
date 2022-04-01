@@ -7,10 +7,12 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>{{$meta_title}}</title>
     <meta name="description"
-          content="{{ $meta_description }}">
+    content="{{ $meta_description }}">
     <meta name="keywords" content="{{ $meta_keyword }}">
     <meta property="og:title" content="{{ $og_title }}">
     <meta property="og:description" content="{{ $og_description }}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     @if($image)
         <meta property="og:image" content={{"/".$image->path."/".$image->title}}>
     @endif
