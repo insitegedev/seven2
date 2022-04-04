@@ -4,9 +4,9 @@ import "./ProductObjects.css";
 import { usePage } from "@inertiajs/inertia-react";
 import Link from "react-scroll/modules/components/Link";
 
-export const ProductImage = ({ src, category, discount }) => {
+export const ProductImage = ({ src, category, discount, onClick }) => {
     return (
-        <div className="product_image flex centered">
+        <div className="product_image flex centered" onClick={onClick}>
             <img src={src} alt="" />
             <div className="bold">{category}</div>
             <div

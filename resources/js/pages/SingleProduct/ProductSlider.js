@@ -79,7 +79,7 @@ const ProductSlider = ({ onClick }) => {
     };
 
     return (
-        <div className="product_slider" onClick={onClick}>
+        <div className="product_slider">
             <Slider
                 className="slider_1"
                 asNavFor={nav2}
@@ -90,6 +90,7 @@ const ProductSlider = ({ onClick }) => {
                 {product_images.map((item, i) => {
                     return (
                         <ProductImage
+                            onClick={onClick}
                             key={i}
                             src={"/" + item.path + "/" + item.title}
                             discount={item.off}
