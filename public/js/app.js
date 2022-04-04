@@ -3735,7 +3735,7 @@ var Home = function Home(_ref) {
     var link = route("client.product.show", slug);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_5__.ProductBox, {
       key: i,
-      src: item.files.length > 0 ? "/" + item.files[0].path + "/" + item.files[0].title : null,
+      src: item.latest_image != null ? "/" + item.latest_image.path + "/" + item.latest_image.title : null,
       discount: item.sale,
       category: item.title,
       link: link
@@ -3848,8 +3848,8 @@ var Products = function Products(_ref) {
       products = _usePage$props.products,
       category = _usePage$props.category,
       images = _usePage$props.images;
-  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.localizations;
-  console.log(category);
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.localizations; //console.log(products);
+
   var catColumn = [{
     cat: "Living room furniture",
     links: ["TV unit", "Console", "Coffee table", "Accessories", "Full complectation"]
@@ -4002,7 +4002,7 @@ var Products = function Products(_ref) {
       var slug = item.slug;
       var link = route('client.product.show', slug);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_2__.ProductBox, {
-        src: item.files.length > 0 ? '/' + item.files[item.files.length - 1].path + '/' + item.files[item.files.length - 1].title : null,
+        src: item.latest_image != null ? '/' + item.latest_image.path + '/' + item.latest_image.title : null,
         discount: item.sale,
         category: item.title,
         link: link
@@ -4268,7 +4268,7 @@ var SingleProduct = function SingleProduct(_ref) {
     var link = route('client.product.show', item.slug);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductBox, {
       key: i,
-      src: item.files.length > 0 ? '/' + item.files[item.files.length - 1].path + '/' + item.files[item.files.length - 1].title : null,
+      src: item.latest_image != null ? '/' + item.latest_image.path + '/' + item.latest_image.title : null,
       discount: item.sale,
       category: item.title,
       link: link

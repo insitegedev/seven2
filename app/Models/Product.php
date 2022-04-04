@@ -151,6 +151,11 @@ class Product extends Model implements Searchable
         return $this->morphMany(File::class, 'fileable');
     }
 
+    public function latestImage()
+    {
+        return $this->morphOne(File::class, 'fileable')->latestOfMany();
+    }
+
 
     /**
      * @return MorphOne
