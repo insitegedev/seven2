@@ -4022,9 +4022,9 @@ var Products = function Products(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/SingleProduct/SingleProduct.js":
+/***/ "./resources/js/Pages/SingleProduct/ProductSlider.js":
 /*!***********************************************************!*\
-  !*** ./resources/js/Pages/SingleProduct/SingleProduct.js ***!
+  !*** ./resources/js/Pages/SingleProduct/ProductSlider.js ***!
   \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -4072,9 +4072,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var SingleProduct = function SingleProduct(_ref) {
-  var page = _ref.page,
-      seo = _ref.seo;
+var ProductSlider = function ProductSlider() {
   var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.usePage)().props.localizations;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
@@ -4097,10 +4095,12 @@ var SingleProduct = function SingleProduct(_ref) {
 
   var settings = {
     dots: false,
-    infinite: true,
+    infinite: product_images.length > 4 ? true : false,
     slidesToShow: 4,
     slidesToScroll: 1,
     asNavFor: nav1,
+    arrows: false,
+    unslick: product_images.length < 4 ? true : false,
     responsive: [{
       breakpoint: 600,
       settings: {
@@ -4113,51 +4113,129 @@ var SingleProduct = function SingleProduct(_ref) {
       }
     }]
   };
-  var productSlides = [{
-    img: "/assets/images/products/1.png",
-    off: "20"
-  }, {
-    img: "/assets/images/products/2.png"
-  }, {
-    img: "/assets/images/products/3.png",
-    off: "15"
-  }, {
-    img: "/assets/images/products/4.png"
-  }, {
-    img: "/assets/images/products/3.png",
-    off: "15"
-  }, {
-    img: "/assets/images/products/4.png"
-  }];
-  var similarProducts = [{
-    img: "/assets/images/products/1.png",
-    cat: "Chair Padded Seat",
-    off: "20"
-  }, {
-    img: "/assets/images/products/2.png",
-    cat: "Chair Padded Seat"
-  }, {
-    img: "/assets/images/products/3.png",
-    cat: "Chair Padded Seat",
-    off: "70"
-  }, {
-    img: "/assets/images/products/4.png",
-    cat: "Chair Padded Seat"
-  }, {
-    img: "/assets/images/products/1.png",
-    cat: "Chair Padded Seat",
-    off: "20"
-  }, {
-    img: "/assets/images/products/2.png",
-    cat: "Chair Padded Seat"
-  }, {
-    img: "/assets/images/products/3.png",
-    cat: "Chair Padded Seat",
-    off: "70"
-  }, {
-    img: "/assets/images/products/4.png",
-    cat: "Chair Padded Seat"
-  }];
+
+  var renderHTML = function renderHTML(rawHTML) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      dangerouslySetInnerHTML: {
+        __html: rawHTML
+      }
+    });
+  };
+
+  var breadcrumb = function breadcrumb(path) {
+    var rows = [];
+    path.map(function (el, i) {
+      rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, el.title));
+      rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: "/assets/images/icons/arrows/2.svg",
+        alt: ""
+      }));
+    });
+    return rows;
+  };
+
+  var breadcrumb2 = function breadcrumb2(path) {
+    var rows = [];
+    path.map(function (el, i) {
+      if (i < path.length - 1) {
+        rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "op5"
+        }, el.title));
+        rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "op5"
+        }, ","));
+      } else {
+        rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+          className: "op5"
+        }, el.title));
+      }
+    });
+    return rows;
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "product_slider"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_slick__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    className: "slider_1",
+    asNavFor: nav2,
+    slidesToShow: 1,
+    ref: function ref(slider1) {
+      return setNav1(slider1);
+    },
+    arrows: true
+  }, product_images.map(function (item, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductImage, {
+      key: i,
+      src: "/" + item.path + "/" + item.title,
+      discount: item.off
+    });
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_slick__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({
+    className: "slider_2",
+    ref: function ref(slider2) {
+      return setNav2(slider2);
+    }
+  }, settings), product_images.map(function (item, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductImage, {
+      key: i,
+      src: "/" + item.path + "/" + item.title,
+      discount: item.off
+    });
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductSlider);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SingleProduct/SingleProduct.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/Pages/SingleProduct/SingleProduct.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/MainButton/MainButton */ "./resources/js/components/MainButton/MainButton.js");
+/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
+/* harmony import */ var slick_carousel_slick_slick_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! slick-carousel/slick/slick.css */ "./node_modules/slick-carousel/slick/slick.css");
+/* harmony import */ var slick_carousel_slick_slick_theme_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! slick-carousel/slick/slick-theme.css */ "./node_modules/slick-carousel/slick/slick-theme.css");
+/* harmony import */ var _SingleProduct_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SingleProduct.css */ "./resources/js/Pages/SingleProduct/SingleProduct.css");
+/* harmony import */ var _components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/ProductObjects/ProductObjects */ "./resources/js/components/ProductObjects/ProductObjects.js");
+/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../Layouts/Layout */ "./resources/js/Layouts/Layout.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _ProductSlider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ProductSlider */ "./resources/js/Pages/SingleProduct/ProductSlider.js");
+ //import Arr1 from "../../assets/images/icons/arrows/2.svg";
+
+
+
+
+
+
+ //import Img1 from "../../assets/images/products/1.png";
+//import Img2 from "../../assets/images/products/2.png";
+//import Img3 from "../../assets/images/products/3.png";
+//import Img4 from "../../assets/images/products/4.png";
+
+
+
+
+
+
+var SingleProduct = function SingleProduct(_ref) {
+  var page = _ref.page,
+      seo = _ref.seo;
+  var sharedData = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.usePage)().props.localizations;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.usePage)().props,
+      product = _usePage$props.product,
+      category_path = _usePage$props.category_path,
+      similar_products = _usePage$props.similar_products,
+      product_images = _usePage$props.product_images; //console.log(product);
+  //console.log(category);
+  //console.log(similar_products);
 
   var renderHTML = function renderHTML(rawHTML) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -4206,7 +4284,7 @@ var SingleProduct = function SingleProduct(_ref) {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "path"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __('client.nav_home', sharedData)), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, __("client.nav_home", sharedData)), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/assets/images/icons/arrows/2.svg",
     alt: ""
   }), breadcrumb(category_path), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
@@ -4215,37 +4293,13 @@ var SingleProduct = function SingleProduct(_ref) {
     className: "flex main"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "view"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_slick__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    className: "slider_1",
-    asNavFor: nav2,
-    slidesToShow: 1,
-    ref: function ref(slider1) {
-      return setNav1(slider1);
-    },
-    arrows: false
-  }, product_images.map(function (item, i) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductImage, {
-      src: '/' + item.path + '/' + item.title,
-      discount: item.off
-    });
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_slick__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({
-    className: "slider_2",
-    ref: function ref(slider2) {
-      return setNav2(slider2);
-    }
-  }, settings), product_images.map(function (item, i) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductImage, {
-      key: i,
-      src: '/' + item.path + '/' + item.title,
-      discount: item.off
-    });
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductSlider__WEBPACK_IMPORTED_MODULE_9__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "details"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "bold"
   }, product.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: product.stock == 1 ? 'in_stock' : 'no_stock'
-  }, product.stock == 1 ? __('client.product_in_stock', sharedData) : __('client.product_no_stock', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: product.stock == 1 ? "in_stock" : "no_stock"
+  }, product.stock == 1 ? __("client.product_in_stock", sharedData) : __("client.product_no_stock", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "op5"
   }, renderHTML(product.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "margin"
@@ -4253,27 +4307,31 @@ var SingleProduct = function SingleProduct(_ref) {
     style: {
       marginBottom: "10px"
     }
-  }, __('client.product_categories', sharedData), ": ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+  }, __("client.product_categories", sharedData), ":", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: "op5"
-  }, breadcrumb2(category_path))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, __('client.product_code', sharedData), ": ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, product.code))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
-    link: route('client.contact.index'),
-    text: __('client.product_order_btn', sharedData)
+  }, breadcrumb2(category_path))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, __("client.product_code", sharedData), ":", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, product.code))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_1__.MainButton, {
+    link: route("client.contact.index"),
+    text: __("client.product_order_btn", sharedData)
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "similar_products bold"
-  }, __('client.product_similar_products', sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, __("client.product_similar_products", sharedData)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "grid4"
   }, similar_products.data.map(function (item, i) {
-    var link = route('client.product.show', item.slug);
+    var link = route("client.product.show", item.slug);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductBox, {
       key: i,
-      src: item.files.length > 0 ? '/' + item.files[item.files.length - 1].path + '/' + item.files[item.files.length - 1].title : null,
+      src: item.files.length > 0 ? "/" + item.files[item.files.length - 1].path + "/" + item.files[item.files.length - 1].title : null,
       discount: item.sale,
       category: item.title,
       link: link
     });
-  })))));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "popup_background"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "slider_popup"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductSlider__WEBPACK_IMPORTED_MODULE_9__["default"], null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SingleProduct);
@@ -5140,7 +5198,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".SingleProduct {\r\n    margin-top: 20px;\r\n}\r\n.SingleProduct .container {\r\n    width: 1300px;\r\n    margin: auto;\r\n}\r\n.SingleProduct .path img,\r\n.SingleProduct .path span {\r\n    vertical-align: middle;\r\n    opacity: 0.5;\r\n}\r\n.SingleProduct .path img {\r\n    margin: 0 5px;\r\n}\r\n.SingleProduct .path .active {\r\n    opacity: 1;\r\n}\r\n.SingleProduct .main {\r\n    align-items: flex-start;\r\n    margin-bottom: 80px;\r\n    margin-top: 12px;\r\n}\r\n.SingleProduct .details {\r\n    width: 40%;\r\n}\r\n.SingleProduct .details .main_button svg {\r\n    display: none;\r\n}\r\n.SingleProduct .details .bold {\r\n    text-transform: uppercase;\r\n    margin-bottom: 7px;\r\n}\r\n.SingleProduct .details .op5 {\r\n    opacity: 0.5;\r\n}\r\n.SingleProduct .details .margin {\r\n    margin: 25px 0;\r\n}\r\n.SingleProduct .details .in_stock {\r\n    color: #0d5a05;\r\n    opacity: 0.5;\r\n    border-bottom: #ecf0f7 1px solid;\r\n    padding-bottom: 5px;\r\n    margin-bottom: 15px;\r\n}\r\n.SingleProduct .details .no_stock {\r\n    color: #5a0505;\r\n    opacity: 0.5;\r\n    border-bottom: #ecf0f7 1px solid;\r\n    padding-bottom: 5px;\r\n    margin-bottom: 15px;\r\n}\r\n.SingleProduct .view {\r\n    width: 50%;\r\n    margin-right: 50px;\r\n}\r\n.SingleProduct .slider_1 {\r\n    width: 100%;\r\n    margin-bottom: 40px;\r\n}\r\n.SingleProduct .slider_1 .product_image {\r\n    width: 100%;\r\n}\r\n.SingleProduct .slider_2 {\r\n    margin: 0 -15px;\r\n}\r\n.SingleProduct .slider_2 .product_image {\r\n    width: 145px;\r\n    height: 145px;\r\n    margin: 0 15px;\r\n}\r\n.SingleProduct .slider_2 .product_image .discount {\r\n    padding: 1px 9px;\r\n    font-size: 12px;\r\n    top: 5px;\r\n}\r\n.slick-arrow {\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n    background: #05185a;\r\n    margin: 0 20px;\r\n    z-index: 100;\r\n}\r\n.slick-arrow::before {\r\n    display: none;\r\n}\r\n.slick-arrow::after {\r\n    left: 50%;\r\n    top: 50%;\r\n    transform: translate(-50%, -50%);\r\n    width: 15px;\r\n    height: 10px;\r\n    background: url(/assets/images/icons/arrows/2w.svg) no-repeat;\r\n    background-position: center;\r\n    background-size: contain;\r\n}\r\n.slick-arrow.slick-prev::after {\r\n    transform: translate(-50%, -50%) rotate(180deg);\r\n}\r\n.slick-prev:hover,\r\n.slick-prev:focus,\r\n.slick-next:hover,\r\n.slick-next:focus {\r\n    background: #05185a;\r\n}\r\n.SingleProduct .similar_products {\r\n    font-size: 25px;\r\n    text-transform: uppercase;\r\n    text-align: center;\r\n    margin-bottom: 40px;\r\n    position: relative;\r\n}\r\n.SingleProduct .similar_products::after {\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n    bottom: -10px;\r\n    width: 73px;\r\n    height: 3px;\r\n    background-color: #05185a;\r\n}\r\n.SingleProduct .grid4 {\r\n    margin-bottom: 80px;\r\n}\r\n\r\n@media screen and (max-width: 1400px) {\r\n    .SingleProduct .container {\r\n        width: 95%;\r\n    }\r\n}\r\n@media screen and (max-width: 1300px) {\r\n    .SingleProduct .container {\r\n        width: 95%;\r\n    }\r\n    .SingleProduct .details {\r\n        width: auto;\r\n    }\r\n    .SingleProduct .slider_2 .product_image {\r\n        width: 96px;\r\n        height: 96px;\r\n    }\r\n}\r\n@media screen and (max-width: 900px) {\r\n    .SingleProduct .main {\r\n        flex-direction: column;\r\n    }\r\n    .SingleProduct .view {\r\n        width: 100%;\r\n        margin-right: 0;\r\n        margin-bottom: 50px;\r\n    }\r\n    .SingleProduct .slider_2 .product_image {\r\n        width: 140px;\r\n        height: 140px;\r\n    }\r\n    .slick-arrow {\r\n        margin: 0 36px;\r\n    }\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".SingleProduct {\r\n    margin-top: 20px;\r\n}\r\n.SingleProduct .container {\r\n    width: 1300px;\r\n    margin: auto;\r\n}\r\n.SingleProduct .path img,\r\n.SingleProduct .path span {\r\n    vertical-align: middle;\r\n    opacity: 0.5;\r\n}\r\n.SingleProduct .path img {\r\n    margin: 0 5px;\r\n}\r\n.SingleProduct .path .active {\r\n    opacity: 1;\r\n}\r\n.SingleProduct .main {\r\n    align-items: flex-start;\r\n    margin-bottom: 80px;\r\n    margin-top: 12px;\r\n}\r\n.SingleProduct .details {\r\n    width: 40%;\r\n}\r\n.SingleProduct .details .main_button svg {\r\n    display: none;\r\n}\r\n.SingleProduct .details .bold {\r\n    text-transform: uppercase;\r\n    margin-bottom: 7px;\r\n}\r\n.SingleProduct .details .op5 {\r\n    opacity: 0.5;\r\n}\r\n.SingleProduct .details .margin {\r\n    margin: 25px 0;\r\n}\r\n.SingleProduct .details .in_stock {\r\n    color: #0d5a05;\r\n    opacity: 0.5;\r\n    border-bottom: #ecf0f7 1px solid;\r\n    padding-bottom: 5px;\r\n    margin-bottom: 15px;\r\n}\r\n.SingleProduct .details .no_stock {\r\n    color: #5a0505;\r\n    opacity: 0.5;\r\n    border-bottom: #ecf0f7 1px solid;\r\n    padding-bottom: 5px;\r\n    margin-bottom: 15px;\r\n}\r\n.SingleProduct .view {\r\n    width: 50%;\r\n    margin-right: 50px;\r\n}\r\n.SingleProduct .slider_1 {\r\n    width: 100%;\r\n    margin-bottom: 40px;\r\n}\r\n.SingleProduct .slider_1 .product_image {\r\n    width: 100%;\r\n}\r\n.SingleProduct .slider_2 {\r\n    margin: 0 -15px;\r\n}\r\n.SingleProduct .slider_2 .product_image {\r\n    width: 145px;\r\n    height: 145px;\r\n    margin: 0 15px;\r\n}\r\n.SingleProduct .slider_2 .product_image .discount {\r\n    padding: 1px 9px;\r\n    font-size: 12px;\r\n    top: 5px;\r\n}\r\n.slick-arrow {\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n    background: #05185a;\r\n    margin: 0 20px;\r\n    z-index: 100;\r\n}\r\n.slick-arrow::before {\r\n    display: none;\r\n}\r\n.slick-arrow::after {\r\n    left: 50%;\r\n    top: 50%;\r\n    transform: translate(-50%, -50%);\r\n    width: 15px;\r\n    height: 10px;\r\n    background: url(/assets/images/icons/arrows/2w.svg) no-repeat;\r\n    background-position: center;\r\n    background-size: contain;\r\n}\r\n.slick-arrow.slick-prev::after {\r\n    transform: translate(-50%, -50%) rotate(180deg);\r\n}\r\n.slick-prev:hover,\r\n.slick-prev:focus,\r\n.slick-next:hover,\r\n.slick-next:focus {\r\n    background: #05185a;\r\n}\r\n.SingleProduct .similar_products {\r\n    font-size: 25px;\r\n    text-transform: uppercase;\r\n    text-align: center;\r\n    margin-bottom: 40px;\r\n    position: relative;\r\n}\r\n.SingleProduct .similar_products::after {\r\n    left: 50%;\r\n    transform: translateX(-50%);\r\n    bottom: -10px;\r\n    width: 73px;\r\n    height: 3px;\r\n    background-color: #05185a;\r\n}\r\n.SingleProduct .grid4 {\r\n    margin-bottom: 80px;\r\n}\r\n.SingleProduct .popup_background {\r\n    width: 100vw;\r\n    height: 100vh;\r\n    position: fixed;\r\n    left: 0;\r\n    top: 0;\r\n    background-color: #000000e0;\r\n    z-index: 10000;\r\n}\r\n.SingleProduct .slider_popup {\r\n    position: fixed;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    z-index: 100001;\r\n    width: 1200px;\r\n}\r\n.SingleProduct .slider_popup .slider_2 {\r\n    display: none;\r\n}\r\n.SingleProduct .slider_popup .product_image {\r\n    height: 600px;\r\n    background-color: transparent;\r\n}\r\n.SingleProduct .slider_popup .product_image img {\r\n    height: 100%;\r\n    width: auto;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n}\r\n\r\n@media screen and (max-height: 700px) {\r\n    .SingleProduct .slider_popup .product_image {\r\n        height: 488px;\r\n    }\r\n}\r\n@media screen and (max-width: 1400px) {\r\n    .SingleProduct .container {\r\n        width: 95%;\r\n    }\r\n}\r\n@media screen and (max-width: 1300px) {\r\n    .SingleProduct .container {\r\n        width: 95%;\r\n    }\r\n    .SingleProduct .details {\r\n        width: auto;\r\n    }\r\n    .SingleProduct .slider_2 .product_image {\r\n        width: 96px;\r\n        height: 96px;\r\n    }\r\n    .SingleProduct .slider_popup {\r\n        width: 80%;\r\n    }\r\n}\r\n@media screen and (max-width: 900px) {\r\n    .SingleProduct .main {\r\n        flex-direction: column;\r\n    }\r\n    .SingleProduct .view {\r\n        width: 100%;\r\n        margin-right: 0;\r\n        margin-bottom: 50px;\r\n    }\r\n    .SingleProduct .slider_2 .product_image {\r\n        width: 140px;\r\n        height: 140px;\r\n    }\r\n    .slick-arrow {\r\n        margin: 0 36px;\r\n    }\r\n}\r\n@media screen and (max-width: 700px) {\r\n    .SingleProduct .slider_popup .product_image {\r\n        height: auto;\r\n    }\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47275,6 +47333,8 @@ var map = {
 	"./Products/Products": "./resources/js/Pages/Products/Products.js",
 	"./Products/Products.css": "./resources/js/Pages/Products/Products.css",
 	"./Products/Products.js": "./resources/js/Pages/Products/Products.js",
+	"./SingleProduct/ProductSlider": "./resources/js/Pages/SingleProduct/ProductSlider.js",
+	"./SingleProduct/ProductSlider.js": "./resources/js/Pages/SingleProduct/ProductSlider.js",
 	"./SingleProduct/SingleProduct": "./resources/js/Pages/SingleProduct/SingleProduct.js",
 	"./SingleProduct/SingleProduct.css": "./resources/js/Pages/SingleProduct/SingleProduct.css",
 	"./SingleProduct/SingleProduct.js": "./resources/js/Pages/SingleProduct/SingleProduct.js",
