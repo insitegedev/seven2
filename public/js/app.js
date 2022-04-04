@@ -3630,6 +3630,7 @@ var Home = function Home(_ref) {
       popular_products = _usePage$props.popular_products,
       categories = _usePage$props.categories,
       images = _usePage$props.images;
+  console.log(popular_products);
   var onSaleCategories = [{
     off: __("client.home_sale1_off", sharedData),
     cat: __("client.home_sale1_title", sharedData),
