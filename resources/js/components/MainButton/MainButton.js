@@ -4,7 +4,7 @@ import "./MainButton.css";
 
 export const MainButton = (props) => {
   return (
-    <Link onClick={props.onclick} id={props.id} href={props.link}>
+    //<Link onClick={props.onclick} id={props.id} href={props.link}>
       <button
         className={
           props.transparent
@@ -27,6 +27,6 @@ export const MainButton = (props) => {
           />
         </svg>
       </button>
-    </Link>
+    //</Link>
   );
 };
