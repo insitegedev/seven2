@@ -216,7 +216,7 @@ const Products = ({page, seo}) => {
                     let link = route('client.product.show',slug);
                   return (
                     <ProductBox
-                      src={( item.files.length > 0) ? '/' + item.files[0].path + '/' + item.files[0].title : null}
+                      src={( item.files.length > 0) ? '/' + item.files[item.files.length - 1].path + '/' + item.files[item.files.length - 1].title : null}
                       discount={item.sale}
                       category={item.title}
                       link={link}

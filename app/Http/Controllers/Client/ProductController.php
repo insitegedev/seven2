@@ -34,7 +34,7 @@ class ProductController extends Controller
         $page = Page::where('key', 'products')->firstOrFail();
         $products = Product::with(['files'])->whereHas('categories',function (Builder $query){
             $query->where('status', 1);
-        })->paginate(16);
+        })->orderby('updated_at','desc')->paginate(16);
 
         $images = [];
         foreach ($page->sections as $sections){
@@ -83,7 +83,11 @@ class ProductController extends Controller
         $product = Product::where(['status' => true, 'slug' => $slug])->whereHas('categories', function (Builder $query) {
             $query->where('status', 1);
 
-        })->with(['files','categories'])->firstOrFail();
+        })->firstOrFail();
+
+        $productImages = $product->files()->orderBy('updated_at','desc')->get();
+
+        //dd($productImages);
 
         //dd(last($product->categories));
         $categories = $product->categories;
@@ -162,6 +166,7 @@ class ProductController extends Controller
         ]);*/
         return Inertia::render('SingleProduct/SingleProduct',[
             'product' => $product,
+            'product_images' => $productImages,
             'category_path' => $path,
             'similar_products' => $similar_products,
             "seo" => [
