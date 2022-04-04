@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import Arr1 from "../../assets/images/icons/arrows/2.svg";
 import { MainButton } from "../../components/MainButton/MainButton";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -9,10 +8,6 @@ import {
     ProductBox,
     ProductImage,
 } from "../../components/ProductObjects/ProductObjects";
-//import Img1 from "../../assets/images/products/1.png";
-//import Img2 from "../../assets/images/products/2.png";
-//import Img3 from "../../assets/images/products/3.png";
-//import Img4 from "../../assets/images/products/4.png";
 
 import Layout from "../../Layouts/Layout";
 import { usePage } from "@inertiajs/inertia-react";
@@ -124,13 +119,11 @@ const SingleProduct = ({ page, seo }) => {
                                 <ProductBox
                                     key={i}
                                     src={
-                                        item.files.length > 0
+                                        item.latest_image != null
                                             ? "/" +
-                                              item.files[item.files.length - 1]
-                                                  .path +
+                                              item.latest_image.path +
                                               "/" +
-                                              item.files[item.files.length - 1]
-                                                  .title
+                                              item.latest_image.title
                                             : null
                                     }
                                     discount={item.sale}
