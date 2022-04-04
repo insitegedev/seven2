@@ -19,7 +19,7 @@ import "slick-carousel/slick/slick-theme.css";
 const Home = ({ page, seo }) => {
     const sharedData = usePage().props.localizations;
     const { popular_products, categories, images } = usePage().props;
-
+        console.log(popular_products);
     const onSaleCategories = [
         {
             off: __("client.home_sale1_off", sharedData),
