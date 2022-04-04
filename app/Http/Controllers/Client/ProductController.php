@@ -32,10 +32,11 @@ class ProductController extends Controller
     public function index(string $locale, Request $request)
     {
         $page = Page::where('key', 'products')->firstOrFail();
-        $products = Product::with(['files'])->whereHas('categories',function (Builder $query){
+        $products = Product::with(['latestImage'])->whereHas('categories',function (Builder $query){
             $query->where('status', 1);
         })->orderby('updated_at','desc')->paginate(16);
 
+        //dd($products);
         $images = [];
         foreach ($page->sections as $sections){
             if($sections->file){
@@ -153,7 +154,7 @@ class ProductController extends Controller
             ->where('products.id','!=',$product->id)
             ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')
             ->inRandomOrder()
-            ->with('files')
+            ->with('latestImage')
             ->paginate(8);
         //dd($category);
         //$result = [];

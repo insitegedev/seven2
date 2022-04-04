@@ -20,6 +20,8 @@ import { Link } from "@inertiajs/inertia-react";
 import ProductSlider from "./ProductSlider";
 
 const SingleProduct = ({ page, seo }) => {
+    const [sliderPop, setSliderPop] = useState(false);
+
     const sharedData = usePage().props.localizations;
 
     const { product, category_path, similar_products, product_images } =
@@ -68,7 +70,7 @@ const SingleProduct = ({ page, seo }) => {
                     </div>
                     <div className="flex main">
                         <div className="view">
-                            <ProductSlider />
+                            <ProductSlider onClick={() => setSliderPop(true)} />
                         </div>
                         <div className="details">
                             <div className="bold">{product.title}</div>
@@ -139,8 +141,17 @@ const SingleProduct = ({ page, seo }) => {
                         })}
                     </div>
                 </div>
-                <div className="popup_background"></div>
-                <div className="slider_popup">
+                <div
+                    onClick={() => setSliderPop(false)}
+                    className={
+                        sliderPop
+                            ? "popup_background show "
+                            : "popup_background"
+                    }
+                ></div>
+                <div
+                    className={sliderPop ? "slider_popup show" : "slider_popup"}
+                >
                     <ProductSlider />
                 </div>
             </div>

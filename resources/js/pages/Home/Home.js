@@ -168,11 +168,11 @@ const Home = ({ page, seo }) => {
                                 <ProductBox
                                     key={i}
                                     src={
-                                        item.files.length > 0
+                                        item.latest_image != null
                                             ? "/" +
-                                              item.files[0].path +
+                                              item.latest_image.path +
                                               "/" +
-                                              item.files[0].title
+                                              item.latest_image.title
                                             : null
                                     }
                                     discount={item.sale}

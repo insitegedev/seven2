@@ -131,6 +131,11 @@
     top: 0;
     background-color: #000000e0;
     z-index: 10000;
+
+    display: none;
+}
+.SingleProduct .popup_background.show {
+    display: block;
 }
 .SingleProduct .slider_popup {
     position: fixed;
@@ -139,6 +144,11 @@
     transform: translate(-50%, -50%);
     z-index: 100001;
     width: 1200px;
+
+    display: none;
+}
+.SingleProduct .slider_popup.show {
+    display: block;
 }
 .SingleProduct .slider_popup .slider_2 {
     display: none;
