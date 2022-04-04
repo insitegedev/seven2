@@ -33,6 +33,7 @@ class CategoryController extends Controller
         //dd($category->getAncestors());
         $products = Product::where(['status' => 1, 'product_categories.category_id' => $category->id])
             ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')->with('files')
+            ->orderby('updated_at','desc')
             ->paginate(16);
 
         $images = [];
@@ -86,6 +87,7 @@ class CategoryController extends Controller
         }
 
         $products = Product::where(['products.status' => 1, 'products.popular' => 1])->with('files')
+            ->orderby('updated_at','desc')
             ->paginate(16);
 
         return Inertia::render('Products/Products',[
