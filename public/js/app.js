@@ -4002,7 +4002,7 @@ var Products = function Products(_ref) {
       var slug = item.slug;
       var link = route('client.product.show', slug);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_2__.ProductBox, {
-        src: item.files.length > 0 ? '/' + item.files[0].path + '/' + item.files[0].title : null,
+        src: item.files.length > 0 ? '/' + item.files[item.files.length - 1].path + '/' + item.files[item.files.length - 1].title : null,
         discount: item.sale,
         category: item.title,
         link: link
@@ -4090,7 +4090,8 @@ var SingleProduct = function SingleProduct(_ref) {
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_8__.usePage)().props,
       product = _usePage$props.product,
       category_path = _usePage$props.category_path,
-      similar_products = _usePage$props.similar_products; //console.log(product);
+      similar_products = _usePage$props.similar_products,
+      product_images = _usePage$props.product_images; //console.log(product);
   //console.log(category);
   //console.log(similar_products);
 
@@ -4222,7 +4223,7 @@ var SingleProduct = function SingleProduct(_ref) {
       return setNav1(slider1);
     },
     arrows: false
-  }, product.files.map(function (item, i) {
+  }, product_images.map(function (item, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductImage, {
       src: '/' + item.path + '/' + item.title,
       discount: item.off
@@ -4232,7 +4233,7 @@ var SingleProduct = function SingleProduct(_ref) {
     ref: function ref(slider2) {
       return setNav2(slider2);
     }
-  }, settings), product.files.map(function (item, i) {
+  }, settings), product_images.map(function (item, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductImage, {
       key: i,
       src: '/' + item.path + '/' + item.title,
@@ -4267,7 +4268,7 @@ var SingleProduct = function SingleProduct(_ref) {
     var link = route('client.product.show', item.slug);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ProductObjects_ProductObjects__WEBPACK_IMPORTED_MODULE_6__.ProductBox, {
       key: i,
-      src: item.files.length > 0 ? '/' + item.files[0].path + '/' + item.files[0].title : null,
+      src: item.files.length > 0 ? '/' + item.files[item.files.length - 1].path + '/' + item.files[item.files.length - 1].title : null,
       discount: item.sale,
       category: item.title,
       link: link
