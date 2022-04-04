@@ -151,6 +151,7 @@ class Product extends Model implements Searchable
         return $this->morphMany(File::class, 'fileable');
     }
 
+
     /**
      * @return MorphOne
      */

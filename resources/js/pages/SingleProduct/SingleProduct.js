@@ -22,7 +22,7 @@ const SingleProduct = ({page,seo}) => {
     const sharedData = usePage().props.localizations;
   const [nav1, setNav1] = useState();
   const [nav2, setNav2] = useState();
-    const { product, category_path, similar_products } = usePage().props;
+    const { product, category_path, similar_products, product_images } = usePage().props;
     //console.log(product);
     //console.log(category);
     //console.log(similar_products);
@@ -154,7 +154,7 @@ const SingleProduct = ({page,seo}) => {
               ref={(slider1) => setNav1(slider1)}
               arrows={false}
             >
-              {product.files.map((item, i) => {
+              {product_images.map((item, i) => {
                 return <ProductImage src={'/' + item.path + '/' + item.title} discount={item.off} />;
               })}
             </Slider>
@@ -163,7 +163,7 @@ const SingleProduct = ({page,seo}) => {
               ref={(slider2) => setNav2(slider2)}
               {...settings}
             >
-              {product.files.map((item, i) => {
+              {product_images.map((item, i) => {
                 return (
                   <ProductImage key={i} src={'/' + item.path + '/' + item.title} discount={item.off} />
                 );
@@ -198,7 +198,7 @@ const SingleProduct = ({page,seo}) => {
             return (
               <ProductBox
                 key={i}
-                src={( item.files.length > 0) ? '/' + item.files[0].path + '/' + item.files[0].title : null}
+                src={( item.files.length > 0) ? '/' + item.files[item.files.length - 1].path + '/' + item.files[item.files.length - 1].title : null}
                 discount={item.sale}
                 category={item.title}
                 link={link}
