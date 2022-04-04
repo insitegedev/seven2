@@ -166,7 +166,7 @@ const Home = ({ page, seo }) => {
                             let link = route("client.product.show", slug);
                             return (
                                 <ProductBox
-                                    key={i}
+                                    key={item.id}
                                     src={
                                         item.latest_image != null
                                             ? "/" +
