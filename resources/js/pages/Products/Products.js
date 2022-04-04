@@ -13,7 +13,7 @@ const Products = ({page, seo}) => {
   const [showTab, setShowTab] = useState(0);
     const { categories, products, category, images } = usePage().props;
     const sharedData = usePage().props.localizations;
-    console.log(category);
+    //console.log(products);
   const catColumn = [
     {
       cat: "Living room furniture",
@@ -216,7 +216,7 @@ const Products = ({page, seo}) => {
                     let link = route('client.product.show',slug);
                   return (
                     <ProductBox
-                      src={( item.files.length > 0) ? '/' + item.files[item.files.length - 1].path + '/' + item.files[item.files.length - 1].title : null}
+                      src={( item.latest_image != null) ? '/' + item.latest_image.path + '/' + item.latest_image.title : null}
                       discount={item.sale}
                       category={item.title}
                       link={link}

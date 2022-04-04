@@ -198,7 +198,7 @@ const SingleProduct = ({page,seo}) => {
             return (
               <ProductBox
                 key={i}
-                src={( item.files.length > 0) ? '/' + item.files[item.files.length - 1].path + '/' + item.files[item.files.length - 1].title : null}
+                src={( item.latest_image != null) ? '/' + item.latest_image.path + '/' + item.latest_image.title : null}
                 discount={item.sale}
                 category={item.title}
                 link={link}
