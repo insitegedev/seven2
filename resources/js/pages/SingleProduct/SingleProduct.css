@@ -123,6 +123,9 @@
 .SingleProduct .grid4 {
     margin-bottom: 80px;
 }
+.product_slider .slider_1 .product_image {
+    height: 450px;
+}
 .SingleProduct .popup_background {
     width: 100vw;
     height: 100vh;
