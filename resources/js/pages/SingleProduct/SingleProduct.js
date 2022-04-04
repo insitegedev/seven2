@@ -148,37 +148,9 @@ const SingleProduct = ({ page, seo }) => {
                     <ProductSlider />
                 </div>
             </div>
-<<<<<<< HEAD
-
-            <MainButton link={route('client.contact.index')} text={__('client.product_order_btn',sharedData)} />
-          </div>
-        </div>
-      </div>
-      <div className="wrapper">
-        <div className="similar_products bold">{__('client.product_similar_products',sharedData)}</div>
-        <div className="grid4">
-          {similar_products.data.map((item, i) => {
-
-              let link = route('client.product.show',item.slug);
-            return (
-              <ProductBox
-                key={i}
-                src={( item.latest_image != null) ? '/' + item.latest_image.path + '/' + item.latest_image.title : null}
-                discount={item.sale}
-                category={item.title}
-                link={link}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </div>
       </Layout>
-  );
-=======
-        </Layout>
+ 
     );
->>>>>>> 7f86d2f5827cc197994c5bf4787e97e8debf03bc
 };
 
 export default SingleProduct;
