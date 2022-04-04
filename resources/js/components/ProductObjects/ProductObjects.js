@@ -2,7 +2,8 @@ import React from "react";
 import { MainButton } from "../MainButton/MainButton";
 import "./ProductObjects.css";
 import { usePage } from "@inertiajs/inertia-react";
-import Link from "react-scroll/modules/components/Link";
+//import Link from "react-scroll/modules/components/Link";
+import { Link } from "@inertiajs/inertia-react";
 
 export const ProductImage = ({ src, category, discount, onClick }) => {
     return (
