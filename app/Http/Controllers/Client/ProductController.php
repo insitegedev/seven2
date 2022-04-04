@@ -85,7 +85,7 @@ class ProductController extends Controller
 
         })->firstOrFail();
 
-        $productImages = $product->files()->orderBy('updated_at','desc')->get();
+        $productImages = $product->files()->orderBy('id','desc')->get();
 
         //dd($productImages);
 
