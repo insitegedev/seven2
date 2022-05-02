@@ -3380,20 +3380,22 @@ var Contact = function Contact(_ref) {
     id: "contact_f",
     onSubmit: handleSubmit
   }, inputs.map(function (input, i) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
       id: input.id,
       type: input.type,
       placeholder: input.placeholder,
       key: i,
       name: input.name,
       onChange: handleChange
-    });
+    }), errors[input.name] && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      className: "error"
+    }, errors[input.name]));
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
     onChange: handleChange,
     id: "inp_message",
     name: "message",
     placeholder: __('client.contact_form_message', sharedData)
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_5__.MainButton, {
+  }), errors.message && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, errors.message), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MainButton_MainButton__WEBPACK_IMPORTED_MODULE_5__.MainButton, {
     onclick: handleClick,
     id: "send_eml",
     text: __('client.contact_form_send_btn', sharedData)

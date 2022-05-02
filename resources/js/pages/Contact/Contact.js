@@ -102,18 +102,22 @@ const Contact = ({page,seo}) => {
             <form method="post" id="contact_f" onSubmit={handleSubmit}>
                 {inputs.map((input, i) => {
                     return (
-                        <input
-                            id={input.id}
-                            type={input.type}
-                            placeholder={input.placeholder}
-                            key={i}
-                            name={input.name}
-                            onChange={handleChange}
-                        />
+                        <div>
+                            <input
+                                id={input.id}
+                                type={input.type}
+                                placeholder={input.placeholder}
+                                key={i}
+                                name={input.name}
+                                onChange={handleChange}
+                            />
+                            {errors[input.name] && <div className="error">{errors[input.name]}</div>}
+                        </div>
+
                     );
                 })}
                 <textarea onChange={handleChange} id="inp_message" name="message" placeholder={__('client.contact_form_message',sharedData)}></textarea>
-
+                {errors.message && <div>{errors.message}</div>}
                 <MainButton onclick={handleClick} id="send_eml" text={__('client.contact_form_send_btn',sharedData)} />
 
             </form>
