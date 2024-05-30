@@ -32,7 +32,7 @@ class CategoryController extends Controller
         $category = Category::where(['status' => 1, 'slug' => $slug])->firstOrFail();
         //dd($category->getAncestors());
         $products = Product::where(['status' => 1, 'product_categories.category_id' => $category->id])
-            ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')->with('latestImage')
+            ->leftJoin('product_categories', 'product_categories.product_id', '=', 'products.id')->with(['latestImage','translation'])
             ->orderby('updated_at','desc')
             ->paginate(16);
 
@@ -86,7 +86,7 @@ class CategoryController extends Controller
 
         }
 
-        $products = Product::where(['products.status' => 1, 'products.popular' => 1])->with('latestImage')
+        $products = Product::where(['products.status' => 1, 'products.popular' => 1])->with(['latestImage','translation'])
             ->orderby('updated_at','desc')
             ->paginate(16);
 

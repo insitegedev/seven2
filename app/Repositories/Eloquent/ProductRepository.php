@@ -31,7 +31,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function getPopularProducts(){
         $products = $this->model->where('popular',1)->whereHas('categories',function ($query){
             $query->where('status',1);
-        })->with(['latestImage'])->inRandomOrder()->get();
+        })->with(['latestImage','translations'])->inRandomOrder()->get();
 
         //dd($products);
         return $products;
